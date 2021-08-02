@@ -197,10 +197,10 @@ class ArticlesController extends Controller
                     $file = $request->file('image')[$key];
                     $random = Str::random(40);
                     $fileName  = $random. $file->getClientOriginalName();
-                    $file->move(public_path('storage/'.$nameUser.'/'),$fileName);
+                    $file->move(public_path('storage'.'/'.$nameUser.'/'),$fileName);
                     $name = $fileName;
 
-                    // // $name = 'blogimage' . time() . '.' . $file->getClientOriginalExtension();
+                    // $name = 'blogimage' . time() . '.' . $file->getClientOriginalExtension();
                     // $name = 'blogimage' . $file->getClientOriginalName();
                     // $path = public_path() . '/images' . '/' . $nameUser;
                     // $file->move($path, $name);
@@ -286,7 +286,7 @@ class ArticlesController extends Controller
                 $file = $request->file('image')[$key];
                 $random = Str::random(40);
                 $fileName  = $random. $file->getClientOriginalName();
-                $file->move(public_path('storage/'.$nameUser.'/'),$fileName);
+                $file->move(public_path('storage'.'/'.$nameUser.'/'),$fileName);
                 $name = $fileName;
 
                 $image = new Image();

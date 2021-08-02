@@ -245,5 +245,10 @@
     .b-header {
         top: -248px;
     }
+
+    p iframe {
+        width: 100%;
+        height: auto;
+    }
 }
 
