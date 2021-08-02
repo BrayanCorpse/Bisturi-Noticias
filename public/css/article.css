@@ -1,0 +1,51 @@
+
+.box-title .title {
+    font-size: 2.4rem;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 0 18px;
+    color: #000 !important;
+    text-decoration: none;
+    font-family: 'Roboto Slab', 'serif';
+    transition: 500ms;
+    text-transform: capitalize;
+}
+
+.title:hover{
+    color: #e43725 !important;
+}
+
+
+.description {
+    text-align: justify;
+    color: #717171;
+    /* overflow: scroll; */
+    /* height: 100px !important; */
+    height: 100% !important;
+}
+
+.coment-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 25px;
+    font-weight: 500;
+
+}
+
+.coment-title:before {
+    content: '\/\/';
+    /* content: ' }'; */
+}
+
+
+
+.drop-cap:first-letter {
+    font-size: 3rem;
+    color: #343434;
+    font-weight: 400;
+    margin: 0 10px 0 0;
+    float: left;
+    padding: 0px 10px 0;
+    font-family: 'Roboto Slab', serif;
+    line-height: 41px;
+}
+

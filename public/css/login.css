@@ -1,0 +1,142 @@
+.btn-primary {
+    width: 100%;
+    background:   linear-gradient(to bottom, #e438256e 0%, #e43725 100%);
+    color: rgb(0, 0, 0);
+    border-color: #e438251f;
+
+}
+
+
+.btn-primary:hover {
+    color: rgb(0, 0, 0);
+    background-color: #e438252a;
+    border-color: #e43825c7;
+}
+
+.form-control {
+    height: 31px;
+    border: 1px solid rgba(0, 0, 0, 0.596);
+}
+
+.form-group {
+    font-weight: 700;
+
+}
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #e43725;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem #e4382570;
+}
+
+.btn-primary:active {
+    color: #495057;
+    background-color: #e4382570 !important;
+    border-color: #e4382570 !important;
+    box-shadow: 0 0 0 0.2rem #e4382570 !important;
+
+}
+
+.card-body {
+    font-family: Arial,sans-serif !important;
+    font-size: 13px;
+    line-height: 19px;
+}
+
+.btn-link {
+    font-size: 13px !important;
+}
+
+
+.divider {
+    text-align: center;
+    position: relative;
+    top: 2px;
+    padding-top: 1px;
+    margin-top: 20px;
+    margin-bottom: 14px;
+    line-height: 0;
+    /* border-top: 1px solid rgba(0, 0, 0, 0.1); */
+}
+
+
+.d-title {
+
+    font-size: 13px;
+    /* z-index: 1; */
+    text-align: center;
+    color: black;
+    line-height: 1;
+    color: #767676;
+    font-weight: 400;
+    z-index: 2;
+    position: relative;
+    display: inline-block;
+    background-color: #fff;
+    padding: 0 8px 0 7px;
+
+    /* width: fit-content; */
+}
+
+
+.divider:after {
+    content: "";
+    width: 100%;
+    background-color: transparent;
+    display: block;
+    height: 1px;
+    border-top: 1px solid #e7e7e7;
+    position: absolute;
+    top: 50%;
+    margin-top: -2px;
+    z-index: 0;
+}
+
+
+.btn-2 {
+    background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
+    border: 1px solid #c9c9c9;
+}
+
+
+.btn-2:active {
+    color: black !important;
+    background-color: #e4382570 !important;
+    border-color: #e4382570 !important;
+    box-shadow: 0 0 0 0.2rem #e4382570 !important;
+
+}
+
+.sing-in {
+    display: flex;
+
+}
+
+.sing-in h6 {
+    font-size: 12px;
+    padding-top: 3px;
+}
+
+.sing-in a{
+    padding-top: 0;
+    padding-left: 3px;
+    content: ">";
+}
+
+.sing-in a:after{
+    content: " >";
+}
+
+.logo-image {
+    height: 80px;
+    text-align: center;
+}
+
+.image-content-title {
+    max-height: 100%;
+}
+
+.footer-login {
+    font-size: 12px;
+}

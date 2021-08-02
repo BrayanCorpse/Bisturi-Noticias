@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Cousine&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+
+.list a {
+  text-decoration: none !important;
+  transition: all 0.3s linear 0s;
+}
+.area {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 768px) {
+  .area {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .area {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .area {
+    width: 1140px;
+  }
+}
+.navbar-component {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+.navbar-component > .navbar {
+  justify-content: space-between;
+}
+.navbar > .brand {
+  display: block;
+}
+.navbar > .toggle {
+  outline: none;
+  border: 0;
+  display: inline-block;
+  background-color: transparent;
+  background-image: none;
+  vertical-align: middle;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding: 22px;
+}
+@media (min-width: 768px) {
+  .navbar > .toggle {
+    display: none;
+  }
+}
+.navbar > .toggle > .icon {
+  position: relative;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.navbar > .toggle > .icon,
+.navbar > .toggle > .icon:before,
+.navbar > .toggle > .icon:after {
+  display: block;
+  width: 24px;
+  height: 3px;
+  transition: background-color 0.3s linear, transform 0.3s linear;
+  background-color: #555555;
+}
+.navbar > .toggle > .icon:before,
+.navbar > .toggle > .icon:after {
+  position: absolute;
+  content: "";
+}
+.navbar > .toggle > .icon:before {
+  top: -8px;
+}
+.navbar > .toggle > .icon:after {
+  top: 8px;
+}
+.navbar > .toggle.-active > .icon {
+  background-color: transparent;
+}
+.navbar > .toggle.-active > .icon:before {
+  transform: translateY(8px) rotate(45deg);
+}
+.navbar > .toggle.-active > .icon:after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+.navbar > .list {
+  display: none;
+  flex-flow: row nowrap;
+  align-items: center;
+  white-space: nowrap;
+}
+@media (min-width: 768px) {
+  .navbar > .list {
+    display: flex;
+  }
+}
+@media (max-width: 768px) {
+  .navbar > .list {
+    position: absolute;
+    top: 125px;
+    left: 0;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    background-color: #fff;
+    border: solid 1px #ddd;
+    text-decoration: underline;
+    z-index: 1;
+  }
+  .navbar > .list > .item.-link {
+    line-height: 70px !important;
+  }
+  .navbar > .brand {
+    margin: 20px;
+  }
+  .navbar > .list.-on {
+    display: block !important;
+  }
+  .b-links{
+    position: inherit !important;
+  }
+ 
+}
+.navbar > .list.-on {
+  display: flex;
+}
+.navbar > .list > .item {
+  display: block;
+  flex-shrink: 0;
+  height: 60px;
+  line-height: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-transform: uppercase;
+  color: #555;
+  font-size: 16px;
+  font-family: 'Cousine', monospace !important;
+}
+.navbar > .list > .item.-link {
+  line-height: 70px;
+  color: #555;
+  border-bottom: 3px solid transparent;
+}
+.navbar > .list > .item.-link.-active,
+.navbar > .list > .item.-link:hover,
+.navbar > .list > .item.-link:focus {
+  color: #333;
+  border-bottom-color: #43A1C4;
+}
+
+.b-mb-remove{
+  margin-bottom: 0% !important;
+}
+
+.b-date{
+  font-family: 'Cousine', monospace !important;
+  margin-top: -30px;
+  padding: 10px;
+}
+
+/* Footer css */
+.links li a{
+  font-family: 'Cousine', monospace !important;
+  font-size: 18px !important;
+}
+
+footer h2{
+  font-family: 'Yeseva One', cursive !important;
+}
+
+.register {
+  font-family: 'Cousine', monospace !important;
+  font-size: 14px !important;
+}
+
+.terms li a{
+  font-family: 'Cousine', monospace !important;
+  font-size: 16px !important;
+}
+
+/* End Footer */

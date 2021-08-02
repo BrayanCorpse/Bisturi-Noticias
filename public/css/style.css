@@ -1,0 +1,422 @@
+body {
+    background: #f7f7f7;
+}
+
+.buttom {
+    margin-left: 30px;
+    margin-bottom: 14px;
+}
+
+.pagination {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.min-vh {
+    min-height: 75vh    ;
+}
+
+.card-image {
+    width: 294px !important;
+    height: 269px;
+    margin-top: 18px;
+
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.borde {
+    border: 1px solid red;
+}
+
+.card-columns {
+    margin-top: 10px;
+    justify-content: center !important;
+}
+
+.navbar-color {
+    background: #151515;
+}
+
+.nav-item-color {
+    color: #fff !important;
+    /* text-transform: uppercase; */
+}
+
+.hoverExten::before {
+    content: '\/';
+    left: 0px;
+    opacity: 0;
+}
+
+.hoverExten::after {
+    content: '\/';
+    right: 0px;
+    opacity: 0;
+}
+
+.hoverExten:hover::before {
+    content: '\/';
+    left: -7px;
+    opacity: 1;
+    transition: all .3s ease;
+    position: relative;
+}
+
+.hoverExten:hover::after {
+    content: '\/';
+    right: -7px;
+    transition: all .3s ease;
+    opacity: 1;
+    position: relative;
+}
+
+.nav-item {
+    margin: 15px;
+}
+
+.nav-item a {
+    padding: 0 ;
+}
+
+.nav-link:focus {
+    outline: none;
+}
+
+.logo-image {
+    width: 200px;
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
+    margin: auto;
+}
+
+.image-content-title {
+    width: 100%;
+}
+
+.borderRED {
+    border: 1px solid red;
+}
+.borderBLUE {
+    border: 2px solid blue;
+}
+
+/* .article-image {
+    margin-top: 15px;
+} */
+
+.content-image{
+    height: 490px;
+    width: inherit;
+}
+
+.article-image-mod {
+    width: 100%;
+    height: inherit;
+}
+
+.article-box {
+    padding: 35px;
+}
+
+.box-title {
+    text-align: center;
+}
+
+.box-title  a{
+    font-size: 2.4rem;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 0 18px;
+    color: #000 !important;
+    text-decoration: none;
+    font-family: 'Roboto Slab', 'serif';
+    transition: 500ms;
+    text-transform: capitalize;
+}
+
+.box-title a:hover{
+    color: #e43725 !important;
+
+}
+
+.info {
+    margin: 18px 0 30px;
+    text-align: center;
+    color: #b0b0b0;
+    font-family: 'Source Code Pro', sans-serif;
+}
+
+
+.info div {
+    display: inline-block;
+    margin: 2px 12px;
+    font-weight: 300;
+}
+
+.info, .info a {
+    color: #b0b0b0;
+}
+
+.info, .input {
+    font-family: 'Source Code Pro', sans-serif;
+}
+
+.articlesListing .article .info {
+    margin: 18px 0 30px;
+    text-align: center;
+}
+
+.description {
+    text-align: justify;
+    color: #b0b0b0;
+    overflow: hidden;
+    height: 100px !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.moreInfo {
+    justify-content: flex-end;
+    display: flex;
+    color: #b0b0b0;
+
+}
+
+.moreInfo div {
+    display: inline-block;
+    margin-left: 15px;
+
+}
+
+.article-footer {
+    margin-top: 25px;
+    border-top: 1px solid #b0b0b0;
+    padding-top: 20px;
+}
+
+.tags {
+    float: left;
+}
+
+.tags a {
+    text-decoration: none;
+    color: #b0b0b0;
+    font-family: 'Source Code Pro', sans-serif;
+}
+
+.btn-color {
+    background:   #fff;
+    color: #e43725;
+    border-radius: 0%;
+    transform: skewX(-15deg);
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 1px solid #e43725;
+    border-right: 1px solid #e43725;
+
+}
+
+.btn-color:hover {
+    background-color: #e43725;
+    color: #fff;
+}
+
+.btns {
+    text-align: center;
+}
+
+.image-about {
+    border-radius: 100px;
+    padding: 6px;
+    border: 1px solid #b0b0b096;
+    position: relative;
+    top: -80px;
+    margin: 0 auto -80px;
+    background-color: white;
+}
+
+.conten-about {
+    text-align: center;
+}
+
+.aboutMeBox {
+    margin-top: 15px;
+    padding-top: 0px !important;
+    margin-top: 90px;
+    line-height: 1.2;
+}
+
+.name {
+    margin-top: 10px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+}
+
+.box {
+    background: #7386D5;
+    border-top: 0;
+    padding: 35px;
+    margin-bottom: 18px;
+}
+
+.i {
+    width: 100%;
+
+}
+
+.info-about {
+    margin-top: 0;
+    font-family: 'Source Code Pro', sans-serif;
+}
+
+.aside .box h2:before {
+    content: '\/\/';
+
+}
+
+.aside .categories, .aside .tags {
+    font-family: sans-serif;
+}
+
+.categories h2, .tags h2 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 25px;
+}
+
+.btn-tags {
+    margin-bottom: 8px;
+    border: 1px solid !important;
+    font-size: 14px;
+}
+
+.clearfix {
+    color: black;
+}
+
+.clearfix {
+    text-decoration: none !important;
+    transition: 500ms;
+}
+
+.clearfix:hover {
+    padding-left: 15px;
+    color: #e43725 !important;
+}
+
+/* .title:hover {
+    color: #e43725 !important;
+} */
+
+.copyright {
+    text-align: center;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-family: Lato, sans-serif;
+    font-size: 15px;
+    background: #34495E;
+    color: #fff
+}
+
+
+.table {
+    text-align: center
+}
+
+.card-head{
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    font-family: 'Roboto Slab', serif;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+
+.card-head h3::before {
+    content: '\/\/';
+}
+
+/*  */
+/* .prueba {
+    position: absolute;
+    right: 0;
+    background: wheat;
+    z-index: 1;
+} */
+
+
+/* shosen */
+
+
+.chosen-container-multi {
+    width: 100% !important;
+}
+
+.chosen-choices {
+
+
+    border-radius: 10px ;
+}
+
+
+/* end shosen */
+
+.article-group label{
+    display: block !important;
+}
+
+.article-input {
+    height: 29px;
+    font-size: 13px;
+    border-radius: 10px;
+}
+
+
+
+.article-group label {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+
+
+.glyphicon-remove::before {
+    font-weight: 900;
+    content: "\d7";
+}
+
+
+.size-images {
+    /* width: 100% !important; */
+    height: 165px !important;
+}
+
+
+.alert-title,
+.alert-cat,
+.alert-tag,
+.alert-cont,
+.alert-img {
+    display: none;
+
+}
+
+.byuser {
+    font: 400 14px/20px Roboto,"Helvetica Neue",sans-serif;
+    font-weight: 400;
+    font-stretch: normal;
+    font-size: 14px !important;
+    padding-top: 2px;
+}
