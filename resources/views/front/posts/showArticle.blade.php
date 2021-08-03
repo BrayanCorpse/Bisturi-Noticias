@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="uk-text-center uk-grid-collapse uk-margin-medium-top" uk-grid>
+    <div class="uk-text-center uk-grid-collapse uk-margin-medium-top b-show" uk-grid>
 
         <div class="uk-width-expand@m">
 
@@ -29,13 +29,18 @@
 
                     <h1 class="uk-text-left b-h1-content">{{$article->title}}</h1>
 
-                    <h6 class="uk-text-left uk-margin-remove-top">
-                        Por: <strong>{{$article->user->name}}</strong>
-                    </h6>
+                    <h4 class="uk-text-left uk-text-secondary uk-text-uppercase uk-margin-remove-top"> 
+                        {{$article->updated_at->diffForHumans()}}
+                    </h4>
+                   
+                    <h5 class="uk-text-left uk-margin-remove-top uk-text-uppercase" style="color: #44AAD4">
+                        <strong>{{$article->user->name}}</strong>
+                    </h5>
 
-                    <h6 class="uk-text-left uk-margin-remove-top"> 
-                        {{$article->updated_at->diffForHumans()}} 
-                    </h6>
+                    <hr>
+                  
+
+                    
 
                     {!! $article->content !!}
                     
