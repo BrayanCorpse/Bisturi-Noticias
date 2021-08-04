@@ -47,7 +47,7 @@
                           <input class="form-check-input" 
                                  type="radio" 
                                  name="category_id" 
-                                 id="category_id" 
+                               
                                  value="{{$category->id}}" 
                                  {{ old('category_id') == $category->id ? 'checked' : '' }} 
                                  onchange="selectSubcategory()">

@@ -27,7 +27,7 @@
                   
                     <br>
 
-                    <h1 class="uk-text-left b-h1-content">{{$article->title}}</h1>
+                    <h1 class=" uk-text-left b-h1-content">{{$article->title}}</h1>
 
                     <h4 class="uk-text-left uk-text-secondary uk-text-uppercase uk-margin-remove-top"> 
                         {{$article->updated_at->diffForHumans()}}

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="google-site-verification" content="qB2fJCcCuULOtk3ZcMReE6rChVGA6lgG0jun5dNsZZc" />
     <!-- UIkit CSS -->
-    <link rel="stylesheet" href="{{asset('css/uikit.css')}}">
+    <link rel="stylesheet" href="{{asset('css/uikit.css')}}" >
     {{-- content --}}
     <link rel="stylesheet" href="{{asset('css/content.css')}}">
     {{-- navbar --}}
@@ -32,8 +32,8 @@
     
 
     <!-- UIkit JS -->
-    <script src="{{asset('js/uikit.min.js')}}"></script>
-    <script src="{{asset('js/uikit-icons.min.js')}}"></script>
+    <script src="{{asset('js/uikit.min.js')}}" defer></script>
+    <script src="{{asset('js/uikit-icons.min.js')}}" defer></script>
     @stack('js')
 
 </body>

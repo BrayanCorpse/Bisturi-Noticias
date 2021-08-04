@@ -21,8 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600&family=Source+Code+Pro:ital,wght@0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
 
     <!-- include summernote css/js -->
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     {{-- Sidebar --}}
     <link rel="stylesheet" href={{asset('css/sidebar.css')}}>
 
@@ -74,15 +73,14 @@
 
     <script src="{{ asset('js/prueba.js') }}"></script>
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <script src="{{ asset('js/summernote-es-ES.js') }}"></script>
     <script>
         $('#content').summernote({
           lang: 'es-ES', // default: 'en-US'
           placeholder: 'Comienza a Escribir ',
           tabsize: 2,
-          height: 425
+          height: 600
         });
     </script>
 
