@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cousine&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 .list a {
   text-decoration: none !important;
   transition: all 0.3s linear 0s;
@@ -175,7 +174,7 @@
 }
 
 footer h2{
-  font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif !important; 
+  font-family:'Abril Fatface', cursive !important;
 }
 
 .register {

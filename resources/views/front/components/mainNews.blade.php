@@ -16,3 +16,8 @@
         </div>
     </div>
 </div>
+
+{{-- <a 
+    href="https://www.facebook.com/sharer.php?u={{ 'http://bisturinoticias.test/'.$article->category->slug.'/'.$article->title }}&title={{ $article->title }}">
+    Facebook
+</a> --}}

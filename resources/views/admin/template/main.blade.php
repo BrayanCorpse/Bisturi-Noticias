@@ -23,6 +23,7 @@
     <!-- include summernote css/js -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     {{-- Sidebar --}}
+    
     <link rel="stylesheet" href={{asset('css/sidebar.css')}}>
 
     @yield('header')
@@ -80,10 +81,9 @@
           lang: 'es-ES', // default: 'en-US'
           placeholder: 'Comienza a Escribir ',
           tabsize: 2,
-          height: 600
+          height: 700
         });
     </script>
-
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -113,8 +113,9 @@
 
 
 
-    @yield('js')
 
+    @yield('js')    
+    @stack('javascript')
 
 
 </body>

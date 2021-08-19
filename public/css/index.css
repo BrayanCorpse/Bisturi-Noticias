@@ -15,3 +15,45 @@
     color: #fff
 }
 
+/* Range */
+  .value {
+    border-bottom: 4px dashed #bdc3c7;
+    color: #34495E;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    width: 100%;
+    height: 50px;
+    line-height: 30px;
+    margin: 40px auto;
+    letter-spacing: -0.07em;
+    text-shadow: white 2px 2px 2px;
+  }
+  input[type="range"] {
+    display: block;
+    -webkit-appearance: none;
+    background-color: #bdc3c7;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    margin: 0 auto;
+    outline: 0;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: #34495E;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+  ​ input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: white;
+    border: 2px solid #34495E;
+  }
+  input[type="range"]::-webkit-slider-thumb:active {
+    transform: scale(1.6);
+  }
+  

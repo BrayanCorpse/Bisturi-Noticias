@@ -256,5 +256,9 @@
         font-size: 30px;
     }
 
+    .b-logo-welcome{
+        display: none;
+    }
+
 }
 

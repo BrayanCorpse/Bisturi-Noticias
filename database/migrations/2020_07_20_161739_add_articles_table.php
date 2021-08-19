@@ -18,6 +18,7 @@ class AddArticlesTable extends Migration
             $table->string('title');
             $table->longText('content');
             $table->string('status');
+            $table->integer('relevancia');
             $table->integer('tipo_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->integer('category_id')->unsigned();
@@ -44,24 +45,3 @@ class AddArticlesTable extends Migration
     }
 }
 
-<IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-        Options -MultiViews -Indexes
-    </IfModule>
-
-    RewriteEngine On
-
-    # Handle Authorization Header
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-
-    # Redirect Trailing Slashes If Not A Folder...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} (.+)/$
-    RewriteRule ^ %1 [L,R=301]
-
-    # Handle Front Controller...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
-</IfModule>

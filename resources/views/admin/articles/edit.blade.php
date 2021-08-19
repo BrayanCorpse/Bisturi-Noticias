@@ -128,6 +128,11 @@
                 </select>
             </div>
 
+            <div class="form-group">
+                <div class="value">Relevancia de la Noticia</div>
+                <input type="range" min="0" max="10" step="1" value="{{ $article->relevancia }}" name="relevancia" oninput="rangeValue()">
+            </div>
+
             <div class="form-group mt-5">
                 <input class="btn btn-primary buttomSend btn-block" type="submit" value="Guardar articulo">
             </div>
@@ -137,6 +142,12 @@
 
 
 </form>
+
+
+
+@endsection
+
+@push('javascript')
 
 <script>
     
@@ -240,5 +251,26 @@ function proccess(){
       document.getElementById('image').addEventListener('change', handleFileSelect, false);
 </script>
 
+<script>
 
-@endsection
+    var elem = document.querySelector('input[type="range"]');
+    function rangeValue() {
+        var newValue = elem.value;
+        var target = document.querySelector(".value");
+        if(newValue > 5){
+            target.innerHTML = "Relevancia Alta";
+            target.style.color = "#EC7063";
+            elem.style.backgroundColor = "#EC7063";
+        }
+        else{
+            target.innerHTML = "Relevancia Baja";
+            target.style.color = "#7386D5";
+            elem.style.backgroundColor = "#7386D5";
+        }
+    };
+
+    window.onload = rangeValue;
+
+</script>
+    
+@endpush
