@@ -140,3 +140,14 @@
 .footer-login {
     font-size: 12px;
 }
+
+@media (max-width: 768px) {
+
+    .image-content-title {
+        max-height: 60%;
+        width: 90%;
+        display: flex;
+        margin: 0 auto;
+    }
+}
+

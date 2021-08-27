@@ -6,20 +6,7 @@
 @section('content')
 
 <div class="mt-3">
-
     <a href="{{ route('articles.create') }}" class="btn btn-info mb-3">Nuevo Articulo</a>
-    {{-- BUSCADOR DE TAGS --}}
-    <form action="{{route('articles.index')}}" class="navbar-form float-right" method="POST">
-        @method('GET')
-        @csrf
-        <div class="form-group d-flex">
-            <input type="text" name="title" class="form-control mr-lg-3" placeholder="Buscar articulo">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </div>
-    </form>
-    
-    {{-- FIN BUSCADOR DE TAGS --}}
-
 </div>
 
 <div class="table-responsive">
@@ -56,9 +43,12 @@
                             <strong>|</strong> 
                             @if ($article->relevancia > 5)
                                 <span class="badge badge-danger">Relevancia Alta</span>  
-                                @else
-                                <span class="badge badge-primary">Relevancia Baja</span>
+                            @elseif ($article->relevancia < 5)
+                                <span class="badge badge-primary">Relevancia Baja</span> 
+                            @else
+                            <span class="badge badge-light">Neutral</span> 
                             @endif
+                            
                             
                         </td>
                         <td>

@@ -8,6 +8,7 @@
                         <img class="b-image" src="{{ asset('storage' . '/' . $category->user->name . '/'. $image->name ) }}" alt="{{ $category->title }}" width="400">
                     </a>
                     <div class="b-category-center uk-h5">{{$category->title}}</div>
+                    @include('front.partials.smallSharelinks', ['article' => $category])
                 </div>
             @endif         
         @endforeach  
@@ -22,6 +23,7 @@
                         <img class="b-image" src="{{ asset('storage' . '/' . $category->user->name . '/'. $image->name ) }}" alt="{{ $category->title }}" width="400">
                     </a>
                 </div>
+                @include('front.partials.smallSharelinks', ['article' => $category])
             @endif         
         @endforeach  
     @endif

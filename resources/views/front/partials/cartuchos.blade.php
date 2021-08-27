@@ -1,22 +1,18 @@
-<h5 class="b-cartucho uk-h5" id="title-seccion">{{$article->title}}</h5>
-<hr class="b-hr uk-align-center">
+<div class="uk-flex uk-flex-center b-gap">
+    @foreach ($lastgeneralNews as $lastgeneralNew)
+        <div class="uk-card b-card-body">
+            @foreach ($lastgeneralNew->images as $key => $image)
+                @if ($key == 0)
+                <a href="{{ route('showArticle', ['category' => $lastgeneralNew->category->slug, 'slug' => $lastgeneralNew->slug]) }}" title="{{ $lastgeneralNew->title }}">
 
-<div class="uk-grid-collapse uk-child-width-1-3@m uk-text-center" uk-grid>
-    @foreach ($article->images as $key =>  $image)
-        @if ($key >= 0 && $key <= 2)
-        <div class=" uk-margin-bottom">
-            <div class="uk-card b-card-body">
-                <a href="{{ route('showArticle', ['category' => $article->category->slug, 'slug' => $article->slug]) }}" title="{{ $article->title }}">
-                    <img class="b-news-img" 
-                     src="{{ asset('storage' . '/' . $article->user->name . '/'. $image->name ) }}" alt="{{ $article->title }}">
+                    <img src="{{ asset('storage' . '/' . $lastgeneralNew->user->name . '/'. $image->name ) }}" alt="{{ $lastgeneralNew->title }}" width="500" style="height: 100%">
+
                 </a>
-            </div>
+                @endif
+            @endforeach
+            <div class="b-lastgN-center uk-h5">{{$lastgeneralNew->title}}</div> 
         </div>
-        @endif
+        
     @endforeach
 </div>
-
-    
-    
-
 

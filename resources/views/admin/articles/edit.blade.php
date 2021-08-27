@@ -262,10 +262,15 @@ function proccess(){
             target.style.color = "#EC7063";
             elem.style.backgroundColor = "#EC7063";
         }
-        else{
+        else if(newValue < 5){
             target.innerHTML = "Relevancia Baja";
             target.style.color = "#7386D5";
             elem.style.backgroundColor = "#7386D5";
+        }
+        else{
+            target.innerHTML = "Relevancia de la Noticia";
+            target.style.color = "#34495E";
+            elem.style.backgroundColor = "#bdc3c7";
         }
     };
 

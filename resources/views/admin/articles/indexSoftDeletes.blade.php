@@ -37,9 +37,11 @@
                             <span class="badge badge-light">{{$article->status}}</span>
                             <strong>|</strong> 
                             @if ($article->relevancia > 5)
-                                <span class="badge badge-danger">Relevancia Alta</span>  
-                                @else
-                                <span class="badge badge-primary">Relevancia Baja</span>
+                            <span class="badge badge-danger">Relevancia Alta</span>  
+                            @elseif ($article->relevancia < 5)
+                                <span class="badge badge-primary">Relevancia Baja</span> 
+                            @else
+                            <span class="badge badge-light">Neutral</span> 
                             @endif
                             
                         </td>

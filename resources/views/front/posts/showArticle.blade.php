@@ -53,9 +53,8 @@
                    
 
                 </div>
+                @include('front.partials.showSharelinks', ['article' => $article])
             </div>
-            
-            
         </div>
         
 
@@ -67,4 +66,44 @@
 
 
 @endsection
+
+@push('js')
+<script>
+    let Swmytags = document.getElementsByClassName('show-tags');
+    let Swtwitter = document.querySelector('.show-twitter');
+    let Swnewtags = [];
+    let Swurl = ';'
+    function SwnewTags(){
+        for (var i = 0; i < Swmytags.length; i++) {
+            Swnewtags.push(Swmytags[i].value);
+        }
+        Swnewtags = Swnewtags.toString();
+        Swurl = `https://twitter.com/intent/tweet?url={{ Request::root().'/'.$article->category->slug.'/'.$article->slug }}&text={{ $article->title }}&via=BisturiNoticias&hashtags=${Swnewtags}`
+        
+        Swtwitter.setAttribute('href',Swurl);
+
+        // console.log(twitter);
+
+    }
+
+    window.onload = SwnewTags;
+</script>  
+@endpush
     
+
+{{-- Twitter 
+usuario: @BisturiNoticias
+contraseña: Bisturi_Noticias
+
+Facebook 
+usuario: tuopinion@bisturinoticias.com
+contraseña: Bisturi_Noticias
+
+Instagram 
+usuario: bisturi_noticias
+contraseña: Bisturi_Noticias
+
+Youtube 
+usuario: tuopinion@bisturinoticias.com
+contraseña: Bisturi_Noticias
+ --}}

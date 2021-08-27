@@ -10,10 +10,30 @@
                         </h2>
                     </div>
                     <div class="uk-width-auto@m uk-position-right b-links">
-                        <a href="" class="uk-icon-button uk-margin-small-right" uk-icon="icon: facebook; ratio: 1.5"></a>
-                        <a href="" class="uk-icon-button uk-margin-small-right" uk-icon="icon: twitter; ratio: 1.5"></a>
-                        <a href="" class="uk-icon-button uk-margin-small-right" uk-icon="icon: instagram; ratio: 1.5"></a>
-                        <a href="" class="uk-icon-button" uk-icon="icon: whatsapp; ratio: 1.5"></a>
+                        <a  href="https://www.facebook.com/bisturinoticias" 
+                            rel="noopener noreferrer" 
+                            target="_blank" 
+                            class="uk-icon-button uk-margin-small-right" 
+                            uk-icon="icon: facebook; ratio: 1.5">
+                        </a>
+                        <a  href="https://twitter.com/BisturiNoticias"
+                            rel="noopener noreferrer"
+                            target="_blank"  
+                            class="uk-icon-button uk-margin-small-right" 
+                            uk-icon="icon: twitter; ratio: 1.5">
+                        </a>
+                        <a  href="https://www.instagram.com/bisturi_noticias/" 
+                            rel="noopener noreferrer"
+                            target="_blank" 
+                            class="uk-icon-button uk-margin-small-right" 
+                            uk-icon="icon: instagram; ratio: 1.5">
+                        </a>
+                        <a  href="https://wa.me/+527225061527?text=Me%20gustaria%20anunciarme%20en%20su%20sitio" 
+                            rel="noopener noreferrer" 
+                            target="_blank" 
+                            class="uk-icon-button" 
+                            uk-icon="icon: whatsapp; ratio: 1.5">
+                        </a>
                     </div>
                   
                     

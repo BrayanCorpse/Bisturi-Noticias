@@ -6,6 +6,10 @@
 
 @section('content')
 
+<div class="mt-3">
+    <a href="{{ route('articles.create') }}" class="btn btn-info mb-3">Nuevo Articulo</a>
+</div>
+
 <div class="table-responsive">
     <table class="table table-hover">
         <tbody>
@@ -40,10 +44,21 @@
                             </small>
                             <span class="badge badge-light">{{$article->status}}</span>
                             <strong>|</strong> 
-                            @if ($article->relevancia > 5)
-                                <span class="badge badge-danger">Relevancia Alta</span>  
+                            <span class="badge badge-success">
+                                @if ($article->tipo_id == 1)
+                                    General
+                                @elseif ($article->tipo_id == 2)
+                                    Viñeta
                                 @else
-                                <span class="badge badge-primary">Relevancia Baja</span>
+                                    Caricatura
+                                @endif
+                            </span>
+                            @if ($article->relevancia > 5)
+                            <span class="badge badge-danger">Relevancia Alta</span>  
+                            @elseif ($article->relevancia < 5)
+                                <span class="badge badge-primary">Relevancia Baja</span> 
+                            @else
+                            <span class="badge badge-light">Neutral</span> 
                             @endif
                             
                         </td>

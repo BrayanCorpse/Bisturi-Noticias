@@ -126,8 +126,8 @@
             </div>
 
             <div class="form-group">
-                <div class="value">Relevancia de la Noticia</div>
-                <input type="range" min="0" max="10" step="1" value="0" name="relevancia" oninput="rangeValue()">
+                <div class="value"></div>
+                <input type="range" min="0" max="10" step="1" value="{{ old('relevancia') }}"     name="relevancia" oninput="rangeValue()">
             </div>
 
             <div class="form-group mt-5">
@@ -238,10 +238,15 @@ function proccess(){
             target.style.color = "#EC7063";
             elem.style.backgroundColor = "#EC7063";
         }
-        else{
+        else if(newValue < 5){
             target.innerHTML = "Relevancia Baja";
             target.style.color = "#7386D5";
             elem.style.backgroundColor = "#7386D5";
+        }
+        else{
+            target.innerHTML = "Relevancia de la Noticia";
+            target.style.color = "#34495E";
+            elem.style.backgroundColor = "#bdc3c7";
         }
     };
 

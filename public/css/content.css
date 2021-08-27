@@ -27,11 +27,7 @@
     padding-left: 0%;
 }
 
-.b-thumbnav{
-    flex-wrap: nowrap !important;
-}
-
-.b-center{
+.b-center,.b-SNews{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -39,7 +35,19 @@
     transform: translate(-50%, -50%);
     align-content: center;
     font-family: 'Roboto Mono', monospace;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.1);
+    color: #ffff;
+}
+
+.b-SNews{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    align-content: center;
+    font-family: 'Roboto Mono', monospace;
+    background: rgba(0, 0, 0, 0.1);
     color: #ffff;
 }
 
@@ -64,6 +72,19 @@
     font-family: 'Roboto Mono', monospace;
     font-weight: bold;
     background: rgba(0, 0, 0, 0.2);
+    color: #ffff;
+}
+
+.b-lastgN-center{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    width: 85%;
+    transform: translate(-50%, -50%);
+    align-content: center;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.1);
     color: #ffff;
 }
 
@@ -233,6 +254,39 @@
     height: 215px !important;
 }
 
+.b-thumbnav{
+    object-fit: cover;
+    height: 100px !important;
+}
+
+.b-share-links{
+    position: absolute;
+    top: 20px;
+    left: 92%;
+    width: auto;
+}
+
+.b-icon-button{
+    width: 40px;
+    height: 40px;
+    background: #ebebeb !important;
+    margin: 5px;
+}
+
+.b-sm-share-links{
+    position: absolute;
+    top: 20px;
+    left: 87%;
+    width: auto;
+}
+
+.b-sm-icon-button{
+    width: 30px;
+    height: 30px;
+    background: #ebebeb !important;
+    margin: 5px;
+}
+
 
 @media (min-width: 1200px){
     .b-card-body {
@@ -258,6 +312,44 @@
 
     .b-logo-welcome{
         display: none;
+    }
+
+    .b-thumbnav{
+        width: 70px !important;
+        height: 50px !important;
+    }
+
+    .b-slider{
+        margin-bottom: 50px !important;
+    }
+
+    .b-center{
+        top: 55%;
+    }
+    .b-SNews{
+        top: 100%;
+        font-size: 1rem;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .b-gap{
+        gap: 10px;
+    }
+
+    .b-lastgN-center{
+        display: none;
+    }
+
+    .b-icon-button,.b-sm-icon-button {
+        width: 30px;
+        height: 30px;
+        margin: 2.5px;
+    }
+
+    .b-share-links,.b-sm-share-links{
+        display: inline-block;
+        top: 15px;
+        left: 63%;
     }
 
 }

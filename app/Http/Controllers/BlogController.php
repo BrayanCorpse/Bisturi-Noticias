@@ -42,7 +42,22 @@ class BlogController extends Controller
             $articles->user;
         });
 
-        // dd($articles);
+
+        $lastgeneralNews = Article::where('status', '=', 'publico')
+                    ->where('category_id', '!=', 19)
+                    ->where('tipo_id', '=', 1)
+                    ->where('updated_at','!=',$articles[0]->updated_at)
+                    ->whereNull('deleted_at')
+                    ->orderBy('updated_at', 'DESC')
+                    ->limit(3)->get();
+        $lastgeneralNews->each(function($lastgeneralNews){
+            $lastgeneralNews->category;
+            $lastgeneralNews->tags;
+            $lastgeneralNews->images;
+            $lastgeneralNews->user;
+        });
+
+        // dd($lastgeneralNews);
 
         $clicks = Article::where('category_id',19)
                 ->where('status', '=', 'publico')
@@ -55,8 +70,20 @@ class BlogController extends Controller
             $clicks->images;
             $clicks->user;
         });
+
+        $latest = Article::where('category_id','!=',19)
+                ->where('status', '=', 'publico')
+                ->where('tipo_id','=',2)
+                ->whereNull('deleted_at')
+                ->limit(4)->get();
+        $latest->each(function($latest){
+            $latest->category;
+            $latest->tags;
+            $latest->images;
+            $latest->user;
+        });
   
-        return view('front.sections.home', compact('articles','clicks'));
+        return view('front.sections.home', compact('articles','clicks','latest','lastgeneralNews'));
         
     }
 

@@ -75,10 +75,6 @@ class FrontController extends Controller
     public function showArticle($slug){
 
         $article = Article::findBySlugOrFail($slug);
-        $article->caregory;
-        $article->user;
-        $article->images;
-
         return view('front.posts.showArticle', compact('article'));
 
     }
