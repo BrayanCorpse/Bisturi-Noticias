@@ -10,7 +10,9 @@
                 </a>
                 @endif
             @endforeach
-            <div class="b-lastgN-center uk-h5">{{$lastgeneralNew->title}}</div> 
+            <div class="b-lastgN-center uk-h5">
+               {{$lastgeneralNew->title}}
+            </div> 
         </div>
         
     @endforeach
