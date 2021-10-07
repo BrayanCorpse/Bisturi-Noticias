@@ -287,6 +287,10 @@
     margin: 5px;
 }
 
+.b-cart-img{
+    height: 250px;
+}
+
 
 @media (min-width: 1200px){
     .b-card-body {
@@ -350,6 +354,10 @@
         display: inline-block;
         top: 15px;
         left: 63%;
+    }
+
+    .b-cart-img{
+        height: 100px;
     }
 
 }
