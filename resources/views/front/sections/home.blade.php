@@ -25,7 +25,7 @@
     </div> 
     
     <div class="uk-grid-collapse uk-child-width-1-4@m uk-text-center" uk-grid>
-         @each('front.components.latestNews',$latest, 'late')
+        @each('front.components.latestNews',$latest, 'late')
     </div>
         
     @else
@@ -35,7 +35,7 @@
             @each('front.components.mainNews',$articles, 'article')
         </div>
         <div class="uk-width-1-3@m">
-                @each('front.components.click', $clicks, 'click')
+            @each('front.components.click', $clicks, 'click')
         </div>
         
     </div>
