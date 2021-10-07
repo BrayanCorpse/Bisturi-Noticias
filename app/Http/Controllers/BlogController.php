@@ -146,7 +146,7 @@ class BlogController extends Controller
         ->with('latest',$latest);
     }
 
-    public function culturayEspectaculos(){
+    public function telonyEspectaculos(){
 
         $articles = Article::where('category_id',16)
                 ->where('status', '=', 'publico')
@@ -199,7 +199,7 @@ class BlogController extends Controller
             $latest->user;
         });
         
-        return view('front.sections.culturayEspectaculos')
+        return view('front.sections.telonyEspectaculos')
         ->with('articles',$articles)
         ->with('categories',$categories)
         ->with('latest',$latest);
