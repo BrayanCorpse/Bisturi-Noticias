@@ -14,9 +14,11 @@
                 <h3 class="b-welcome uk-margin-remove-top">Agradecemos tú preferencia...</h3>
 
                 <p class="b-about">
-                    Somos un portal de noticias, dónde verás reportajes sobre Salud, Deportes, Espectáculos, Lugares Hermosos y Divertidos qué puedes visitar.
+                    En Bisturí Noticias estamos convencidos de que la noticia debe vivirse, respirarse y palparla para poder contarla.Por ello, te ofrecemos un catálogo de información no solo cercana a tu entorno sino útil para tu día a día.  
                     <br>
-                    Nuestro objetivo es dar a conocer las notas del acontecer diario así como personajes increíbles qué nos rodean, impulsar pequeñas empresas y ayudar a personas en situación vulnerable.
+                    Nuestro objetivo además de infórmate de manera distinta sobre el acontecer del Estado, es acercarte a una realidad cada vez más cambiante, mediante reportajes de los actores sociales que dan color a este territorio estatal. 
+                    <br>
+                    Pero la más importante tarea de Bisturí Noticias, es servir de puente entre la sociedad y las autoridades, entre la necesidad y la ayuda.
                 </p>
                 
             </div>
