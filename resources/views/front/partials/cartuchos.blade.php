@@ -5,7 +5,7 @@
                 @if ($key == 0)
                 <a href="{{ route('showArticle', ['category' => $lastgeneralNew->category->slug, 'slug' => $lastgeneralNew->slug]) }}" title="{{ $lastgeneralNew->title }}">
 
-                    <img src="{{ asset('storage' . '/' . $lastgeneralNew->user->name . '/'. $image->name ) }}" alt="{{ $lastgeneralNew->title }}" width="500" style="height: 100%">
+                    <img class="b-cart-img" src="{{ asset('storage' . '/' . $lastgeneralNew->user->name . '/'. $image->name ) }}" alt="{{ $lastgeneralNew->title }}" width="500">
 
                 </a>
                 @endif
