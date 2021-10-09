@@ -49,6 +49,7 @@ Route::prefix('admin')->group(function () {
 
 Route::get('opinion', 'BlogController@opinion')->name('opinion');
 Route::get('telon-y-espectaculos', 'BlogController@telonyEspectaculos')->name('telon y Espectaculos');
+Route::get('emergencias', 'BlogController@emergencias')->name('emergencias');
 Route::get('salud', 'BlogController@salud')->name('salud');
 Route::get('deportes', 'BlogController@deportes')->name('deportes');
 

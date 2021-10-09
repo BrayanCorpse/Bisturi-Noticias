@@ -12,11 +12,12 @@
         </a>
         <!-- List of links -->
         <nav role="navigation" id="navigation" class="list uk-align-center uk-margin-remove-top">
-          <a href="{{ route('index')}}" class="item -link" id="inicio">Inicio</a>
+          <a href="{{ route('index')}}" class="item -link" id="inicio">Información General</a>
           <a href="{{ route('opinion')}}" class="item -link" id="opinion">Opinión</a>
           <a href="{{ route('telon y Espectaculos')}}" class="item -link" id="telon">
             Telón y Espectáculos
           </a>
+          <a href="{{ route('emergencias') }}" class="item -link" id="emergencias">Emergencias</a>
           <a href="{{ route('salud') }}" class="item -link" id="salud">Salud</a>
           <a href="{{ route('deportes') }}" class="item -link" id="deportes">Deportes</a>
         </nav>
@@ -40,6 +41,9 @@
     }
     else if(window.location.pathname == '/telon-y-espectaculos'){
         document.getElementById('telon').style.cssText = 'color: #459FC4;';
+    }
+    else if(window.location.pathname == '/emergencias'){
+        document.getElementById('emergencias').style.cssText = 'color: #459FC4;';
     }
     else if(window.location.pathname == '/salud'){
         document.getElementById('salud').style.cssText = 'color: #459FC4;';

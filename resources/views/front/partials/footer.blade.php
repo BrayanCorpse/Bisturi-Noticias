@@ -44,11 +44,14 @@
         <hr>
 
         <ul class="uk-subnav uk-flex-center links uk-margin-medium-top">
+            <li class="uk-active"><a href="{{ route('index')}}">Información General</a></li>
             <li class="uk-active"><a href="{{ route('opinion')}}">Opinión</a></li>
-            <li class="uk-active"><a href="{{ route('telon y Espectaculos')}}">Telón</a></li>
-            <li class="uk-active"><a href="{{ route('telon y Espectaculos')}}">Espectáculos</a></li>
+            <li class="uk-active">
+                <a href="{{ route('telon y Espectaculos')}}">Telón y Espectáculos</a>
+            </li>
+            <li class="uk-active"><a href="{{ route('emergencias') }}">Emergencias</a></li>
             <li class="uk-active"><a href="{{ route('salud') }}">Salud</a></li>
-            <li class="uk-active"><a href="{{ route('deportes') }}">Deporte</a></li>
+            <li class="uk-active"><a href="{{ route('deportes') }}">Deportes</a></li>
         </ul>
 
         <p class="register uk-text-center uk-margin-medium-top">Bisturi Noticias de México ® 2021</p>
