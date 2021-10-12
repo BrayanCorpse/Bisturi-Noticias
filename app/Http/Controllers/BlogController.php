@@ -87,6 +87,65 @@ class BlogController extends Controller
         
     }
 
+    public function informacionGeneral(){
+
+        $articles = Article::where('category_id',21)
+                ->where('status', '=', 'publico')
+                ->where('tipo_id', '=', 1)
+                ->whereNull('deleted_at')
+                ->orderBy('updated_at', 'DESC')
+                ->limit(1)->get();
+        $articles->each(function($articles){
+            $articles->category;
+            $articles->tags;
+            $articles->images;
+            $articles->user;
+        });
+
+        $update = Article::where('category_id',21)
+                ->where('tipo_id','=',1)
+                ->orderBy('updated_at', 'DESC')->limit(1)->get();
+
+        $update = $update[0]->updated_at;
+
+        $categories = Article::where('category_id',21)
+                ->where('status', '=', 'publico')
+                ->where('tipo_id', '!=',2)
+                ->where('updated_at', '!=', $update)
+                ->whereNull('deleted_at')
+                ->orderBy('updated_at', 'DESC')
+                ->limit(2)->get();
+        $categories->each(function($categories){
+            $categories->category;
+            $categories->tags;
+            $categories->images;
+            $categories->user;
+        });
+
+        // $lastnew = Article::where('category_id',15)
+        //         ->where('tipo_id','=',2)
+        //         ->orderBy('updated_at', 'DESC')->limit(1)->get();
+
+        // $last = $lastnew[0]->updated_at;
+
+        $latest = Article::where('category_id',21)
+                ->where('status', '=', 'publico')
+                ->where('tipo_id','=',2)
+                ->whereNull('deleted_at')
+                ->paginate(6);
+        $latest->each(function($latest){
+            $latest->category;
+            $latest->tags;
+            $latest->images;
+            $latest->user;
+        });
+        
+        return view('front.sections.informacionGeneral')
+        ->with('articles',$articles)
+        ->with('categories',$categories)
+        ->with('latest',$latest);
+    }
+
     public function opinion(){
 
         $articles = Article::where('category_id',15)

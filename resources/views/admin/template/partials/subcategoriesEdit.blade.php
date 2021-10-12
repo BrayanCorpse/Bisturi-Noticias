@@ -101,6 +101,18 @@
             @endforeach`;
 
         }
+        else if (category == 21){
+            subcategories.innerHTML =
+            ` @foreach ($subcategories->where('category_id', 21) as $subcategory)
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="subcategoria" id="subcategoria" value="{{$subcategory->name}}" {{ old('subcategoria') == $subcategory->name ? 'checked' : '' }}>
+                    <label class="form-check-label mb-2" for="subcategoria">
+                    {{$subcategory->name}}
+                    </label>
+                </div>
+            @endforeach`;
+
+        }
         else{
             subcategories.innerHTML = '<span class="badge badge-info">Continua sin una Categoría!</span>';
 

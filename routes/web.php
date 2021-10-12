@@ -46,7 +46,7 @@ Route::prefix('admin')->group(function () {
     
 
 });
-
+Route::get('informacion-general', 'BlogController@informacionGeneral')->name('informacion General');
 Route::get('opinion', 'BlogController@opinion')->name('opinion');
 Route::get('telon-y-espectaculos', 'BlogController@telonyEspectaculos')->name('telon y Espectaculos');
 Route::get('emergencias', 'BlogController@emergencias')->name('emergencias');
