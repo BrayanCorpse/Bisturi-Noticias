@@ -34,10 +34,17 @@
                     <h4 class="uk-text-left uk-text-secondary uk-text-uppercase uk-margin-remove-top"> 
                         {{$article->updated_at->diffForHumans()}}
                     </h4>
-                   
-                    <h5 class="uk-text-left uk-margin-remove-top uk-text-uppercase" style="color: #44AAD4">
-                        <strong>{{$article->user->name}}</strong>
+
+                    
+                      
+                    <h5 class="uk-text-left uk-margin-remove-top uk-text-bold">
+                       {{$article->summary}}
                     </h5>
+
+                    <h6 class="uk-text-left uk-margin-remove-top uk-text-bold" style="color: #44AAD4">
+                        {{$article->user->name}}
+                    </h6>
+                   
 
                     <hr>
                     {!! $article->content !!}
