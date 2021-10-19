@@ -6,12 +6,12 @@
 
                 <a href="{{ route('showArticle', ['category' => $general->category->slug, 'slug' => $general->slug]) }}" title="{{ $general->title }}">
 
-                    <img class="uk-align-left" src="{{ asset('storage' . '/' . $general->user->name . '/'. $image->name ) }}" alt="{{ $general->title }}" width="400" height="300">
+                    <img class="b-img-general" src="{{ asset('storage' . '/' . $general->user->name . '/'. $image->name ) }}" alt="{{ $general->title }}" width="300" height="300">
 
                 </a>
 
                 <div class="uk-text-left">
-                    <a href="{{ route('showArticle', ['category' => $general->category->slug, 'slug' => $general->slug]) }}" title="{{ $general->title }}">
+                    <a class="uk-link-muted" href="{{ route('showArticle', ['category' => $general->category->slug, 'slug' => $general->slug]) }}" title="{{ $general->title }}">
 
                         <h4 class="uk-h4 b-h4-title uk-margin-remove-top uk-margin-remove-bottom">{{ $general->title}}</h4>  
 

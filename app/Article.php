@@ -24,7 +24,7 @@ class Article extends Model
 
     protected $table = "articles";
 
-    protected $fillable = ['title', 'status','relevancia', 'content','tipo_id', 'user_id', 'category_id','subcategoria'];
+    protected $fillable = ['title','summary','excerpt', 'status','relevancia','author', 'content','tipo_id', 'user_id', 'category_id','subcategoria'];
 
 
     protected $date=['deleted_at'];

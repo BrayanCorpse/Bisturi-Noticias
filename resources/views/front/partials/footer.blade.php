@@ -62,7 +62,8 @@
         <ul class="uk-subnav uk-flex-center terms">
             <li class="uk-active"><a href="#">Aviso de Privacidad |</a></li>
             <li class="uk-active"><a href="#modal-full" uk-toggle>Acerca de Nosotros |</a></li>
-            <li class="uk-active"><a href="#">Términos y Condiciones</a></li>
+            {{-- <li class="uk-active"><a href="#">Términos y Condiciones |</a></li> --}}
+            <li class="uk-active"><a href="tel:+527225061527" uk-icon="phone">Contacto</a></li>
         </ul>
 
         @include('front.partials.bienvenida')

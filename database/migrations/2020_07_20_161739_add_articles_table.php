@@ -16,9 +16,12 @@ class AddArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
+            $table->longText('summary');
+            $table->longText('excerpt');
             $table->longText('content');
             $table->string('status');
             $table->integer('relevancia');
+            $table->string('author');
             $table->integer('tipo_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->integer('category_id')->unsigned();

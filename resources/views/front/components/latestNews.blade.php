@@ -1,4 +1,4 @@
-<div class=" uk-margin-remove-top">
+<div class="uk-margin-remove-top">
     <div class="uk-card uk-card-body b-body b-card-body">
     @foreach ($late->images as $key =>  $image)
         @if ($key == 0)
@@ -19,7 +19,7 @@
                             <br>
                             <a class="b-title-link" href="{{ route('showArticle', ['category' => $late->category->slug, 'slug' => $late->slug]) }}" title="{{ $late->title }}">
                                 <h5 class="uk-margin-remove-top b-h5-title">
-                                    {{ Str::limit($late->title, 50) }}
+                                    {{ Str::limit($late->title, 60) }}
                                 </h5>
                             </a>
                         </div> 

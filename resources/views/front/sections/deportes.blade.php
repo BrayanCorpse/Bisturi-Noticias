@@ -19,16 +19,15 @@
         
     </div>
 
-    <div class="b-header-l uk-margin-top uk-margin-remove-bottom uk-text-center">
+    {{-- <div class="b-header-l uk-margin-top uk-margin-remove-bottom uk-text-center">
         <h3 class="b-title-latest uk-h3" id="title-seccion">
             Viñetas 
-            {{-- {{Route::current()->getName()}}  --}}
         </h3>
-    </div> 
+    </div>  --}}
 
-    <div class="uk-grid-collapse uk-child-width-1-4@m uk-text-center" uk-grid>
+    {{-- <div class="uk-grid-collapse uk-child-width-1-4@m uk-text-center" uk-grid>
          @each('front.components.latestNews',$latest, 'late')
-    </div>
+    </div> --}}
     
     {{ $latest->links() }}
 

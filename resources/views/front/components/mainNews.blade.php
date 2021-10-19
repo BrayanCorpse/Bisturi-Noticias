@@ -25,11 +25,19 @@
                 @endforeach
 
             </a>
-            <div class="b-center uk-h4">{{$article->title}}</div>  
+            {{-- <div class="b-center uk-h4">{{$article->title}}</div>   --}}
             @include('front.partials.sharelinks', ['article' => $article])
         </div>
+        <div>
+            <div class="uk-tile uk-tile-muted uk-padding-remove">
+                @if (empty($article->author))
+                    <p class="uk-h6 uk-text-left uk-text-uppercase">Foto: Anónimo | Bisturí Noticias</p>
+                @else
+                    <p class="uk-h6 uk-text-left uk-text-uppercase">Foto: {{$article->author}} | Bisturí Noticias</p>
+                @endif
+            </div>
+        </div>
     </div>
-    
 </div>
 
 @push('js')

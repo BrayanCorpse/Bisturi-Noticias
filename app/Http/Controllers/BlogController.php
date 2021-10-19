@@ -31,7 +31,7 @@ class BlogController extends Controller
         
         $articles = Article::where('status', '=', 'publico')
                     ->where('category_id', '!=', 19)
-                    ->where('tipo_id', '=', 1)
+                    ->where('tipo_id', '=', 4)
                     ->whereNull('deleted_at')
                     ->orderBy('updated_at', 'DESC')
                     ->limit(1)->get();
@@ -42,21 +42,35 @@ class BlogController extends Controller
             $articles->user;
         });
 
-
-        $lastgeneralNews = Article::where('status', '=', 'publico')
+        $lastNewPhoto = Article::where('status', '=', 'publico')
                     ->where('category_id', '!=', 19)
-                    ->where('tipo_id', '=', 1)
-                    ->where('updated_at','!=',$articles[0]->updated_at)
+                    ->where('tipo_id', '=', 5)
                     ->whereNull('deleted_at')
                     ->orderBy('updated_at', 'DESC')
-                    ->limit(3)->get();
-        $lastgeneralNews->each(function($lastgeneralNews){
-            $lastgeneralNews->category;
-            $lastgeneralNews->tags;
-            $lastgeneralNews->images;
-            $lastgeneralNews->user;
+                    ->limit(1)->get();
+            $lastNewPhoto->each(function($lastNewPhoto){
+            $lastNewPhoto->category;
+            $lastNewPhoto->tags;
+            $lastNewPhoto->images;
+            $lastNewPhoto->user;
+            });
+
+
+
+        $lastNewText = Article::where('status', '=', 'publico')
+                    ->where('category_id', '!=', 19)
+                    ->where('tipo_id', '=', 6)
+                    ->whereNull('deleted_at')
+                    ->orderBy('updated_at', 'DESC')
+                    ->limit(1)->get();
+        $lastNewText->each(function($lastNewText){
+            $lastNewText->category;
+            $lastNewText->tags;
+            $lastNewText->images;
+            $lastNewText->user;
         });
 
+       
         // dd($lastgeneralNews);
 
         $clicks = Article::where('category_id',19)
@@ -75,7 +89,7 @@ class BlogController extends Controller
                 ->where('status', '=', 'publico')
                 ->where('tipo_id','=',2)
                 ->whereNull('deleted_at')
-                ->limit(4)->get();
+                ->limit(1)->get();
         $latest->each(function($latest){
             $latest->category;
             $latest->tags;
@@ -83,7 +97,7 @@ class BlogController extends Controller
             $latest->user;
         });
   
-        return view('front.sections.home', compact('articles','clicks','latest','lastgeneralNews'));
+        return view('front.sections.home', compact('articles','clicks','latest','lastNewText','lastNewPhoto'));
         
     }
 
@@ -91,7 +105,7 @@ class BlogController extends Controller
 
         $articles = Article::where('category_id',21)
                 ->where('status', '=', 'publico')
-                ->where('tipo_id', '=', 1)
+                ->whereNotIn('id', [2, 3])
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(1)->get();
@@ -103,7 +117,7 @@ class BlogController extends Controller
         });
 
         $update = Article::where('category_id',21)
-                ->where('tipo_id','=',1)
+                ->whereNotIn('id', [2, 3])
                 ->orderBy('updated_at', 'DESC')->limit(1)->get();
 
         $update = $update[0]->updated_at;
@@ -150,7 +164,7 @@ class BlogController extends Controller
 
         $articles = Article::where('category_id',15)
                 ->where('status', '=', 'publico')
-                ->where('tipo_id', '=', 1)
+                ->whereNotIn('id', [2, 3])
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(1)->get();
@@ -162,7 +176,7 @@ class BlogController extends Controller
         });
 
         $update = Article::where('category_id',15)
-                ->where('tipo_id','=',1)
+                ->whereNotIn('id', [2, 3])
                 ->orderBy('updated_at', 'DESC')->limit(1)->get();
 
         $update = $update[0]->updated_at;
@@ -209,7 +223,7 @@ class BlogController extends Controller
 
         $articles = Article::where('category_id',16)
                 ->where('status', '=', 'publico')
-                ->where('tipo_id', '=', 1)
+                ->whereNotIn('id', [2, 3])
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(1)->get();
@@ -221,7 +235,7 @@ class BlogController extends Controller
         });
 
         $update = Article::where('category_id',16)
-                ->where('tipo_id','=',1)
+                ->whereNotIn('id', [2, 3])
                 ->orderBy('updated_at', 'DESC')->limit(1)->get();
 
         $update = $update[0]->updated_at;
@@ -268,7 +282,7 @@ class BlogController extends Controller
 
         $articles = Article::where('category_id',20)
                 ->where('status', '=', 'publico')
-                ->where('tipo_id', '=', 1)
+                ->whereNotIn('id', [2, 3])
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(1)->get();
@@ -280,7 +294,7 @@ class BlogController extends Controller
         });
 
         $update = Article::where('category_id',20)
-                ->where('tipo_id','=',1)
+                ->whereNotIn('id', [2, 3])
                 ->orderBy('updated_at', 'DESC')->limit(1)->get();
 
         $update = $update[0]->updated_at;
@@ -318,7 +332,7 @@ class BlogController extends Controller
             $latest->user;
         });
         
-        return view('front.sections.salud')
+        return view('front.sections.emergencias')
         ->with('articles',$articles)
         ->with('categories',$categories)
         ->with('latest',$latest);
@@ -329,7 +343,7 @@ class BlogController extends Controller
 
         $articles = Article::where('category_id',17)
                 ->where('status', '=', 'publico')
-                ->where('tipo_id', '=', 1)
+                ->whereNotIn('id', [2, 3])
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(1)->get();
@@ -341,7 +355,7 @@ class BlogController extends Controller
         });
 
         $update = Article::where('category_id',17)
-                ->where('tipo_id','=',1)
+                ->whereNotIn('id', [2, 3])
                 ->orderBy('updated_at', 'DESC')->limit(1)->get();
 
         $update = $update[0]->updated_at;
@@ -389,7 +403,7 @@ class BlogController extends Controller
 
         $articles = Article::where('category_id',18)
                 ->where('status', '=', 'publico')
-                ->where('tipo_id', '=', 1)
+                ->whereNotIn('id', [2, 3])
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(1)->get();
@@ -401,7 +415,7 @@ class BlogController extends Controller
         });
 
         $update = Article::where('category_id',18)
-                ->where('tipo_id','=',1)
+                ->whereNotIn('id', [2, 3])
                 ->orderBy('updated_at', 'DESC')->limit(1)->get();
 
         $update = $update[0]->updated_at;
@@ -448,16 +462,16 @@ class BlogController extends Controller
     public function showArticle($category,$slug){
 
         $article = Article::findBySlugOrFail($slug);
-        $article->category;
-        $article->user;
-        $article->images;
+
+        // dd($article);
 
         $generals = Article::where('status', '=', 'publico')
                 ->where('category_id','!=','19')
-                ->where('tipo_id','=',1)
+                ->whereNotIn('id', [2, 3])
+                ->where('updated_at', '!=', $article->updated_at)
                 ->whereNull('deleted_at')
-                ->orderBy('updated_at', 'ASC')
-                ->limit(3)->get();
+                ->orderBy('updated_at', 'DESC')
+                ->limit(5)->get();
         $generals->each(function($generals){
             $generals->category;
             $generals->tags;
@@ -465,7 +479,6 @@ class BlogController extends Controller
             $generals->user;
         });
         
-        // dd($article);
 
         return view('front.posts.showArticle', compact('article','generals'));
 

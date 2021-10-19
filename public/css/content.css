@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Puritan&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tourney:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 
 
 .b-hr {
@@ -64,11 +65,12 @@
 
 .b-category-center{
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 72%;
+    left: 40%;
     width: 70%;
     transform: translate(-50%, -50%);
     align-content: center;
+    text-align: justify;
     font-family: 'Roboto Mono', monospace;
     font-weight: bold;
     background: rgba(0, 0, 0, 0.2);
@@ -77,11 +79,12 @@
 
 .b-lastgN-center{
     position: absolute;
-    top: 55%;
-    left: 50%;
-    width: 85%;
+    top: 70%;
+    left: 40%;
+    width: 70%;
     transform: translate(-50%, -50%);
     align-content: center;
+    text-align: justify;
     font-family: 'Roboto Mono', monospace;
     font-weight: bold;
     background: rgba(0, 0, 0, 0.1);
@@ -261,8 +264,15 @@
 
 .b-share-links{
     position: absolute;
-    top: 20px;
-    left: 92%;
+    bottom: 10px;
+    left: 1%;
+    width: auto;
+}
+
+.b-share-links-post-show{
+    position: absolute;
+    top: 10px;
+    right: 1%;
     width: auto;
 }
 
@@ -287,11 +297,77 @@
     margin: 5px;
 }
 
-.b-cart-img{
+.b-card-img{
+    width: 100%;
+    height: 350px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.b-border-duo{
+    box-shadow: 1px 5px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.b-comment-primary{
+    padding: 20px;
+    background: #E3F1F1;
+}
+
+.b-span-section {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #459FC4;
+    padding: 5px 5px 5px 5px;
+    z-index: 100;
+}
+
+.b-span-text{
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    line-height: 13px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #fff!important;
+}
+
+.b-sumario{
+    font-family: 'Roboto Mono', monospace;
+    text-align: justify;
+}
+
+.b-card-title{
+    font-family: 'Roboto Mono', monospace;
+    text-align: start;
+}
+
+.b-sumario,.b-content-duo{
+    margin-top: -10px;
+}
+.b-creditos{
+    float: left;
+    text-align: justify;
+    font-family: 'Puritan', sans-serif;
+    font-weight: bold;
+}
+
+.b-content-duo{
+    text-align: justify;
+    font-family: 'Puritan', sans-serif;
+}
+
+.b-img-general{
+    width: 100%;
     height: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 }
 
 
+/* media Queries */
 @media (min-width: 1200px){
     .b-card-body {
         padding: 10px 10px;
@@ -340,10 +416,6 @@
         gap: 10px;
     }
 
-    .b-lastgN-center{
-        display: none;
-    }
-
     .b-icon-button,.b-sm-icon-button {
         width: 30px;
         height: 30px;
@@ -352,12 +424,30 @@
 
     .b-share-links,.b-sm-share-links{
         display: inline-block;
+        bottom: 5px;
+        left: 2%;
+    }
+    
+    .b-share-links-post-show{
+        display: inline-block;
         top: 15px;
         left: 63%;
     }
 
-    .b-cart-img{
-        height: 100px;
+    .b-mrt{
+        margin-top: 40px !important;
+    }
+
+    .b-card-img{
+        height: 300px;
+    }
+
+    .b-category-center{
+        top: 65%;
+    }
+
+    .b-body-content{
+        padding: 20px 20px 20px 50px;
     }
 
 }

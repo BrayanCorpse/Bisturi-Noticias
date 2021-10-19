@@ -1,4 +1,4 @@
-<div class="uk-flex uk-flex-column b-share-links">
+<div class="uk-flex uk-flex-column b-share-links-post-show">
     <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::root().'/'.$article->category->slug.'/'.$article->slug }}&title={{ $article->title }}" 
         rel="noopener noreferrer"
         target="_blank" 

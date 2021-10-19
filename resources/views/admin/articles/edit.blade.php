@@ -24,6 +24,22 @@
 
     <div class="row">
         <div class="form-group article-group col-md-9">
+
+            <label for="summary">Agrega el sumario</label>
+            <input type="input" class="form-control" placeholder="Escribe el sumario en esta parte" name="summary" id='summary' value="{{ $article->summary }}" />
+            <h6 class="text-danger"> {{ $errors->first('summary') }}</h6>
+
+            <br>
+
+            <label for="excerpt">Extracto de la publicación</label>
+            <textarea class="form-control" name="excerpt" id='excerpt' rows="5">
+                {{ $article->excerpt }}
+            </textarea>
+            <h6 class="text-danger"> {{ $errors->first('excerpt') }}</h6>
+      
+            <br>
+       
+
             <textarea id="content" name="content" required>{{ $article->content }}</textarea>
             <h6 class="text-danger"> {{ $errors->first('content') }}</h6>
         </div>
@@ -114,6 +130,13 @@
                     @endif
             </div>
             @endforeach
+
+            <div class="form-group">
+                <br>
+                <label for="author">Creditos</label>
+                <input type="input" class="form-control" placeholder="Creditos de la foto(s)" name="author" id='author' value="{{ $article->author }}" />
+                <h6 class="text-danger"> {{ $errors->first('author') }}</h6>
+            </div>
 
             <div class="form-group">
                 <br>

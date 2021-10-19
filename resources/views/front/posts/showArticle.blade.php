@@ -13,7 +13,9 @@
                     @if ($article->category->id == 15 || 
                          $article->category->id == 16 ||
                          $article->category->id == 17 || 
-                         $article->category->id == 18)
+                         $article->category->id == 18 ||
+                         $article->category->id == 20 ||
+                         $article->category->id == 21)
 
                         <span class="b-h5-link uk-align-left uk-label">
                             <a class="uk-link-reset" href="{{url($article->category->slug)}}">
@@ -38,18 +40,19 @@
                     </h5>
 
                     <hr>
-                  
-
-                    
-
                     {!! $article->content !!}
+               
                     
-                    @foreach ($article->tags as $tag)
-                        <span class="uk-label uk-float-left uk-margin-right uk-margin-top"
-                              style="background: #43A1C4;">
-                            #{{ $tag->name }}
-                        </span>
-                    @endforeach
+                    <div class="uk-margin-large-top">
+                        @foreach ($article->tags as $tag)
+                            <span class="uk-label"
+                                    style="background: #43A1C4;">
+                                #{{ $tag->name }}
+                            </span>
+                        @endforeach
+                    </div>
+                      
+                    
                    
 
                 </div>
@@ -58,7 +61,7 @@
         </div>
         
 
-        <div class="uk-width-1-3@m">  
+        <div class="uk-width-1-3@m uk-margin-top">  
             @each('front.components.generalNews',$generals, 'general')
         </div>
         
@@ -91,19 +94,3 @@
 @endpush
     
 
-{{-- Twitter 
-usuario: @BisturiNoticias
-contraseña: Bisturi_Noticias
-
-Facebook 
-usuario: tuopinion@bisturinoticias.com
-contraseña: Bisturi_Noticias
-
-Instagram 
-usuario: bisturi_noticias
-contraseña: Bisturi_Noticias
-
-Youtube 
-usuario: tuopinion@bisturinoticias.com
-contraseña: Bisturi_Noticias
- --}}

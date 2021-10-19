@@ -49,8 +49,14 @@
                                     General
                                 @elseif ($article->tipo_id == 2)
                                     Viñeta
-                                @else
+                                @elseif ($article->tipo_id == 3)
                                     Caricatura
+                                @elseif ($article->tipo_id == 4)
+                                    Portada
+                                @elseif ($article->tipo_id == 5)
+                                    Noti-foto
+                                @else
+                                    Noti-Texto
                                 @endif
                             </span>
                             @if ($article->relevancia > 5)
