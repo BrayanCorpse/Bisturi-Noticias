@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="uk-text-center uk-grid-collapse uk-margin-medium-top b-mrb-mobile" uk-grid>
+    {{-- <div class="uk-text-center uk-grid-collapse uk-margin-medium-top b-mrb-mobile" uk-grid>
 
         <div class="uk-width-expand@m">
             @each('front.components.mainNews',$articles, 'article')
@@ -17,12 +17,11 @@
             @each('front.components.newsCategory',$categories, 'category')
         </div>
         
-    </div>
+    </div> --}}
 
-    <div class="b-header-l uk-margin-top uk-margin-remove-bottom uk-text-center">
+    <div class="b-header-l uk-margin-top uk-text-center uk-padding-remove-bottom">
         <h3 class="b-title-latest uk-h3" id="title-seccion">
            Viñetas 
-           {{-- {{Route::current()->getName()}}  --}}
         </h3>
     </div> 
 

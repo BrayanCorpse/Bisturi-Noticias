@@ -320,7 +320,7 @@
     right: 10px;
     background: #459FC4;
     padding: 5px 5px 5px 5px;
-    z-index: 100;
+    z-index: 2;
 }
 
 .b-span-text{
@@ -379,7 +379,7 @@
 
 @media (max-width: 768px) {
     .b-header {
-        top: -248px;
+        top: -270px;
     }
 
     p iframe {

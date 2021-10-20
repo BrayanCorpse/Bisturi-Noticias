@@ -197,7 +197,7 @@ class BlogController extends Controller
                 ->where('status', '=', 'publico')
                 ->where('tipo_id','=',2)
                 ->whereNull('deleted_at')
-                ->paginate(6);
+                ->paginate(8);
         $latest->each(function($latest){
             $latest->category;
             $latest->tags;
