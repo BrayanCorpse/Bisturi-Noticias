@@ -1,5 +1,5 @@
 <div class="uk-card uk-margin-small-bottom">
-    @if($category->tipo_id == 1)
+    @if($category->tipo_id == 1 || $category->tipo_id == 4)
         @foreach ($category->images as $key =>  $image)
             @if ($key == 0)
                 <div class="uk-card b-card-body b-card-category">
