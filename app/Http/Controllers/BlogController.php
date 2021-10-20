@@ -105,7 +105,7 @@ class BlogController extends Controller
 
         $articles = Article::where('category_id',21)
                 ->where('status', '=', 'publico')
-                ->whereNotIn('id', [2, 3])
+                ->whereNotIn('tipo_id', [2, 3])
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(1)->get();
@@ -116,16 +116,12 @@ class BlogController extends Controller
             $articles->user;
         });
 
-        $update = Article::where('category_id',21)
-                ->whereNotIn('id', [2, 3])
-                ->orderBy('updated_at', 'DESC')->limit(1)->get();
-
-        $update = $update[0]->updated_at;
+        // dd($articles[0]);
 
         $categories = Article::where('category_id',21)
                 ->where('status', '=', 'publico')
                 ->where('tipo_id', '!=',2)
-                ->where('updated_at', '!=', $update)
+                ->where('updated_at', '!=', $articles[0]->updated_at)
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(2)->get();
@@ -135,6 +131,8 @@ class BlogController extends Controller
             $categories->images;
             $categories->user;
         });
+
+        // dd($categories);
 
         // $lastnew = Article::where('category_id',15)
         //         ->where('tipo_id','=',2)
@@ -164,7 +162,7 @@ class BlogController extends Controller
 
         $articles = Article::where('category_id',15)
                 ->where('status', '=', 'publico')
-                ->whereNotIn('id', [2, 3])
+                ->whereNotIn('tipo_id', [2, 3])
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(1)->get();
@@ -175,16 +173,10 @@ class BlogController extends Controller
             $articles->user;
         });
 
-        $update = Article::where('category_id',15)
-                ->whereNotIn('id', [2, 3])
-                ->orderBy('updated_at', 'DESC')->limit(1)->get();
-
-        $update = $update[0]->updated_at;
-
         $categories = Article::where('category_id',15)
                 ->where('status', '=', 'publico')
                 ->where('tipo_id', '!=',2)
-                ->where('updated_at', '!=', $update)
+                ->where('updated_at', '!=', $articles[0]->updated_at)
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(2)->get();
@@ -223,7 +215,7 @@ class BlogController extends Controller
 
         $articles = Article::where('category_id',16)
                 ->where('status', '=', 'publico')
-                ->whereNotIn('id', [2, 3])
+                ->whereNotIn('tipo_id', [2, 3])
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(1)->get();
@@ -234,16 +226,10 @@ class BlogController extends Controller
             $articles->user;
         });
 
-        $update = Article::where('category_id',16)
-                ->whereNotIn('id', [2, 3])
-                ->orderBy('updated_at', 'DESC')->limit(1)->get();
-
-        $update = $update[0]->updated_at;
-
         $categories = Article::where('category_id',16)
                 ->where('status', '=', 'publico')
                 ->where('tipo_id', '!=',2)
-                ->where('updated_at', '!=', $update)
+                ->where('updated_at', '!=', $articles[0]->updated_at)
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(2)->get();
@@ -282,7 +268,7 @@ class BlogController extends Controller
 
         $articles = Article::where('category_id',20)
                 ->where('status', '=', 'publico')
-                ->whereNotIn('id', [2, 3])
+                ->whereNotIn('tipo_id', [2, 3])
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(1)->get();
@@ -293,17 +279,10 @@ class BlogController extends Controller
             $articles->user;
         });
 
-        $update = Article::where('category_id',20)
-                ->whereNotIn('id', [2, 3])
-                ->orderBy('updated_at', 'DESC')->limit(1)->get();
-
-        $update = $update[0]->updated_at;
-
-
         $categories = Article::where('category_id',20)
                 ->where('status', '=', 'publico')
                 ->where('tipo_id', '!=',2)
-                ->where('updated_at', '!=', $update)
+                ->where('updated_at', '!=', $articles[0]->updated_at)
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(2)->get();
@@ -343,7 +322,7 @@ class BlogController extends Controller
 
         $articles = Article::where('category_id',17)
                 ->where('status', '=', 'publico')
-                ->whereNotIn('id', [2, 3])
+                ->whereNotIn('tipo_id', [2, 3])
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(1)->get();
@@ -354,17 +333,10 @@ class BlogController extends Controller
             $articles->user;
         });
 
-        $update = Article::where('category_id',17)
-                ->whereNotIn('id', [2, 3])
-                ->orderBy('updated_at', 'DESC')->limit(1)->get();
-
-        $update = $update[0]->updated_at;
-
-
         $categories = Article::where('category_id',17)
                 ->where('status', '=', 'publico')
                 ->where('tipo_id', '!=',2)
-                ->where('updated_at', '!=', $update)
+                ->where('updated_at', '!=', $articles[0]->updated_at)
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(2)->get();
@@ -403,7 +375,7 @@ class BlogController extends Controller
 
         $articles = Article::where('category_id',18)
                 ->where('status', '=', 'publico')
-                ->whereNotIn('id', [2, 3])
+                ->whereNotIn('tipo_id', [2, 3])
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(1)->get();
@@ -414,17 +386,10 @@ class BlogController extends Controller
             $articles->user;
         });
 
-        $update = Article::where('category_id',18)
-                ->whereNotIn('id', [2, 3])
-                ->orderBy('updated_at', 'DESC')->limit(1)->get();
-
-        $update = $update[0]->updated_at;
-
-
         $categories = Article::where('category_id',18)
                 ->where('status', '=', 'publico')
                 ->where('tipo_id', '!=',2)
-                ->where('updated_at', '!=', $update)
+                ->where('updated_at', '!=', $articles[0]->updated_at)
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
                 ->limit(2)->get();
@@ -467,7 +432,7 @@ class BlogController extends Controller
 
         $generals = Article::where('status', '=', 'publico')
                 ->where('category_id','!=','19')
-                ->whereNotIn('id', [2, 3])
+                ->whereNotIn('tipo_id', [2, 3])
                 ->where('updated_at', '!=', $article->updated_at)
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
