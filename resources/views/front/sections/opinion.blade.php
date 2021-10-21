@@ -21,7 +21,7 @@
 
     <div class="b-header-l uk-margin-top uk-text-center uk-padding-remove-bottom">
         <h3 class="b-title-latest uk-h3" id="title-seccion">
-           Viñetas 
+           Opinión
         </h3>
     </div> 
 
