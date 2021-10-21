@@ -366,6 +366,11 @@
     background-position: 50% 50%;
 }
 
+.b-click-footer{
+    text-align: justify;
+    font-family: 'Puritan', sans-serif;
+}
+
 
 /* media Queries */
 @media (min-width: 1200px){

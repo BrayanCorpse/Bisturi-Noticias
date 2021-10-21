@@ -36,7 +36,7 @@
             </div>
             <div class="uk-width-1-3@m">
                 @each('front.components.click', $clicks, 'click')
-                @each('front.components.vineta', $latest, 'late')
+                {{-- @each('front.components.vineta', $latest, 'late') --}}
             </div>
             
         </div>

@@ -306,6 +306,7 @@ class ArticlesController extends Controller
 
 
         $article->tags()->sync($request->tags);
+        
         flash('Se ha editado el articulo ' . "<b>".$article->title."</b>" . ' de forma exitosamente!!')->success()->important();
         return redirect()->route('articles.index');
     }
