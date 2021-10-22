@@ -31,9 +31,9 @@
         <div>
             <div class="uk-tile uk-tile-muted uk-padding-remove">
                 @if (empty($article->author))
-                    <p class="uk-h6 uk-text-left uk-text-uppercase">Foto: Anónimo | Bisturí Noticias</p>
+                    <p class="uk-h6 uk-text-left b-text-autor">Foto: Anónimo | Bisturí Noticias</p>
                 @else
-                    <p class="uk-h6 uk-text-left uk-text-uppercase">Foto: {{$article->author}} | Bisturí Noticias</p>
+                    <p class="uk-h6 uk-text-left b-text-autor">Foto: {{$article->author}} | Bisturí Noticias</p>
                 @endif
             </div>
         </div>

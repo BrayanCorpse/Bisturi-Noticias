@@ -379,6 +379,15 @@
     margin-bottom: 20px;
 }
 
+.b-noti-foto{
+    position: relative;
+    bottom: 40px;
+}
+
+.b-text-autor{
+    padding: 5px 10px;
+}
+
 
 /* media Queries */
 @media (min-width: 1200px){

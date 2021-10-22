@@ -3,7 +3,8 @@
     </h3>
     <hr class="b-hr uk-margin-remove-top uk-align-center"> --}}
 
-    <div class="b-card-body b-mrt" uk-lightbox="animation: scale">
+    <div class="b-card-body b-mrt uk-position-relative" uk-lightbox="animation: scale">
+        <span class="b-span-section b-span-text">Click Del Día</span>
         @foreach ($click->images   as $key => $image)
             @if ($key >= 0)
                 <a class="uk-inline" 
@@ -17,7 +18,8 @@
                 </a>
                 <div class=" uk-card-footer uk-card-default b-click-footer">
                     {{ Str::limit($click->excerpt, 250) }}
-                    <small class="b-creditos uk-margin-small-top">
+                    <br>
+                    <small class="b-creditos">
                         Foto: {{ $click->author}}
                     </small>
                 </div>

@@ -31,13 +31,16 @@
                     </a>
                     @endif
                 @endforeach
-                <div class="b-lastgN-center uk-h6">
+                {{-- <div class="b-lastgN-center uk-h6">
                     {{ Str::limit($lastNp->title, 50) }}
-                </div> 
+                </div>  --}}
+                <div class="uk-card-footer uk-card-default b-click-footer b-noti-foto">
+                    {{ Str::limit($lastNp->title, 50) }}
+                </div>
             @endforeach
         </div>
     </div>
-    <div class="uk-width-expand@m uk-padding-remove-left b-mrt">
+    <div class="uk-width-expand@m uk-padding-remove-left uk-margin-remove-top">
         <div class="uk-card b-card-body">
             @foreach ($lastNewText as $lastNt)
                 <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s b-border-duo" uk-grid>
