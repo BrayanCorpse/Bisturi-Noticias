@@ -109,7 +109,7 @@ class BlogController extends Controller
                 ->where('updated_at', '!=', $articles[0]->updated_at)
                 ->whereNull('deleted_at')
                 ->orderBy('updated_at', 'DESC')
-                ->limit(2)->get();
+                ->limit(3)->get();
         $categories->each(function($categories){
             $categories->category;
             $categories->tags;
@@ -145,39 +145,6 @@ class BlogController extends Controller
 
     public function opinion(){
 
-        $articles = Article::where('category_id',15)
-                ->where('status', '=', 'publico')
-                ->whereNotIn('tipo_id', [2, 3, 7])
-                ->whereNull('deleted_at')
-                ->orderBy('updated_at', 'DESC')
-                ->limit(1)->get();
-        $articles->each(function($articles){
-            $articles->category;
-            $articles->tags;
-            $articles->images;
-            $articles->user;
-        });
-
-        $categories = Article::where('category_id',15)
-                ->where('status', '=', 'publico')
-                ->where('tipo_id', '!=',2)
-                ->where('updated_at', '!=', $articles[0]->updated_at)
-                ->whereNull('deleted_at')
-                ->orderBy('updated_at', 'DESC')
-                ->limit(2)->get();
-        $categories->each(function($categories){
-            $categories->category;
-            $categories->tags;
-            $categories->images;
-            $categories->user;
-        });
-
-        // $lastnew = Article::where('category_id',15)
-        //         ->where('tipo_id','=',2)
-        //         ->orderBy('updated_at', 'DESC')->limit(1)->get();
-
-        // $last = $lastnew[0]->updated_at;
-
         $latest = Article::where('category_id',15)
                 ->where('status', '=', 'publico')
                 ->where('tipo_id','=',2)
@@ -190,10 +157,7 @@ class BlogController extends Controller
             $latest->user;
         });
         
-        return view('front.sections.opinion')
-        ->with('articles',$articles)
-        ->with('categories',$categories)
-        ->with('latest',$latest);
+        return view('front.sections.opinion')->with('latest',$latest);
     }
 
     public function telonyEspectaculos(){

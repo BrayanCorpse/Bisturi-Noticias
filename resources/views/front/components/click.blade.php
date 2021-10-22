@@ -3,31 +3,32 @@
     </h3>
     <hr class="b-hr uk-margin-remove-top uk-align-center"> --}}
 
-    <div class="b-card-body b-mrt">
-        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="min-height: 275; max-height: 500; animation: fade; autoplay: true;">
-            <span class="b-span-section b-span-text">Click Del Día</span>
-            <ul class="uk-slideshow-items">
-                @foreach ($click->images   as $key => $image)
-                    @if ($key >= 0)
-                        <li>
-                            <img  href="{{ route('showArticle', ['category' => $click->category->slug, 'slug' => $click->slug]) }}" title="{{ $click->title }}">
-                            <img src="{{ asset('storage' . '/' . $click->user->name . '/'. $image->name ) }}" alt="{{ $click->title }}" uk-cover>
-                        </li> 
-                    @endif
-                @endforeach        
-            </ul>
-            
-            <div class="b-click-center uk-h5 uk-text-truncate">{{$click->title}}</div>
-            
-                    
-            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
-            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>          
-        </div>
-        <div class=" uk-card-footer uk-card-default b-click-footer">
-            {{ Str::limit($click->excerpt, 250) }}
-            <small class="b-creditos uk-margin-small-top">
-                Foto: {{ $click->author}}
-            </small>
-        </div>
+    <div class="b-card-body b-mrt" uk-lightbox="animation: scale">
+        @foreach ($click->images   as $key => $image)
+            @if ($key >= 0)
+                <a class="uk-inline" 
+                    href="{{ asset('storage' . '/' . $click->user->name . '/'. $image->name ) }}"  
+                    data-caption="{{ Str::limit($click->excerpt, 250) }}"
+                    >
+            @endif
+            @if ($key == 0)
+                <img  src="{{ asset('storage' . '/' . $click->user->name . '/'. $image->name ) }}" 
+                        alt="{{ $click->title }}">
+                </a>
+                <div class=" uk-card-footer uk-card-default b-click-footer">
+                    {{ Str::limit($click->excerpt, 250) }}
+                    <small class="b-creditos uk-margin-small-top">
+                        Foto: {{ $click->author}}
+                    </small>
+                </div>
+            @else
+                <img  src="{{ asset('storage' . '/' . $click->user->name . '/'. $image->name ) }}" 
+                        alt="{{ $click->title }}" hidden>
+                </a>
+            @endif
+        @endforeach 
+
+       
     </div>
     
+  

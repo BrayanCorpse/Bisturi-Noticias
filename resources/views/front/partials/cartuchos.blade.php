@@ -31,7 +31,7 @@
                     </a>
                     @endif
                 @endforeach
-                <div class="b-lastgN-center uk-h5">
+                <div class="b-lastgN-center uk-h6">
                     {{ Str::limit($lastNp->title, 50) }}
                 </div> 
             @endforeach
@@ -58,14 +58,10 @@
                             <h6 class="b-sumario">
                                 {{ Str::limit($lastNt->summary, 150) }}
                             </h6>
+                            <h6 class="b-creditos">{{ $lastNt->user->name}}</h6>
                             <p class="b-content-duo">
-                                {{ Str::limit($lastNt->excerpt, 300) }}
+                                {{ Str::limit($lastNt->excerpt, 325) }}
                             </p>
-                            @if (empty($lastNt->author))
-                                <small class="b-creditos">Anónimo</small>
-                            @else
-                                <small class="b-creditos">{{ $lastNt->author}}</small>
-                            @endif
                         </div>
                     </div>
                 </div>
