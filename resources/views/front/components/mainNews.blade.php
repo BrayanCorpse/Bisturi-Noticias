@@ -32,7 +32,7 @@
             <h5 class="b-h5-title">
                 <strong>{{ Str::limit($article->title, 105) }} </strong>
                 |
-                <small>{{ Str::limit($article->summary, 80) }}</small>
+                <small>{{ Str::limit($article->summary, 150) }}</small>
             </h5>
             <div class="b-author-ft">
                 @if (empty($article->author))
