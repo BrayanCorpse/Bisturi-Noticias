@@ -26,7 +26,7 @@
                     @if ($key == 0)
                     <a href="{{ route('showArticle', ['category' => $lastNp->category->slug, 'slug' => $lastNp->slug]) }}" title="{{ $lastNp->title }}">
 
-                        <img class="b-card-img" src="{{ asset('storage' . '/' . $lastNp->user->name . '/'. $image->name ) }}" alt="{{ $lastNp->title }}" width="400" height="400">
+                        <img class="b-card-img2" src="{{ asset('storage' . '/' . $lastNp->user->name . '/'. $image->name ) }}" alt="{{ $lastNp->title }}" width="400" height="400">
 
                     </a>
                     @endif
@@ -36,6 +36,17 @@
                 </div>  --}}
                 <div class="uk-card-footer uk-card-default b-click-footer b-noti-foto">
                     {{ Str::limit($lastNp->title, 50) }}
+                    <div class="b-author-ntf">
+                        @if (empty($lastNp->author))
+                            <sub>
+                                Foto: Cortesía | Bisturí Noticias
+                            </sub>
+                        @else
+                            <sub>
+                                Foto: {{$lastNp->author}} | Bisturí Noticias
+                            </sub>
+                        @endif  
+                    </div>   
                 </div>
             @endforeach
         </div>

@@ -28,15 +28,25 @@
             {{-- <div class="b-center uk-h4">{{$article->title}}</div>   --}}
             @include('front.partials.sharelinks', ['article' => $article])
         </div>
-        <div>
-            <div class="uk-tile uk-tile-muted uk-padding-remove">
+        <div class="uk-card-footer uk-card-default b-click-footer">
+            <h5 class="b-h5-title">
+                <strong>{{ Str::limit($article->title, 105) }} </strong>
+                |
+                <small>{{ Str::limit($article->summary, 80) }}</small>
+            </h5>
+            <div class="b-author-ft">
                 @if (empty($article->author))
-                    <p class="uk-h6 uk-text-left b-text-autor">Foto: Anónimo | Bisturí Noticias</p>
+                    <sub>
+                        Foto: Cortesía | Bisturí Noticias
+                    </sub>
                 @else
-                    <p class="uk-h6 uk-text-left b-text-autor">Foto: {{$article->author}} | Bisturí Noticias</p>
-                @endif
-            </div>
+                    <sub>
+                        Foto: {{$article->author}} | Bisturí Noticias
+                    </sub>
+                @endif  
+            </div>   
         </div>
+        
     </div>
 </div>
 
