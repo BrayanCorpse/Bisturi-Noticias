@@ -93,7 +93,7 @@
 }
 
 .b-header {
-    position: relative;
+    position: absolute;
     top: -25px;
     width: 55%;
     margin-bottom: -45px;
@@ -418,7 +418,8 @@
 
 @media (max-width: 768px) {
     .b-header {
-        top: -270px;
+        top: 145px;
+        z-index: 2;
     }
 
     p iframe {
@@ -487,6 +488,10 @@
 
     .b-body-content{
         padding: 20px 20px 20px 50px;
+    }
+
+    .b-card-color{
+        margin-top: -25px;
     }
 
 }
