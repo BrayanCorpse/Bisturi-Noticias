@@ -93,7 +93,7 @@
 }
 
 .b-header {
-    position: absolute;
+    position: relative;
     top: -25px;
     width: 55%;
     margin-bottom: -45px;
@@ -405,6 +405,10 @@
     margin-top: -5px;
 }
 
+.b-margin-bt-category{
+    margin-bottom: 30px;
+}
+
 
 /* media Queries */
 @media (min-width: 1200px){
@@ -418,6 +422,7 @@
 
 @media (max-width: 768px) {
     .b-header {
+        position: absolute !important;
         top: 145px;
         z-index: 2;
     }
@@ -493,6 +498,10 @@
     .b-card-color{
         margin-top: -25px;
     }
+
+    .b-margin-bt-category{
+        margin-bottom: 40px !important;
+    } 
 
 }
 
