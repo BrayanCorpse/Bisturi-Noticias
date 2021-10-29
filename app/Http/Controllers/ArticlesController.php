@@ -34,7 +34,7 @@ class ArticlesController extends Controller
         $articles = Article::search($request->title)
         ->where('user_id', '=', \Auth::user()->id)
         ->where('status', '=', 'publico')
-        ->orderBy('updated_at','DESC')
+        ->orderBy('created_at','DESC')
         ->whereNull('deleted_at')->simplePaginate(5);
 
         $articles->each(function($articles){
@@ -73,7 +73,7 @@ class ArticlesController extends Controller
         $articles = Article::search($request->title)
         ->where('user_id', '=', \Auth::user()->id)
         ->where('status', '=', 'borrador')
-        ->orderBy('updated_at','DESC')
+        ->orderBy('created_at','DESC')
         ->whereNull('deleted_at')->simplePaginate(5);
 
         $articles->each(function($articles){

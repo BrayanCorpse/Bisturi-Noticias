@@ -59,13 +59,8 @@
                                     Noti-Texto
                                 @endif
                             </span>
-                            @if ($article->relevancia > 5)
-                            <span class="badge badge-danger">Relevancia Alta</span>  
-                            @elseif ($article->relevancia < 5)
-                                <span class="badge badge-primary">Relevancia Baja</span> 
-                            @else
-                            <span class="badge badge-light">Neutral</span> 
-                            @endif
+                            <strong>|</strong>
+                            <small>{{$article->created_at->diffForHumans()}}</small>
                             
                         </td>
                         <td>
