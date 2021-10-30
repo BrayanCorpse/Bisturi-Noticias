@@ -180,7 +180,7 @@
     font-weight: bold;
 }
 
-.b-h4-title{
+.b-h5-title{
     font-family: 'Adelle Sans',sans-serif;
     font-weight: bold;
     text-align: start;
@@ -409,6 +409,9 @@
     margin-bottom: 30px;
 }
 
+.show-card-body{
+    padding: 15px 15px;
+}
 
 /* media Queries */
 @media (min-width: 1200px){

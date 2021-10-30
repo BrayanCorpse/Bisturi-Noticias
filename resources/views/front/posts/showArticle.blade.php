@@ -32,7 +32,7 @@
                     <h1 class=" uk-text-left b-h1-content">{{$article->title}}</h1>
 
                     <h4 class="uk-text-left uk-text-secondary uk-text-uppercase uk-margin-remove-top"> 
-                        {{$article->updated_at->diffForHumans()}}
+                        {{$article->created_at->diffForHumans()}}
                     </h4>
 
                     
@@ -68,7 +68,7 @@
         </div>
         
 
-        <div class="uk-width-1-3@m uk-margin-top">  
+        <div class="uk-width-1-3@m">  
             @each('front.components.generalNews',$generals, 'general')
         </div>
         

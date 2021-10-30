@@ -1,7 +1,7 @@
 <div class="uk-card b-card-body uk-padding-remove-top">
     @foreach ($general->images as $key =>  $image)
         @if ($key == 0)
-            <div class="uk-card uk-card-default uk-card-body">
+            <div class="uk-card uk-card-default show-card-body">
                 <h5 class="uk-h5 b-h5-Cname uk-text-left">{{ $general->category->name}}</h5>
 
                 <a href="{{ route('showArticle', ['category' => $general->category->slug, 'slug' => $general->slug]) }}" title="{{ $general->title }}">
@@ -11,9 +11,9 @@
                 </a>
 
                 <div class="uk-text-left">
-                    <a class="uk-link-muted" href="{{ route('showArticle', ['category' => $general->category->slug, 'slug' => $general->slug]) }}" title="{{ $general->title }}">
+                    <a class="uk-link-reset" href="{{ route('showArticle', ['category' => $general->category->slug, 'slug' => $general->slug]) }}" title="{{ $general->title }}">
 
-                        <h4 class="uk-h4 b-h4-title uk-margin-remove-top uk-margin-remove-bottom">{{ $general->title}}</h4>  
+                        <h5 class="uk-h5 b-h5-title uk-margin-small-top uk-margin-remove-bottom">{{ $general->title}}</h5>  
 
                     </a> 
                     <br>
