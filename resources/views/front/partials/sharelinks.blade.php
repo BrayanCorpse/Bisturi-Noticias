@@ -1,3 +1,11 @@
+@push('ogf')
+<meta property="og:title" content="{{ $article->title }}">
+<meta property="og:description" content="{{ $article->summary }}">
+<meta property="og:url" content="{{ Request::root().'/'.$article->category->slug.'/'.$article->slug }}">
+<meta property="og:site_name" content="Bisturí Noticias">
+<meta property="article:publisher" content="https://www.facebook.com/bisturinoticias">
+<meta property="og:image" content="{{ asset('storage' . '/' . $article->user->name . '/'. $image->name ) }}">
+@endpush
 <div class="uk-flex uk-flex-column b-share-links">
     <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::root().'/'.$article->category->slug.'/'.$article->slug }}&title={{ $article->title }}" 
         rel="noopener noreferrer"

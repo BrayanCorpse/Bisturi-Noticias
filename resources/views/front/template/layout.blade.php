@@ -6,6 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="google-site-verification" content="qB2fJCcCuULOtk3ZcMReE6rChVGA6lgG0jun5dNsZZc" />
     <link rel="shortcut icon" href="{{asset('img/icon.png')}}" type="image/x-icon">
+    <link rel="alternate" href="https://bisturinoticias.com/" hreflang="es">
+    <title>@yield('title', 'Default')</title>
+    <meta name="description" content="En Bisturí Noticias estamos convencidos de que la noticia debe vivirse, respirarse y palparla para poder contarla.">
+    <link rel="canonical" href="https://bisturinoticias.com/">
+    {{-- Meta OG Facebook --}}
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:type" content="website">
+    @stack('ogf')
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="{{asset('css/uikit.css')}}" >
     {{-- content --}}
@@ -13,8 +21,6 @@
     {{-- navbar --}}
     <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
 
-
-    <title>@yield('title', 'Default')</title>
     @yield('css')
 </head>
 <body>  

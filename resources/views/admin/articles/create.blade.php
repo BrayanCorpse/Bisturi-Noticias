@@ -136,10 +136,9 @@
             
             <div class="form-group">
                 <label for="tipo">Tipo de Artículo</label>
-                <select class="form-control" id="tipo" name="tipo_id" required>
-                  <option>Seleciona un tipo</option>
+                <select class="form-control" id="tipo_id" name="tipo_id" required>
                   @foreach ($tipos as $tipo)
-                    <option value="{{$tipo->id}}" {{ (collect(old('tipo'))->contains($tipo->name)) 
+                    <option value="{{$tipo->id}}" {{ (collect(old('tipo_id'))->contains($tipo->id)) 
                             ? 'selected'
                             :'' }}
                             >
@@ -147,11 +146,6 @@
                     </option>
                   @endforeach
                 </select>
-            </div>
-
-            <div class="form-group">
-                <div class="value"></div>
-                <input type="range" min="0" max="10" step="1" value="{{ old('relevancia') }}"     name="relevancia" oninput="rangeValue()">
             </div>
 
             <div class="form-group mt-5">
@@ -248,35 +242,6 @@ function proccess(){
         }
     
         document.getElementById('image').addEventListener('change', handleFileSelect, false);
-</script>
-
-<script>
-
-    var elem = document.querySelector('input[type="range"]');
-
-    function rangeValue() {
-        var newValue = elem.value;
-        var target = document.querySelector(".value");
-        if(newValue > 5){
-            target.innerHTML = "Relevancia Alta";
-            target.style.color = "#EC7063";
-            elem.style.backgroundColor = "#EC7063";
-        }
-        else if(newValue < 5){
-            target.innerHTML = "Relevancia Baja";
-            target.style.color = "#7386D5";
-            elem.style.backgroundColor = "#7386D5";
-        }
-        else{
-            target.innerHTML = "Relevancia de la Noticia";
-            target.style.color = "#34495E";
-            elem.style.backgroundColor = "#bdc3c7";
-        }
-    };
-
-    window.onload = rangeValue;
-
-
 </script>
     
 @endpush

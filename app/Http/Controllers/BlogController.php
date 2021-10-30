@@ -117,13 +117,6 @@ class BlogController extends Controller
             $categories->user;
         });
 
-        // dd($categories);
-
-        // $lastnew = Article::where('category_id',15)
-        //         ->where('tipo_id','=',2)
-        //         ->orderBy('updated_at', 'DESC')->limit(1)->get();
-
-        // $last = $lastnew[0]->updated_at;
 
         return view('front.sections.informacionGeneral')
         ->with('articles',$articles)
