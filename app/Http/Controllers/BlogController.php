@@ -125,22 +125,9 @@ class BlogController extends Controller
 
         // $last = $lastnew[0]->updated_at;
 
-        $latest = Article::where('category_id',21)
-                ->where('status', '=', 'publico')
-                ->where('tipo_id','=',2)
-                ->whereNull('deleted_at')
-                ->paginate(6);
-        $latest->each(function($latest){
-            $latest->category;
-            $latest->tags;
-            $latest->images;
-            $latest->user;
-        });
-        
         return view('front.sections.informacionGeneral')
         ->with('articles',$articles)
-        ->with('categories',$categories)
-        ->with('latest',$latest);
+        ->with('categories',$categories);
     }
 
     public function opinion(){
@@ -182,7 +169,7 @@ class BlogController extends Controller
                 ->where('created_at', '!=', $articles[0]->created_at)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
-                ->limit(2)->get();
+                ->limit(3)->get();
         $categories->each(function($categories){
             $categories->category;
             $categories->tags;
@@ -190,28 +177,9 @@ class BlogController extends Controller
             $categories->user;
         });
 
-        // $lastnew = Article::where('category_id',15)
-        //         ->where('tipo_id','=',2)
-        //         ->orderBy('updated_at', 'DESC')->limit(1)->get();
-
-        // $last = $lastnew[0]->updated_at;
-
-        $latest = Article::where('category_id',16)
-                ->where('status', '=', 'publico')
-                ->where('tipo_id','=',2)
-                ->whereNull('deleted_at')
-                ->paginate(6);
-        $latest->each(function($latest){
-            $latest->category;
-            $latest->tags;
-            $latest->images;
-            $latest->user;
-        });
-        
         return view('front.sections.telonyEspectaculos')
         ->with('articles',$articles)
-        ->with('categories',$categories)
-        ->with('latest',$latest);
+        ->with('categories',$categories);
     }
 
     public function emergencias(){
@@ -235,7 +203,7 @@ class BlogController extends Controller
                 ->where('created_at', '!=', $articles[0]->created_at)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
-                ->limit(2)->get();
+                ->limit(3)->get();
         $categories->each(function($categories){
             $categories->category;
             $categories->tags;
@@ -243,28 +211,10 @@ class BlogController extends Controller
             $categories->user;
         });
 
-        // $lastnew = Article::where('category_id',15)
-        //         ->where('tipo_id','=',2)
-        //         ->orderBy('updated_at', 'DESC')->limit(1)->get();
-
-        // $last = $lastnew[0]->updated_at;
-
-        $latest = Article::where('category_id',20)
-                ->where('status', '=', 'publico')
-                ->where('tipo_id','=',2)
-                ->whereNull('deleted_at')
-                ->paginate(6);
-        $latest->each(function($latest){
-            $latest->category;
-            $latest->tags;
-            $latest->images;
-            $latest->user;
-        });
         
         return view('front.sections.emergencias')
         ->with('articles',$articles)
-        ->with('categories',$categories)
-        ->with('latest',$latest);
+        ->with('categories',$categories);
     }
 
 
@@ -289,7 +239,7 @@ class BlogController extends Controller
                 ->where('created_at', '!=', $articles[0]->created_at)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
-                ->limit(2)->get();
+                ->limit(3)->get();
         $categories->each(function($categories){
             $categories->category;
             $categories->tags;
@@ -297,28 +247,9 @@ class BlogController extends Controller
             $categories->user;
         });
 
-        // $lastnew = Article::where('category_id',15)
-        //         ->where('tipo_id','=',2)
-        //         ->orderBy('updated_at', 'DESC')->limit(1)->get();
-
-        // $last = $lastnew[0]->updated_at;
-
-        $latest = Article::where('category_id',17)
-                ->where('status', '=', 'publico')
-                ->where('tipo_id','=',2)
-                ->whereNull('deleted_at')
-                ->paginate(6);
-        $latest->each(function($latest){
-            $latest->category;
-            $latest->tags;
-            $latest->images;
-            $latest->user;
-        });
-        
         return view('front.sections.salud')
         ->with('articles',$articles)
-        ->with('categories',$categories)
-        ->with('latest',$latest);
+        ->with('categories',$categories);
     }
 
     public function deportes(){
@@ -342,36 +273,17 @@ class BlogController extends Controller
                 ->where('created_at', '!=', $articles[0]->created_at)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
-                ->limit(2)->get();
+                ->limit(3)->get();
         $categories->each(function($categories){
             $categories->category;
             $categories->tags;
             $categories->images;
             $categories->user;
         });
-  
-        // $lastnew = Article::where('category_id',15)
-        //         ->where('tipo_id','=',2)
-        //         ->orderBy('updated_at', 'DESC')->limit(1)->get();
-
-        // $last = $lastnew[0]->updated_at;
-
-        $latest = Article::where('category_id',18)
-                ->where('status', '=', 'publico')
-                ->where('tipo_id','=',2)
-                ->whereNull('deleted_at')
-                ->paginate(6);
-        $latest->each(function($latest){
-            $latest->category;
-            $latest->tags;
-            $latest->images;
-            $latest->user;
-        });
         
         return view('front.sections.deportes')
         ->with('articles',$articles)
-        ->with('categories',$categories)
-        ->with('latest',$latest);
+        ->with('categories',$categories);
     }
 
     public function showArticle($category,$slug){
