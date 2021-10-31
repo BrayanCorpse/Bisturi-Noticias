@@ -39,7 +39,7 @@
                 Ogdesc.setAttribute("content", '{{ $article->summary }}');
 
             let Ogurl = document.querySelector('meta[property="og:url"]');
-                Ogurl.setAttribute("content", '{{ Request::fullUrl() }}');
+                Ogurl.setAttribute("content", '{{ Request::root().'/'.$article->category->slug.'/'.$article->slug }}');
 
             let Ogsitename = document.querySelector('meta[property="og:site_name"]');
                 Ogsitename.setAttribute("content", '{{ Route::current()->getName() }}');
