@@ -1,6 +1,6 @@
 @extends('front.template.layout')
 
-@section('title', 'Bisturi Noticias | Información General')
+@section('title', 'Bisturí Noticias | Información General')
 
 @section('content')
 
