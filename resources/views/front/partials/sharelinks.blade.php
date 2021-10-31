@@ -4,7 +4,8 @@
         rel="noopener noreferrer"
         target="_blank" 
         class="uk-icon-button b-icon-button uk-margin-small-right" 
-        uk-icon="icon: facebook; ratio: 1">
+        uk-icon="icon: facebook; ratio: 1"
+        onclick="metaOG()">
     </a>
 
     @foreach ($article->tags as $tag)
@@ -24,3 +25,34 @@
         uk-icon="icon: whatsapp; ratio: 1">
     </a>
 </div>     
+
+@push('js')
+    <script>
+        function metaOG(){
+
+            let Ogtype = document.querySelector('meta[property="og:type"]');
+                Ogtype.setAttribute("content", 'article');
+
+            let Ogtitle = document.querySelector('meta[property="og:title"]');
+                Ogtitle.setAttribute("content", '{{ $article->title }}');
+
+            let Ogdesc = document.querySelector('meta[property="og:description"]');
+                Ogdesc.setAttribute("content", '{{ $article->summary }}');
+
+            let Ogsitename = document.querySelector('meta[property="og:site_name"]');
+                Ogsitename.setAttribute("content", '{{ Route::current()->getName() }}');
+                if(Ogsitename.content == 'index'){
+                    Ogsitename.setAttribute("content", 'Bisturí Noticias');
+                }
+                else{
+                    Ogsitename.setAttribute("content", 'Bisturí Noticias | {{ Route::current()->getName() }}');
+                }
+
+            let Ogimage = document.querySelector('meta[property="og:image"]');
+                Ogimage.setAttribute("content", "{{ asset('storage' . '/' . $article->user->name . '/'. $image->name ) }}");
+
+            // console.log(Ogtype, Ogtitle, Ogdesc, Ogsitename, Ogimage);
+        }
+             
+    </script>
+@endpush 

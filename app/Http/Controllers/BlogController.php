@@ -282,8 +282,14 @@ class BlogController extends Controller
     public function showArticle($category,$slug){
 
         $article = Article::findBySlugOrFail($slug);
+        $article->each(function($article){
+            $article->category;
+            $article->tags;
+            $article->images;
+            $article->user;
+        });
 
-        // dd($article);
+        // dd($article->images[0]->name);
 
         $generals = Article::where('status', '=', 'publico')
                 ->whereNotIn('tipo_id', [2, 3, 7])
