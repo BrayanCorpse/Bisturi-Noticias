@@ -3,8 +3,7 @@
         rel="noopener noreferrer"
         target="_blank" 
         class="uk-icon-button b-icon-button uk-margin-small-right" 
-        uk-icon="icon: facebook; ratio: 1"
-        onclick="metaOG()">
+        uk-icon="icon: facebook; ratio: 1">
     </a>
 
     @foreach ($article->tags as $tag)
@@ -38,14 +37,19 @@
             let Ogdesc = document.querySelector('meta[property="og:description"]');
                 Ogdesc.setAttribute("content", '{{ $article->summary }}');
 
+            let Ogurl = document.querySelector('meta[property="og:url"]');
+                Ogurl.setAttribute("content", '{{ Request::fullUrl() }}');
+
             let Ogsitename = document.querySelector('meta[property="og:site_name"]');
-                Ogsitename.setAttribute("content", '{{ Route::current()->getName() }}');
+                Ogsitename.setAttribute("content", 'Bisturí Noticias | {{ $article->slug }}');
 
             let Ogimage = document.querySelector('meta[property="og:image"]');
                 Ogimage.setAttribute("content", "{{ asset('storage' . '/' . $article->user->name . '/'. $article->images[0]->name ) }}");
 
             // console.log(Ogtype, Ogtitle, Ogdesc, Ogsitename, Ogimage);
         }
+
+        window.onload = metaOG();
              
     </script>
 @endpush 
