@@ -29,7 +29,7 @@
             @include('front.partials.sharelinks', ['article' => $article])
         </div>
         <div class="uk-card-footer uk-card-default b-click-footer">
-            <h5 class="b-h5-title">
+            <h5 class="b-h5-title-mn">
                 <strong>{{ Str::limit($article->title, 105) }} </strong>
                 |
                 <small>{{ Str::limit($article->summary, 150) }}</small>

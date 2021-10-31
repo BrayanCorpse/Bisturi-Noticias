@@ -13,7 +13,7 @@
                 <div class="uk-text-left">
                     <a class="uk-link-reset" href="{{ route('showArticle', ['category' => $general->category->slug, 'slug' => $general->slug]) }}" title="{{ $general->title }}">
 
-                        <h5 class="uk-h5 b-h5-title uk-margin-small-top uk-margin-remove-bottom">{{ $general->title}}</h5>  
+                        <h5 class="uk-h5 b-h5-title-gn uk-margin-small-top uk-margin-remove-bottom">{{ $general->title}}</h5>  
 
                     </a> 
                     <br>
