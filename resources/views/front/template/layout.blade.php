@@ -13,6 +13,7 @@
     {{-- Meta OG Facebook --}}
     <meta property="og:locale" content="es_MX">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="{{asset('img/icon.png')}}">
     @stack('ogf')
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="{{asset('css/uikit.css')}}" >
