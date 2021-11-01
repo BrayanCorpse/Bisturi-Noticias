@@ -11,20 +11,7 @@
     <meta name="description" content="En Bisturí Noticias estamos convencidos de que la noticia debe vivirse, respirarse y palparla para poder contarla.">
     <link rel="canonical" href="https://bisturinoticias.com/">
     {{-- Meta OG Facebook --}}
-    <meta property="og:locale" content="es_MX">
-    <!--change -->
-    <meta property="og:type" content="website"> 
-    <!--change -->
-    <meta property="og:title" content="Somos un portal de noticias, dónde verás reportajes sobre Salud, Deportes, Espectáculos, Lugares Hermosos y Divertidos qué puedes visitar."> 
-    <!--change -->
-    <meta property="og:description" content="En Bisturí Noticias estamos convencidos de que la noticia debe vivirse, respirarse y palparla para poder contarla."> 
-    <meta property="og:url" content="https://bisturinoticias.com/">
-    <!--change -->
-    <meta property="og:site_name" content="Bisturí Noticias">
-    <meta property="article:publisher" content="https://www.facebook.com/bisturinoticias">
-    <!--change -->
-    <meta property="og:image" content="{{asset('img/icon.png')}}">
-    @stack('ogf')
+    @stack('og')
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="{{asset('css/uikit.css')}}" >
     {{-- content --}}

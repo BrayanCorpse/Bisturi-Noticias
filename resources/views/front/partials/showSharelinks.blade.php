@@ -24,32 +24,19 @@
     </a>
 </div>     
 
-@push('js')
-    <script>
-        function metaOG(){
-
-            let Ogtype = document.querySelector('meta[property="og:type"]');
-                Ogtype.setAttribute("content", 'article');
-
-            let Ogtitle = document.querySelector('meta[property="og:title"]');
-                Ogtitle.setAttribute("content", '{{ $article->title }}');
-
-            let Ogdesc = document.querySelector('meta[property="og:description"]');
-                Ogdesc.setAttribute("content", '{{ $article->summary }}');
-
-            let Ogurl = document.querySelector('meta[property="og:url"]');
-                Ogurl.setAttribute("content", '{{ Request::fullUrl() }}');
-
-            let Ogsitename = document.querySelector('meta[property="og:site_name"]');
-                Ogsitename.setAttribute("content", 'Bisturí Noticias | {{ $article->slug }}');
-
-            let Ogimage = document.querySelector('meta[property="og:image"]');
-                Ogimage.setAttribute("content", "{{ asset('storage' . '/' . $article->user->name . '/'. $article->images[0]->name ) }}");
-
-            // console.log(Ogtype, Ogtitle, Ogdesc, Ogsitename, Ogimage);
-        }
-
-        window.onload = metaOG();
-             
-    </script>
+@push('og')
+    <meta property="og:locale" content="es_MX">
+        <meta property="og:type" content="article"> 
+        <meta property="og:title" content="{{ $article->title }}"> 
+        <meta property="og:description" content="{{ $article->summary }}"> 
+        <meta property="og:url" content="{{ Request::fullUrl() }}">
+        @if ( Route::current()->getName() == "index" )
+            <meta property="og:site_name" content="Bisturí Noticias">  
+        @else
+            <meta property="og:site_name" 
+                    content="Bisturí Noticias | {{ $article->slug }}">
+        @endif
+        <meta property="article:publisher" content="https://www.facebook.com/bisturinoticias">
+        <meta property="og:image" 
+                content="{{ asset('storage' . '/' . $article->user->name . '/'. $article->images[0]->name ) }}">
 @endpush 
