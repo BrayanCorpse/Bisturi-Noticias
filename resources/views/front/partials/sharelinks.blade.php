@@ -1,7 +1,7 @@
 
 <div class="uk-flex uk-flex-column b-share-links">
     <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::root().'/'.$article->category->slug.'/'.$article->slug }}&title={{ $article->title }}" 
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         target="_blank" 
         class="uk-icon-button b-icon-button uk-margin-small-right" 
         uk-icon="icon: facebook; ratio: 1">

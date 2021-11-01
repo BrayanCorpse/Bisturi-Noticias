@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="google-site-verification" content="qB2fJCcCuULOtk3ZcMReE6rChVGA6lgG0jun5dNsZZc" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC1CWWF1NP"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PC1CWWF1NP');
+    </script>
     <link rel="shortcut icon" href="{{asset('img/icon.png')}}" type="image/x-icon">
     <title>@yield('title', 'Default')</title>
     <link rel="alternate" href="https://bisturinoticias.com/" hreflang="es-mx">

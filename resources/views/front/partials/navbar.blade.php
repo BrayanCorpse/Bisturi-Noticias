@@ -8,7 +8,7 @@
     <div class="navbar area">
         <!-- Logo -->
         <a class="uk-align-center uk-margin-top b-mb-remove brand" href="{{ route('index')}}" >
-            <img class="img-fluid " src="{{asset('img/logop.png')}}" alt="" width="750" height="300">
+            <img class="img-fluid " src="{{asset('img/logop.png')}}" alt="Bisturí Noticias" width="750" height="300">
         </a>
         <!-- List of links -->
         <nav role="navigation" id="navigation" class="list uk-align-center uk-margin-remove-top">
