@@ -24,7 +24,6 @@
         uk-icon="icon: whatsapp; ratio: 1">
     </a>
 </div>     
-
 @push('og')
     <meta property="og:locale" content="es_MX">
         <meta property="og:type" content="article"> 
@@ -40,4 +39,6 @@
         <meta property="article:publisher" content="https://www.facebook.com/bisturinoticias">
         <meta property="og:image" 
                 content="{{ asset('storage' . '/' . $article->user->name . '/'. $image->name ) }}">
+        <meta property="og:image:width" content="1920">
+        <meta property="og:image:height" content="1080">
 @endpush 

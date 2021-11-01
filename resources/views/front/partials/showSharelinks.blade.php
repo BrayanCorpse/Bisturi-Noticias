@@ -39,4 +39,6 @@
         <meta property="article:publisher" content="https://www.facebook.com/bisturinoticias">
         <meta property="og:image" 
                 content="{{ asset('storage' . '/' . $article->user->name . '/'. $article->images[0]->name ) }}">
+        <meta property="og:image:width" content="1920">
+        <meta property="og:image:height" content="1080">
 @endpush 

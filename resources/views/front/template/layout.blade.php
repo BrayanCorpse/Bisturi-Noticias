@@ -6,11 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="google-site-verification" content="qB2fJCcCuULOtk3ZcMReE6rChVGA6lgG0jun5dNsZZc" />
     <link rel="shortcut icon" href="{{asset('img/icon.png')}}" type="image/x-icon">
-    <link rel="alternate" href="https://bisturinoticias.com/" hreflang="es">
     <title>@yield('title', 'Default')</title>
-    <meta name="description" content="En Bisturí Noticias estamos convencidos de que la noticia debe vivirse, respirarse y palparla para poder contarla.">
+    <link rel="alternate" href="https://bisturinoticias.com/" hreflang="es-mx">
+    <meta name="author" content="ByDSolutions">
+    <meta name="copyright" content="Bisturí Noticias" />
     <link rel="canonical" href="https://bisturinoticias.com/">
-    {{-- Meta OG Facebook --}}
+    <meta name="robots" content="index,follow">
+    <meta name="description" content="En Bisturí Noticias estamos convencidos de que la noticia debe vivirse, respirarse y palparla para poder contarla.">
+    <meta name="keywords" content="Bisturí Noticias, Bisturí, Noticias, Noticias de Toluca, Noticias del Edomex, Información General, Salud, Emergencias, Deportes, Telón y Espectáculos, Opinión, Reportajes, Click del Día, La Planchada, Patrullando, La Cantina">
+    <meta name="msapplication-TileColor" content="#459FC4">
+    <meta name="theme-color" content="#459FC4">
+    {{-- Meta OG --}}
     @stack('og')
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="{{asset('css/uikit.css')}}" >
