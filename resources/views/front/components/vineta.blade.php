@@ -8,7 +8,7 @@
                 <div class="uk-grid-medium uk-flex-middle" uk-grid>
                     <div class="uk-width-auto">
                         <a href="{{ route('showArticle', ['category' => $late->category->slug, 'slug' => $late->slug]) }}" title="{{ $late->title }}">
-                            <img class="b-circle-img" width="100" height="100" src="{{ asset('storage' . '/' . $late->user->name . '/'. $image->name ) }}" alt="{{ $late->title }}">
+                            <img loading="lazy" class="b-circle-img" width="100" height="100" src="{{ asset('storage' . '/' . $late->user->name . '/'. $image->name ) }}" alt="{{ $late->title }}">
                         </a>
                     </div>
                     <div class="uk-width-expand">

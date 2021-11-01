@@ -6,7 +6,7 @@
                     @foreach ($article->images as $key =>  $image)
                         @if ($key >= 0)
                             <li>
-                                <img src="{{ asset('storage' . '/' . $article->user->name . '/'. $image->name ) }}" alt="{{ $article->title }}" uk-cover>
+                                <img loading="lazy" src="{{ asset('storage' . '/' . $article->user->name . '/'. $image->name ) }}" alt="{{ $article->title }}" uk-cover>
                             </li>
                         @endif
                     @endforeach

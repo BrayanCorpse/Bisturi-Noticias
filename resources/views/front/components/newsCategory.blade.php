@@ -5,7 +5,7 @@
             <div class="b-card-category">
                 <a href="{{ route('showArticle', ['category' => $category->category->slug, 'slug' => $category->slug]) }}" title="{{ $category->title }}">
 
-                    <img class="b-image" src="{{ asset('storage' . '/' . $category->user->name . '/'. $image->name ) }}" alt="{{ $category->title }}" width="400">
+                    <img loading="lazy" class="b-image" src="{{ asset('storage' . '/' . $category->user->name . '/'. $image->name ) }}" alt="{{ $category->title }}" width="400">
                 </a>
                 <div class="uk-card-footer uk-card-default b-click-footer">
                     <h6 class="b-h5-title">

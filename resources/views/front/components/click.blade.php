@@ -13,7 +13,7 @@
                     >
             @endif
             @if ($key == 0)
-                <img  src="{{ asset('storage' . '/' . $click->user->name . '/'. $image->name ) }}" 
+                <img loading="lazy" src="{{ asset('storage' . '/' . $click->user->name . '/'. $image->name ) }}" 
                         alt="{{ $click->title }}">
                 </a>
                 <div class=" uk-card-footer uk-card-default b-click-footer">

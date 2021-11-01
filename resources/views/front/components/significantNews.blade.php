@@ -20,7 +20,7 @@
                 @if ($key <= 8)
                 <li uk-slideshow-item="{{$key}}">
                     <a href="{{$key}}">
-                        <img class="b-thumbnav" src="{{ asset('storage' . '/' . $article->user->name . '/'. $image->name ) }}" alt="{{ $article->title }}" width="150">
+                        <img loading="lazy" class="b-thumbnav" src="{{ asset('storage' . '/' . $article->user->name . '/'. $image->name ) }}" alt="{{ $article->title }}" width="150">
                     </a>
                 </li>
                 @endif
