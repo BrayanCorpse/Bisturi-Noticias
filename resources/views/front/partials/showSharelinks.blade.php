@@ -24,7 +24,7 @@
     </a>
 </div>     
 
-@push('og')
+@push('ogf')
     <meta property="og:locale" content="es_MX">
         <meta property="og:type" content="article"> 
         <meta property="og:title" content="{{ $article->title }}"> 
@@ -42,3 +42,15 @@
         <meta property="og:image:width" content="1920">
         <meta property="og:image:height" content="1080">
 @endpush 
+
+@push('ogt')
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@BisturiNoticias">
+<meta name="twitter:site" content="@BisturiNoticias">
+<meta name="twitter:title" content="{{ $article->title }}">
+<meta name="twitter:description" content="{{ $article->summary }}">
+<meta name="twitter:image" 
+        content="{{ asset('storage' . '/' . $article->user->name . '/'. $article->images[0]->name ) }}">
+<meta name="twitter:image:alt" content="{{ $article->title }}">
+@endpush
+
