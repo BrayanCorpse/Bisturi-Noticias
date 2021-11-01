@@ -47,7 +47,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@BisturiNoticias">
 <meta name="twitter:site" content="@BisturiNoticias">
-<meta name="twitter:title" content="{{ $article->title }}">
+<meta name="twitter:title" content="{{ Str::limit($article->title, 70) }}">
 <meta name="twitter:description" content="{{ $article->summary }}">
 <meta name="twitter:image" 
         content="{{ asset('storage' . '/' . $article->user->name . '/'. $image->name ) }}">
