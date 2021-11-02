@@ -168,24 +168,15 @@
     z-index: -2;
 }
 
-.b-h5-Cname{
-    font-family: 'Adelle Sans',sans-serif;
-    font-weight: bold;
-    color: #44A1C3;
-    text-transform: uppercase;
-}
-
 .b-h3-title{
     font-family: 'Adelle Sans',sans-serif;
     font-weight: bold;
 }
 
-.b-h5-title-gn{
-    font-family: 'Adelle Sans',sans-serif;
-    font-weight: bold;
-    text-align: start;
+.b-h6-title-gn{
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
 }
-
 
 .b-body{
     display: flow-root;
@@ -331,11 +322,23 @@
     background: #459FC4;
     padding: 5px 5px 5px 5px;
     z-index: 2;
+    border-radius: 5px;
+}
+
+.b-span-generals {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: #459FC4;
+    padding: 5px 5px 5px 5px;
+    z-index: 3;
+    border-radius: 5px;
 }
 
 .b-span-text{
     display: inline-block;
     text-transform: uppercase;
+    letter-spacing: 1px;
     font-size: 13px;
     line-height: 13px;
     font-weight: bold;
@@ -369,7 +372,7 @@
 
 .b-img-general{
     width: 100%;
-    height: 250px;
+    height: 225px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -411,6 +414,11 @@
 
 .show-card-body{
     padding: 15px 15px;
+}
+
+.b-badge{
+    background: #45ADD3;
+    border-radius: 5px;
 }
 
 /* media Queries */

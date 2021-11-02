@@ -70,6 +70,7 @@
 
         <div class="uk-width-1-3@m">  
             @each('front.components.generalNews',$generals, 'general')
+            {{-- {{ $generals->links() }} --}}
         </div>
         
     </div>

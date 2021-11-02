@@ -296,7 +296,7 @@ class BlogController extends Controller
                 ->where('created_at', '!=', $article->created_at)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
-                ->limit(5)->get();
+                ->limit(7)->get();
         $generals->each(function($generals){
             $generals->category;
             $generals->tags;
