@@ -327,12 +327,12 @@
 
 .b-span-generals {
     position: absolute;
-    top: 25px;
-    right: 25px;
+    top: 15px;
+    left: 10;
     background: #459FC4;
     padding: 5px 5px 5px 5px;
     z-index: 3;
-    border-radius: 5px;
+   
 }
 
 .b-span-text{
@@ -417,7 +417,8 @@
 }
 
 .b-badge{
-    background: #45ADD3;
+    background:#EBEBEB;
+    color: #666666;
     border-radius: 5px;
 }
 
