@@ -12,6 +12,7 @@
         </a>
         <!-- List of links -->
         <nav role="navigation" id="navigation" class="list uk-align-center uk-margin-remove-top">
+            @include('front.partials.animation')
           <a href="{{ route('index')}}" class="item -link" id="inicio">Inicio</a>
           <a href="{{ route('informacion General')}}" class="item -link" id="info">
             Información General
@@ -23,15 +24,21 @@
             Telón y Espectáculos
           </a>
           <a href="{{ route('opinion')}}" class="item -link" id="opinion">Opinión</a>
+         
         </nav>
+        
         <!-- Button to toggle the display menu  -->
         <button data-collapse data-target="#navigation" class="toggle">
           <!-- Hamburger icon -->
           <span class="icon"></span>
         </button>
+        
     </div>
      <h6 class="b-date uk-text-center">{{$date}}</h6>
+     
 </div>
+
+
 
 @push('js')
 <script>

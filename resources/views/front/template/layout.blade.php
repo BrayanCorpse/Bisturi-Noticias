@@ -33,8 +33,8 @@
     <link rel="stylesheet" href="{{asset('css/content.css')}}">
     {{-- navbar --}}
     <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
-
-    @yield('css')
+    {{-- animation --}}
+    <link rel="stylesheet" href="{{asset('css/animation.css')}}">
 </head>
 <body>  
 

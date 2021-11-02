@@ -1,0 +1,77 @@
+#flower{
+	position: relative;
+	width: 75px;
+	display:flex;
+  justify-content: center;
+	align-items: center;
+	animation-name: rotate-flower;
+ 	animation-duration: 3s;
+	animation-iteration-count:infinite;
+}
+@keyframes rotate-flower {
+  0% {
+		 transform: rotate(0deg)
+ 	}
+  50% {
+     	transform: rotate(180deg)
+  }
+	100% {
+     	transform: rotate(360deg)
+  }
+}
+
+#flower section{
+	position:absolute;
+	width: 50px;
+	display:flex;
+	justify-content: space-between;
+	animation-name: rotate-expand;
+ 	animation-duration: 3s;
+	animation-iteration-count:infinite;
+}
+@keyframes rotate-expand {
+  0% {
+		 width: 50px
+ 	}
+  50% {
+			width: 85px
+  }
+	100% {
+		 width: 50px
+  }
+}
+#flower section:before{
+	content:" ";
+	background: linear-gradient(45deg, #f87810 0%,  #dd3636 100%);   
+	border-radius:30% 70% 71% 29% / 47% 47% 53% 53%;
+	width:35px;
+	height:25px;
+	mix-blend-mode: soft-light;
+	opacity: 0.75;
+
+}
+#flower section:after{
+	content:" ";
+	background: linear-gradient(45deg, #f87810 0%,  #dd3636 100%);   
+	border-radius:  66% 34% 39% 61% / 47% 47% 53% 53%;
+	width:35px;
+	height:25px;
+	mix-blend-mode: soft-light;
+	opacity: 0.75;
+
+}
+.two{
+	transform: rotate(45deg)
+}
+.three{
+	transform: rotate(90deg)
+}
+.four{
+	transform: rotate(135deg)
+}
+
+@media (max-width: 768px) {
+  #flower{
+    display: none;
+  }
+}
