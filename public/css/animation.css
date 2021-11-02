@@ -1,6 +1,6 @@
 #flower{
 	position: relative;
-	width: 75px;
+	width: 100px;
 	display:flex;
   justify-content: center;
 	align-items: center;
@@ -22,7 +22,7 @@
 
 #flower section{
 	position:absolute;
-	width: 50px;
+	width: 100px;
 	display:flex;
 	justify-content: space-between;
 	animation-name: rotate-expand;
@@ -31,13 +31,13 @@
 }
 @keyframes rotate-expand {
   0% {
-		 width: 50px
+		 width: 75px
  	}
   50% {
-			width: 85px
+			width: 100px
   }
 	100% {
-		 width: 50px
+		 width: 75px
   }
 }
 #flower section:before{

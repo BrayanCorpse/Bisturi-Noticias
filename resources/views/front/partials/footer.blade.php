@@ -1,5 +1,3 @@
-
-
 <div class="uk-section uk-section-secondary uk-light">
     <div class="uk-container">
         <nav class="uk-navbar-container" uk-navbar>
@@ -9,7 +7,11 @@
                             BISTURI NOTICIAS
                         </h2>
                     </div>
+                    
                     <div class="uk-width-auto@m uk-position-right b-links">
+                        <a href="#" class="uk-button uk-padding-remove-right">
+                            @include('front.partials.animation')
+                        </a>
                         <a  href="https://www.facebook.com/bisturinoticias" 
                             rel="noopener noreferrer" 
                             target="_blank" 
@@ -31,9 +33,14 @@
                         <a  href="https://wa.me/+527225061527?text=Me%20gustaria%20anunciarme%20en%20su%20sitio" 
                             rel="noopener noreferrer" 
                             target="_blank" 
-                            class="uk-icon-button" 
+                            class="uk-icon-button uk-margin-small-right" 
                             uk-icon="icon: whatsapp; ratio: 1.5">
                         </a>
+                        <a href="mailto:tuopinion@bisturinoticias.com"
+                            rel="noopener noreferrer" 
+                            target="_blank" 
+                            class="uk-icon-button" 
+                            uk-icon="icon: mail; ratio: 1.5"></a>
                     </div>
                   
                     
