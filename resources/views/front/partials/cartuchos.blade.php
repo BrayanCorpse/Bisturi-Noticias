@@ -26,7 +26,7 @@
                     @if ($key == 0)
                     <a href="{{ route('showArticle', ['category' => $lastNp->category->slug, 'slug' => $lastNp->slug]) }}" title="{{ $lastNp->title }}">
 
-                        <img class="b-card-img2" src="{{ asset('storage' . '/' . $lastNp->user->name . '/'. $image->name ) }}" alt="{{ $lastNp->title }}" width="400" height="400">
+                        <img class="b-card-img2" src="{{ asset('storage' . '/' . $lastNp->user->name . '/'. $image->name ) }}" alt="{{ $lastNp->title }}" width="315" height="315">
 
                     </a>
                     @endif
@@ -60,7 +60,7 @@
                             @if ($key == 0)
                             <a href="{{ route('showArticle', ['category' => $lastNt->category->slug, 'slug' => $lastNt->slug]) }}" title="{{ $lastNt->title }}">
 
-                                <img class="b-card-img" src="{{ asset('storage' . '/' . $lastNt->user->name . '/'. $image->name ) }}" alt="{{ $lastNt->title }}" width="400" height="400">
+                                <img class="b-card-img" src="{{ asset('storage' . '/' . $lastNt->user->name . '/'. $image->name ) }}" alt="{{ $lastNt->title }}" width="330" height="330">
 
                             </a>
                             @endif
@@ -74,7 +74,7 @@
                             </h6>
                             <h6 class="b-creditos">{{ $lastNt->user->name}}</h6>
                             <p class="b-content-duo">
-                                {{ Str::limit($lastNt->excerpt, 325) }}
+                                {{ Str::limit($lastNt->excerpt, 320) }}
                             </p>
                         </div>
                     </div>
