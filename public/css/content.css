@@ -444,6 +444,10 @@
         height: auto;
     }
 
+    .b-h1-content{
+        font-size: 30px;
+    }
+
     .b-logo-welcome{
         display: none;
     }
