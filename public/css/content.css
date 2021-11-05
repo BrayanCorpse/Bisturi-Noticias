@@ -13,7 +13,7 @@
   }
 
 .b-h1-content{
-    font-size: 64px;
+    font-size: 3.5rem;
     line-height: 1.0625;
     font-weight: 600;
     letter-spacing: -.009em;
@@ -442,9 +442,6 @@
     p iframe {
         width: 100%;
         height: auto;
-    }
-    .b-h1-content{
-        font-size: 30px;
     }
 
     .b-logo-welcome{
