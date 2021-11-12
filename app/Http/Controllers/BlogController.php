@@ -279,6 +279,24 @@ class BlogController extends Controller
         ->with('categories',$categories);
     }
 
+    public function clicks(){
+
+        $clicks = Article::where('status', '=', 'publico')
+                    ->where('tipo_id', '=',7)
+                    ->whereNull('deleted_at')
+                    ->orderBy('created_at', 'DESC')->get();
+
+        $clicks->each(function($clicks){
+                $clicks->category;
+                $clicks->tags;
+                $clicks->images;
+                $clicks->user;
+            });
+
+        return view('front.posts.clicks', compact('clicks'));
+                        
+    }
+
     public function showArticle($category,$slug){
 
         $article = Article::findBySlugOrFail($slug);

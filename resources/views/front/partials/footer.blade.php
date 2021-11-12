@@ -9,38 +9,42 @@
                     </div>
                     
                     <div class="uk-width-auto@m uk-position-right b-links">
-                        <a href="#" class="uk-button uk-padding-remove-right">
-                            @include('front.partials.animation')
-                        </a>
                         <a  href="https://www.facebook.com/bisturinoticias" 
                             rel="noopener noreferrer" 
                             target="_blank" 
-                            class="uk-icon-button uk-margin-small-right" 
-                            uk-icon="icon: facebook; ratio: 1.5">
+                            class="uk-icon-button b-links-button uk-margin-small-right" 
+                            uk-icon="icon: facebook; ratio: 1.3">
                         </a>
                         <a  href="https://twitter.com/BisturiNoticias"
                             rel="noopener noreferrer"
                             target="_blank"  
-                            class="uk-icon-button uk-margin-small-right" 
-                            uk-icon="icon: twitter; ratio: 1.5">
+                            class="uk-icon-button b-links-button uk-margin-small-right" 
+                            uk-icon="icon: twitter; ratio: 1.3">
                         </a>
                         <a  href="https://www.instagram.com/bisturi_noticias/" 
                             rel="noopener noreferrer"
                             target="_blank" 
-                            class="uk-icon-button uk-margin-small-right" 
-                            uk-icon="icon: instagram; ratio: 1.5">
+                            class="uk-icon-button b-links-button uk-margin-small-right" 
+                            uk-icon="icon: instagram; ratio: 1.3">
                         </a>
                         <a  href="https://wa.me/+527225061527?text=Me%20gustaria%20anunciarme%20en%20su%20sitio" 
                             rel="noopener noreferrer" 
                             target="_blank" 
-                            class="uk-icon-button uk-margin-small-right" 
-                            uk-icon="icon: whatsapp; ratio: 1.5">
+                            class="uk-icon-button b-links-button uk-margin-small-right" 
+                            uk-icon="icon: whatsapp; ratio: 1.3">
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCmFMfAhTgGjLSclxH-tw7BA"
+                            rel="noopener noreferrer" 
+                            target="_blank" 
+                            class="uk-icon-button b-links-button uk-margin-small-right" 
+                            uk-icon="icon: youtube; ratio: 1.3">
                         </a>
                         <a href="mailto:tuopinion@bisturinoticias.com"
                             rel="noopener noreferrer" 
                             target="_blank" 
-                            class="uk-icon-button" 
-                            uk-icon="icon: mail; ratio: 1.5"></a>
+                            class="uk-icon-button b-links-button" 
+                            uk-icon="icon: mail; ratio: 1.3">
+                        </a>
                     </div>
                   
                     
@@ -51,6 +55,7 @@
         <hr>
 
         <ul class="uk-subnav uk-flex-center links uk-margin-medium-top">
+            
             <li class="uk-active"><a href="{{ route('index')}}">Inicio</a></li>
             <li class="uk-active">
                 <a href="{{ route('informacion General')}}">Información General</a>
@@ -65,7 +70,7 @@
         </ul>
 
         <p class="register uk-text-center uk-margin-medium-top">Bisturi Noticias de México ® 2021</p>
-
+        
         <ul class="uk-subnav uk-flex-center terms">
             <li class="uk-active"><a href="#">Aviso de Privacidad |</a></li>
             <li class="uk-active"><a href="#modal-full" uk-toggle>Acerca de Nosotros |</a></li>

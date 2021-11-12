@@ -52,11 +52,12 @@ Route::get('telon-y-espectaculos', 'BlogController@telonyEspectaculos')->name('t
 Route::get('emergencias', 'BlogController@emergencias')->name('emergencias');
 Route::get('salud', 'BlogController@salud')->name('salud');
 Route::get('deportes', 'BlogController@deportes')->name('deportes');
+Route::get('clicks', 'BlogController@clicks')->name('clicks');
 
 Route::get('{category}/{slug}', 'BlogController@showArticle')->name('showArticle');
 // Delete Images
 Route::resource('ajax-posts', 'ajaxcrud\AjaxPostController');
-Route::get('clicks', 'ajaxcrud\AjaxPostController@clicks')->name('clicks');
+
 
 
 

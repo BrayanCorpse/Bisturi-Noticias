@@ -1,77 +1,241 @@
-#flower{
-	position: relative;
-	width: 100px;
-	display:flex;
-  justify-content: center;
-	align-items: center;
-	animation-name: rotate-flower;
- 	animation-duration: 3s;
-	animation-iteration-count:infinite;
+.animation svg{
+	position: absolute;
+	left: 30px;
+	top: 0px;
+	z-index: 15;
 }
-@keyframes rotate-flower {
-  0% {
-		 transform: rotate(0deg)
- 	}
-  50% {
-     	transform: rotate(180deg)
-  }
-	100% {
-     	transform: rotate(360deg)
-  }
+.snowman_body {
+    fill: #F8F9F9;
+	animation: body-drop 0.5s ease-in forwards;
+    -webkit-animation: body-drop 0.5s ease-in forwards;
 }
 
-#flower section{
-	position:absolute;
-	width: 100px;
-	display:flex;
-	justify-content: space-between;
-	animation-name: rotate-expand;
- 	animation-duration: 3s;
-	animation-iteration-count:infinite;
+.scarf {
+    fill: #EF3C3C;
+    opacity: 0;
+	animation: scale 0.5s ease 1s forwards;
+    -webkit-animation: scale 0.5s ease 1s forwards;
+	transform-origin: 55px 165px;
+    -webkit-transform-origin: 55px 165px;
 }
-@keyframes rotate-expand {
-  0% {
-		 width: 75px
- 	}
-  50% {
-			width: 100px
-  }
-	100% {
-		 width: 75px
-  }
-}
-#flower section:before{
-	content:" ";
-	background: linear-gradient(45deg, #f87810 0%,  #dd3636 100%);   
-	border-radius:30% 70% 71% 29% / 47% 47% 53% 53%;
-	width:35px;
-	height:25px;
-	mix-blend-mode: soft-light;
-	opacity: 0.75;
 
+.scarf_knot{
+    fill: #EF3C3C;
+     opacity: 0;
+	 animation: scale 0.3s ease 1.5s forwards;
+    -webkit-animation: scale 0.3s ease 1.5s forwards;
+	transform-origin: 92px 190px;
+    -webkit-transform-origin: 92px 190px;
 }
-#flower section:after{
-	content:" ";
-	background: linear-gradient(45deg, #f87810 0%,  #dd3636 100%);   
-	border-radius:  66% 34% 39% 61% / 47% 47% 53% 53%;
-	width:35px;
-	height:25px;
-	mix-blend-mode: soft-light;
-	opacity: 0.75;
 
+.snowman_head {
+    fill: #F8F9F9;
+	transform: translateY(-303px);
+    -webkit-transform: translateY(-303px);
+	animation: body-drop 0.5s ease-in 0.2s forwards;
+    -webkit-animation: body-drop 0.5s ease-in 0.2s forwards;
 }
-.two{
-	transform: rotate(45deg)
+
+#hat {
+	transform: translateY(-303px);
+    -webkit-transform: translateY(-303px);
+	animation: body-drop 0.5s ease-in 0.3s forwards;
+    -webkit-animation: body-drop 0.5s ease-in 0.3s forwards;
 }
-.three{
-	transform: rotate(90deg)
+
+.hat-top {
+    fill: #222;
 }
-.four{
-	transform: rotate(135deg)
+
+.hat-ribbon {
+    fill: #EF3C3C;
+}
+
+.hat-bottom {
+    fill: #222;
+}
+
+.nose {
+    fill: #EF3C3C;
+    opacity: 0;
+	animation: scale 0.3s ease 2.5s forwards;
+    -webkit-animation: scale 0.3s ease 2.5s forwards;
+	transform-origin: 104px 142px;
+    -webkit-transform-origin: 104px 142px;
+}
+
+.mouth-1 {
+    fill: #222;
+    opacity: 0;
+	animation:  scale 0.1s ease 3.1s forwards;
+    -webkit-animation: scale 0.1s ease 3.1s forwards;
+	transform-origin: 82px 156px;
+    -webkit-transform-origin: 82px 156px;
+}
+
+.mouth-2 {
+    fill: #222;
+    opacity: 0;
+	animation: scale 0.1s ease 3.2s forwards;
+    -webkit-animation: scale 0.1s ease 3.2s forwards;
+	transform-origin: 86px 162px;
+    -webkit-transform-origin: 86px 162px;
+}
+
+.mouth-3 {
+    fill: #222;
+    opacity: 0;
+    -webkit-animation: scale 0.1s ease 3.3s forwards;
+    -webkit-transform-origin: 92px 167px;
+	animation: scale 0.1s ease 3.3s forwards;
+    transform-origin: 92px 167px;
+}
+
+.mouth-4 {
+    fill: #222;
+    opacity: 0;
+	animation: scale 0.1s ease 3.4s forwards;
+    -webkit-animation: scale 0.1s ease 3.4s forwards;
+	transform-origin: 98px 169px;
+    -webkit-transform-origin: 98px 169px;
+}
+
+.mouth-5 {
+    fill: #222;
+    opacity: 0;
+    -webkit-animation: scale 0.1s ease 3.5s forwards;
+    -webkit-transform-origin: 106px 171px;
+	animation: scale 0.1s ease 3.5s forwards;
+    transform-origin: 106px 171px;
+}
+
+.mouth-6 {
+    fill: #222;
+    opacity: 0;
+    -webkit-animation: scale 0.1s ease 3.6s forwards;
+	animation: scale 0.1s ease 3.6s forwards;
+	transform-origin: 113px 171px;
+    -webkit-transform-origin: 113px 171px;
+}
+
+.mouth-7 {
+    fill: #222;
+    opacity: 0;
+    -webkit-animation: scale 0.1s ease 3.7s forwards;
+    -webkit-transform-origin: 120px 171px;
+	animation: scale 0.1s ease 3.7s forwards;
+    transform-origin: 120px 171px;
+}
+
+.mouth-8 {
+    fill: #222;
+    opacity: 0;
+    -webkit-animation: scale 0.1s ease 3.8s forwards;
+    -webkit-transform-origin: 127px 169px;
+	animation: scale 0.1s ease 3.8s forwards;
+    transform-origin: 127px 169px;
+}
+
+.mouth-9 {
+    fill: #222;
+    opacity: 0;
+    -webkit-animation: scale 0.1s ease 3.9s forwards;
+    -webkit-transform-origin: 132px 165px;
+	animation: scale 0.1s ease 3.9s forwards;
+    transform-origin: 132px 165px;
+}
+
+.mouth-10 {
+    fill: #222;
+    opacity: 0;
+    -webkit-animation: scale 0.1s ease 4.0s forwards;
+    -webkit-transform-origin: 137px 160px;
+	animation: scale 0.1s ease 4.0s forwards;
+    transform-origin: 137px 160px;
+}
+
+.eye_left {
+    fill: #222;
+    opacity: 0;
+    -webkit-animation: scale 0.2s ease 2.7s forwards;
+    -webkit-transform-origin: 92px 122px;
+	animation: scale 0.2s ease 2.7s forwards;
+    transform-origin: 92px 122px;
+}
+
+.eye_right {
+    fill: #222;
+    opacity: 0;
+    -webkit-animation: scale 0.2s ease 2.9s forwards;
+    -webkit-transform-origin: 125px 120px;
+	animation: scale 0.2s ease 2.9s forwards;
+    transform-origin: 125px 120px;
+}
+
+.button_top {
+    fill: #222;
+    opacity: 0;
+    -webkit-animation: scale 0.3s ease 2.2s forwards;
+    -webkit-transform-origin: 132px 217px;
+	animation: scale 0.3s ease 2.2s forwards;
+    transform-origin: 132px 217px;
+}
+
+.button_bottom {
+    fill: #222;
+    opacity: 0;
+    -webkit-animation: scale 0.3s ease 2s forwards;
+    -webkit-transform-origin: 132px 252px;
+	animation: scale 0.3s ease 2s forwards;
+    transform-origin: 132px 252px;
+}
+
+@keyframes body-drop {
+    0% {
+        -webkit-transform: translateY(-303px);
+    }
+    
+    100% {
+        -webkit-transform: translateY(0px);
+    }
+}
+
+@-webkit-keyframes body-drop {
+    0% {
+        -webkit-transform: translateY(-303px);
+    }
+    
+    100% {
+        -webkit-transform: translateY(0px);
+    }
+}
+
+@keyframes scale {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(0,0);
+    }
+    
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1,1);
+    }
+}
+
+@-webkit-keyframes scale {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(0,0);
+    }
+    
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1,1);
+    }
 }
 
 @media (max-width: 768px) {
-  #flower{
-    display: none;
-  }
+	.animation svg{
+		display: none;
+	}
 }

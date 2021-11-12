@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Tourney:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sanchez&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
 
 
 .b-hr {
@@ -207,6 +208,7 @@
 
 .b-bottom-cat{
     margin-bottom: -10px !important;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .b-card-color {
@@ -315,14 +317,21 @@
     background: #E3F1F1;
 }
 
-.b-span-section {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: #459FC4;
-    padding: 5px 5px 5px 5px;
-    z-index: 2;
-    border-radius: 5px;
+
+.b-card-header{
+    background: url(https://bisturinoticias.com/storage/Rodrigo%20Miranda%20Torres/eJUcs28gmz4QOzxhuVX81fzbYLx5FuWL6oF7K0mUatard4.jpg);
+    padding: 5px 5px;
+}
+
+.b-span-text{
+    float: right;
+    letter-spacing: 1px;
+    font-size: 15px;
+    line-height: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff!important;
+    font-family: 'Puritan', sans-serif;
 }
 
 .b-span-generals {
@@ -333,17 +342,6 @@
     padding: 5px 5px 5px 5px;
     z-index: 3;
    
-}
-
-.b-span-text{
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 13px;
-    line-height: 13px;
-    font-weight: bold;
-    vertical-align: top;
-    color: #fff!important;
 }
 
 .b-sumario{
@@ -421,6 +419,69 @@
     color: #666666;
     border-radius: 5px;
 }
+
+/* clicks */
+.cards-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    margin: 30px auto;
+    width: 350px;
+    height: 250px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    transition: 0.2s;
+  }
+
+  .card .card_image {
+    width: inherit;
+    height: inherit;
+    border-radius: 20px;
+  }
+
+  .b-expand {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #fff;
+      z-index: 15;
+  }
+
+  .b-expand:hover{
+      color: #E3F1F1;
+  }
+  
+  .card .card_image .b-card-image {
+    width: 350px;
+    height: 250px;
+    border-radius: 20px;
+    object-fit: cover;
+    object-position: center center;
+  }
+  
+  .card .card_title {
+    margin-top: 10px;
+  }
+
+  .b-click-title {
+    color: #85929E;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+  }
+
+ 
+    
+  @media all and (max-width: 500px) {
+    .card-list {
+      /* On small screens, we are no longer using row direction but column */
+      flex-direction: column;
+    }
+  }
+  
 
 /* media Queries */
 @media (min-width: 1200px){
@@ -514,6 +575,14 @@
 
     .b-card-img,.b-card-img2{
         height: 280px;
+    }
+    .b-span-section{
+        top: 0px;
+        width: 97%;
+    }
+
+    .facebook{
+        width: 100%;
     }
 }
 

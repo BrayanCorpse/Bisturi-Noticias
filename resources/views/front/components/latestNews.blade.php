@@ -26,7 +26,9 @@
                     </div>  
                 </div>
                 <div class="b-sub">
-                    <h6 class="uk-text-muted b-bottom-cat">{{ $late->subcategoria }}</h6>
+                    <h4 class="b-bottom-cat">
+                        <strong>{{ $late->subcategoria }}</strong>
+                    </h4>
                     <hr class="uk-divider-small b-hr-s">
                 </div>
             </div>
