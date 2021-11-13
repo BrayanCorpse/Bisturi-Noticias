@@ -284,7 +284,8 @@ class BlogController extends Controller
         $clicks = Article::where('status', '=', 'publico')
                     ->where('tipo_id', '=',7)
                     ->whereNull('deleted_at')
-                    ->orderBy('created_at', 'DESC')->get();
+                    ->orderBy('created_at', 'DESC')
+                    ->paginate(6);
 
         $clicks->each(function($clicks){
                 $clicks->category;
