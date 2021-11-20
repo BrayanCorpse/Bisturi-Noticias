@@ -26,6 +26,7 @@
             Telón y Espectáculos
           </a>
           <a href="{{ route('opinion')}}" class="item -link" id="opinion">Opinión</a>
+          <a href="{{ route('clicks') }}" class="item -link" id="click">Click del Día</a>
 
         </nav>
 
@@ -65,6 +66,9 @@
     }
     else if(window.location.pathname == '/opinion'){
         document.getElementById('opinion').style.cssText = 'color: #459FC4;';
+    }
+    else if(window.location.pathname == '/click'){
+        document.getElementById('click').style.cssText = 'color: #459FC4;';
     }
 
 </script>

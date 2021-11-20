@@ -1,7 +1,7 @@
 .animation svg{
 	position: absolute;
-	left: 30px;
-	top: 0px;
+	left: 20px;
+	top: -30px;
 	z-index: 15;
 }
 .snowman_body {

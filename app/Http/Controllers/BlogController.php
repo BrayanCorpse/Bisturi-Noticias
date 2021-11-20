@@ -101,11 +101,9 @@ class BlogController extends Controller
             $articles->user;
         });
 
-        // dd($articles[0]);
-
         $categories = Article::where('category_id',21)
                 ->where('status', '=', 'publico')
-                ->where('tipo_id', '!=',2)
+                ->whereNotIn('tipo_id', [2, 3, 7])
                 ->where('created_at', '!=', $articles[0]->created_at)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
@@ -117,6 +115,7 @@ class BlogController extends Controller
             $categories->user;
         });
 
+        // dd($categories);
 
         return view('front.sections.informacionGeneral')
         ->with('articles',$articles)
@@ -158,7 +157,7 @@ class BlogController extends Controller
 
         $categories = Article::where('category_id',16)
                 ->where('status', '=', 'publico')
-                ->where('tipo_id', '!=',2)
+                ->whereNotIn('tipo_id', [2, 3, 7])
                 ->where('created_at', '!=', $articles[0]->created_at)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
@@ -192,7 +191,7 @@ class BlogController extends Controller
 
         $categories = Article::where('category_id',20)
                 ->where('status', '=', 'publico')
-                ->where('tipo_id', '!=',2)
+                ->whereNotIn('tipo_id', [2, 3, 7])
                 ->where('created_at', '!=', $articles[0]->created_at)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
@@ -228,7 +227,7 @@ class BlogController extends Controller
 
         $categories = Article::where('category_id',17)
                 ->where('status', '=', 'publico')
-                ->where('tipo_id', '!=',2)
+                ->whereNotIn('tipo_id', [2, 3, 7])
                 ->where('created_at', '!=', $articles[0]->created_at)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
@@ -262,7 +261,7 @@ class BlogController extends Controller
 
         $categories = Article::where('category_id',18)
                 ->where('status', '=', 'publico')
-                ->where('tipo_id', '!=',2)
+                ->whereNotIn('tipo_id', [2, 3, 7])
                 ->where('created_at', '!=', $articles[0]->created_at)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
