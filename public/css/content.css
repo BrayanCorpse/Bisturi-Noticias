@@ -473,17 +473,48 @@
     font-family: 'Roboto Slab', serif;
   }
 
+/* Pagination */
+  .heading {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Roboto Mono', monospace;
+    color: #43A1C4;
+  }
+  
+  .pagination {
+    display: flex;
+    flex-direction: row;
+    font-family: "Roboto", sans-serif;
+  }
+  .pagination-item {
+    margin-right: 18px;
+    border-radius: 10px;
+    border: solid 1px #ececec;
+    list-style: none;
+  }
+  .pagination-item a {
+    padding: 11px 16px 11px 16px;
+    display: inline-block;
+    border-radius: 10px;
+    transition: 0.2s all;
+    text-decoration: none !important;
+  }
+  .pagination-item a:hover {
+    background-color: #ececec;
+  }
+  
+  .pg-active {
+    background-color: #ececec;
+  }
  
-    
-  @media all and (max-width: 500px) {
+ /* media Queries */   
+@media all and (max-width: 500px) {
     .card-list {
       /* On small screens, we are no longer using row direction but column */
       flex-direction: column;
     }
   }
   
-
-/* media Queries */
 @media (min-width: 1200px){
     .b-card-body {
         padding: 10px 10px;

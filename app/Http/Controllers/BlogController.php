@@ -107,7 +107,7 @@ class BlogController extends Controller
                 ->where('created_at', '!=', $articles[0]->created_at)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
-                ->limit(3)->get();
+                ->paginate(2);
         $categories->each(function($categories){
             $categories->category;
             $categories->tags;
@@ -161,7 +161,7 @@ class BlogController extends Controller
                 ->where('created_at', '!=', $articles[0]->created_at)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
-                ->limit(3)->get();
+                ->paginate(2);
         $categories->each(function($categories){
             $categories->category;
             $categories->tags;
@@ -195,7 +195,7 @@ class BlogController extends Controller
                 ->where('created_at', '!=', $articles[0]->created_at)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
-                ->limit(3)->get();
+                ->paginate(2);
         $categories->each(function($categories){
             $categories->category;
             $categories->tags;
@@ -231,7 +231,7 @@ class BlogController extends Controller
                 ->where('created_at', '!=', $articles[0]->created_at)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
-                ->limit(3)->get();
+                ->paginate(2);
         $categories->each(function($categories){
             $categories->category;
             $categories->tags;
@@ -265,7 +265,7 @@ class BlogController extends Controller
                 ->where('created_at', '!=', $articles[0]->created_at)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
-                ->limit(3)->get();
+                ->paginate(2);
         $categories->each(function($categories){
             $categories->category;
             $categories->tags;
