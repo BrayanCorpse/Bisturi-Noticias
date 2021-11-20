@@ -31,7 +31,7 @@
                     @foreach ($element as $page => $url)
                         @if ($page == $paginator->currentPage())
                             <li class="pagination-item pg-active">
-                                <a class="uk-link-muted" href=""><span>{{ $page }}</span></a>
+                                <a class="uk-link-muted" href=""><span style="color:#43A1C4; font-weight: bold;">{{ $page }}</span></a>
                             </li>
                         @else
                             <li class="pagination-item pg-active">

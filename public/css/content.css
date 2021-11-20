@@ -502,7 +502,7 @@
   .pagination-item a:hover {
     background-color: #ececec;
   }
-  
+    
   .pg-active {
     background-color: #ececec;
   }
@@ -614,6 +614,9 @@
 
     .facebook{
         width: 100%;
+    }
+    .pagination{
+        overflow-x: scroll;
     }
 }
 
