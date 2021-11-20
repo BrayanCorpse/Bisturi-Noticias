@@ -6,11 +6,11 @@
         <ul class="pagination uk-flex-center" uk-margin>
             {{-- Previous Page Link --}}
             @if ($paginator->onFirstPage())
-                <li class="pagination-item" aria-label="@lang('pagination.previous')">
+                {{-- <li class="pagination-item" aria-label="@lang('pagination.previous')">
                     <a class="uk-link-muted" href="#">
                         Previous
                     </a>
-                </li>
+                </li> --}}
             @else
                 <li class="pagination-item" aria-label="@lang('pagination.previous')">
                     <a class="uk-link-muted" href="{{ $paginator->previousPageUrl() }}" >
@@ -49,12 +49,12 @@
                         <span uk-pagination-next></span>
                     </a>
                 </li>
-            @else
+            {{-- @else
                 <li class="pagination-item" aria-label="@lang('pagination.next')">
                     <a class="uk-link-muted" href="#">
                         Next
                     </a>
-                </li>
+                </li> --}}
             @endif
         </ul>
 @endif

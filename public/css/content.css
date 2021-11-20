@@ -616,7 +616,8 @@
         width: 100%;
     }
     .pagination{
-        overflow-x: scroll;
+        overflow: scroll;
+        display: -webkit-box;
     }
 }
 
