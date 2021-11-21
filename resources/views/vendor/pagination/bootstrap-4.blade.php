@@ -1,6 +1,6 @@
-<h3 class="heading uk-text-center">
+<h4 class="heading uk-text-center uk-margin-large-top">
 	Mira más Noticias
-</h3>
+</h4>
 
 @if ($paginator->hasPages())
         <ul class="pagination uk-flex-center" uk-margin>

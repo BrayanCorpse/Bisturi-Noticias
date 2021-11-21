@@ -10,7 +10,7 @@ use App\Article;
 use App\Image;
 use App\User;
 use App\Tipo;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Jenssegers\Date\Date;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Cviebrock\EloquentSluggable\findBySlugOrFail;
@@ -108,6 +108,7 @@ class BlogController extends Controller
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
                 ->paginate(2);
+        // dd($categories);
         $categories->each(function($categories){
             $categories->category;
             $categories->tags;

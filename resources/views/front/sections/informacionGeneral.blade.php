@@ -29,7 +29,7 @@
         @each('front.components.latestNews',$latest, 'late')
     </div>
      --}}
-    {{ $categories->links() }} 
+    {{ $categories->onEachSide(2)->links() }} 
 
    
 @endsection
