@@ -28,6 +28,8 @@
                     <td>
                         @if ($user->type =='admin')
                             <span class="badge badge-pill badge-success">{{ $user->type }}</span>
+                        @elseif($user->type =='root')  
+                            <span class="badge badge-pill badge-dark">{{ $user->type }}</span>
                         @else
                             <span class="badge badge-pill badge-primary">{{ $user->type }}</span>
                         @endif

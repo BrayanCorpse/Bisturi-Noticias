@@ -56,4 +56,16 @@
   input[type="range"]::-webkit-slider-thumb:active {
     transform: scale(1.6);
   }
+
+  .analytics-pdf{
+    width: initial !important;
+    height: 350px;
+  }
+
+  @media (max-width: 768px) {
+    .b-row{
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
   

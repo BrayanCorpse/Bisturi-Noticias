@@ -1,4 +1,3 @@
-
     <!-- Sidebar Holder -->
     <nav id="sidebar">
       <div class="sidebar-header">
@@ -8,10 +7,6 @@
           <ul class="list-unstyled components">
             <p>Panel de Administración</p>
             @if (Auth::user()->type ==="admin")
-            <li>
-                <a href="{{ route('users.index') }}" tabindex="-1">Usuarios</a>
-            </li>
-            @endif
             <li>
               <a href="{{ route('categories.index') }}" tabindex="-1" >Categorias</a>
             </li>
@@ -38,17 +33,72 @@
               </ul>  
             </li>
             <li>
-              {{-- <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages 
+                <a href="{{ route('analytics.report') }}" tabindex="-1">Google Analytics</a>
+            </li>
+            @elseif (Auth::user()->type === "root")
+            <li>
+                <a href="{{ route('users.index') }}" tabindex="-1">Usuarios</a>
+            </li>
+            <li>
+              <a href="{{ route('categories.index') }}" tabindex="-1" >Categorias</a>
+            </li>
+            <li>
+              <a href="{{ route('subcategories.index') }}" tabindex="-1" >Subcategorias</a>
+            </li>
+            <li>
+              <a href="{{ route('tags.index') }}" tabindex="-1" >Tags</a>
+            </li>
+            <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Articulos 
                 <i class="fa fa-sort-desc fa-pull-right" aria-hidden="true"></i>
               </a>
               <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li><a href="#">Page 1</a></li>
-                <li><a href="#">Page 2</a></li>
-                <li><a href="#">Page 3</a></li>
-              </ul> --}}
+                <li>
+                  <a href="{{ route('articles.indexPublics') }}" tabindex="-1">Publicados</a>
+                </li>
+                <li>
+                  <a href="{{ route('articles.index') }}" tabindex="-1">Borradores</a>
+                </li>
+                <li>
+                  <a href="{{ route('articles.indexSoftDeletes') }}">Papelera</a>
+                </li>
+              </ul>  
             </li>
+            <li>
+              <a href="{{ route('analytics.create') }}" tabindex="-1">Google Analytics</a>
+            </li>
+            <li>
+                <a href="{{ route('analytics.report') }}" tabindex="-1">Reportes GA</a>
+            </li>
+            @else
+              <li>
+                <a href="{{ route('categories.index') }}" tabindex="-1" >Categorias</a>
+              </li>
+              <li>
+                <a href="{{ route('subcategories.index') }}" tabindex="-1" >Subcategorias</a>
+              </li>
+              <li>
+                <a href="{{ route('tags.index') }}" tabindex="-1" >Tags</a>
+              </li>
+              <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Articulos 
+                  <i class="fa fa-sort-desc fa-pull-right" aria-hidden="true"></i>
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                  <li>
+                    <a href="{{ route('articles.indexPublics') }}" tabindex="-1">Publicados</a>
+                  </li>
+                  <li>
+                    <a href="{{ route('articles.index') }}" tabindex="-1">Borradores</a>
+                  </li>
+                  <li>
+                    <a href="{{ route('articles.indexSoftDeletes') }}">Papelera</a>
+                  </li>
+                </ul>  
+              </li>
+            @endif
           </ul>
-      @endif
+          @endif
       
     </nav>
 

@@ -23,7 +23,7 @@
           <a href="{{ route('emergencias') }}" class="item -link" id="emergencias">Emergencias</a>
           <a href="{{ route('deportes') }}" class="item -link" id="deportes">Deportes</a>
           <a href="{{ route('telon y Espectaculos')}}" class="item -link" id="telon">
-            Telón y Espectáculos
+            Telón,Espectáculos y Letras
           </a>
           <a href="{{ route('opinion')}}" class="item -link" id="opinion">Opinión</a>
           <a href="{{ route('clicks') }}" class="item -link" id="click">Click del Día</a>

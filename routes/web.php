@@ -43,6 +43,10 @@ Route::prefix('admin')->group(function () {
     Route::get('images', 'ImagesController')->name('images.index');
 
     Route::get('search', 'TagsController@search')->name('tags.search');
+
+    Route::get('analytics-report', 'AnalyticsController@analyticsReport')->name('analytics.report');
+    Route::get('analytics-create', 'AnalyticsController@create')->name('analytics.create');
+    Route::post('analytics-store', 'AnalyticsController@store')->name('analytics.store');
     
 
 });

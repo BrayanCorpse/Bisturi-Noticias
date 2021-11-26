@@ -64,7 +64,7 @@
             <li class="uk-active"><a href="{{ route('emergencias') }}">Emergencias</a></li>
             <li class="uk-active"><a href="{{ route('deportes') }}">Deportes</a></li>
             <li class="uk-active">
-                <a href="{{ route('telon y Espectaculos')}}">Telón y Espectáculos</a>
+                <a href="{{ route('telon y Espectaculos')}}">Telón,Espectáculos y Letras</a>
             </li>
             <li class="uk-active"><a href="{{ route('opinion')}}">Opinión</a></li>
             <li class="uk-active">
