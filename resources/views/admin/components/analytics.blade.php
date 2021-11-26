@@ -1,6 +1,6 @@
 @extends('admin.template.main')
 
-@section('title', 'Reportes de Bisturí Nosticias por Google Analytics.')
+@section('title', 'Reportes de Bisturí Noticias por Google Analytics.')
 
 @section('content')
 <div class="row mt-4 b-row">
