@@ -12,6 +12,26 @@
   margin-right: auto;
 }
 
+/* Reloj */
+.clock {
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%); */
+  color: #43A1C4;
+  font-size: 12px;
+  font-family: 'Cousine', monospace !important;
+  letter-spacing: 7px;
+}
+
+.b-time{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+/* Media queries */
 
 @media (min-width: 768px) {
   .area {

@@ -37,8 +37,14 @@
         </button>
 
     </div>
-     <h6 class="b-date uk-text-center">{{$date}}</h6>
-
+     <section class="uk-h6 b-date uk-text-center">
+         {{$date}}
+         <div class="b-time">
+            <div id="MyClockDisplay" class="clock" ></div>
+            <div id="icon-mode"></div>
+         </div>
+     </section>
+     
 </div>
 
 
@@ -106,6 +112,51 @@
     document.addEventListener('click', collapseClickHandler, false);
 
     })(document, window);
+</script>
+<script>
+ 
+    let datetime = new Date();
+    let hr = datetime.getHours(); // 0 - 23
+    console.log(hr);
+    let icon = document.getElementById('icon-mode');
+
+    if(hr <= 12){
+        icon.innerHTML = `<img src="{{asset('img/sun.svg')}}" alt="Buenos Días" width="20" height="20">`;
+    }
+    else if(hr > 12){
+        icon.innerHTML = `<img src="{{asset('img/eclipse.svg')}}" alt="Buenos Noches" width="20" height="20">`;
+    }
+
+    function showTime(){
+    let date = new Date();
+    let h = date.getHours(); // 0 - 23
+    let m = date.getMinutes(); // 0 - 59
+    let s = date.getSeconds(); // 0 - 59
+    let session = "AM";
+    
+    if(h == 0){
+        h = 12;
+        
+    }
+    else if(h > 12){
+        h = h - 12;
+        session = "PM";
+       
+    }
+    
+    h = (h < 10) ? "0" + h : h;
+    m = (m < 10) ? "0" + m : m;
+    s = (s < 10) ? "0" + s : s;
+    
+    var time = h + ":" + m + ":" + s + " " + session;
+    document.getElementById("MyClockDisplay").innerText = time;
+    document.getElementById("MyClockDisplay").textContent = time;
+    
+    setTimeout(showTime, 1000);
+    
+}
+
+window.onload = showTime;
 </script>
 @endpush
 

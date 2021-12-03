@@ -1,8 +1,7 @@
 .animation svg{
 	position: absolute;
 	left: 20px;
-	top: -40px;
-	z-index: 15;
+	top: -10px;
 }
 .snowman_body {
     fill: #F8F9F9;

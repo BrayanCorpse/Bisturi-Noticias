@@ -1,5 +1,5 @@
 <svg version="1.1" id="svg_snowman" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-	 y="0px" width="110px" height="225px" viewBox="0 0 286 380" enable-background="new 0 0 286 380" xml:space="preserve">
+	 y="0px" width="100px" height="150px" viewBox="0 0 286 380" enable-background="new 0 0 286 380" xml:space="preserve">
          
          <g id="snowman">
 	
