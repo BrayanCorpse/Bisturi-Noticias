@@ -117,7 +117,6 @@
  
     let datetime = new Date();
     let hr = datetime.getHours(); // 0 - 23
-    console.log(hr);
     let icon = document.getElementById('icon-mode');
 
     if(hr <= 12){

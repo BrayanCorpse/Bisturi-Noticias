@@ -6,7 +6,7 @@
 
     <div class="uk-text-center uk-grid-collapse uk-margin-medium-top" uk-grid>
 
-        <div class="uk-width-expand@m">
+        <div class="b-mt-espec uk-width-expand@m">
             @each('front.components.mainNews',$articles, 'article')
         </div>
 

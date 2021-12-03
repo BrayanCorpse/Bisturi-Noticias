@@ -527,8 +527,12 @@
 @media (max-width: 768px) {
     .b-header {
         position: absolute !important;
-        top: 145px;
+        top: 165px;
         z-index: 2;
+    }
+
+    .b-mt-espec{
+        margin-top: 10px;
     }
 
     p iframe {
