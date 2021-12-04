@@ -55,6 +55,7 @@
     <script src="{{asset('js/uikit.min.js')}}" defer></script>
     <script src="{{asset('js/uikit-icons.min.js')}}" defer></script>
     @stack('js')
+    @stack('time')
 
 </body>
 </html>

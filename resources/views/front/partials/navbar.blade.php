@@ -40,7 +40,7 @@
      <section class="uk-h6 b-date uk-text-center">
          {{$date}}
          <div class="b-time">
-            <div id="MyClockDisplay" class="clock" ></div>
+            <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
             <div id="icon-mode"></div>
          </div>
      </section>
@@ -113,6 +113,8 @@
 
     })(document, window);
 </script>
+@endpush
+@push('time')
 <script>
  
     let datetime = new Date();
@@ -155,7 +157,7 @@
     
 }
 
-window.onload = showTime;
-</script>
+showTime();
+</script>  
 @endpush
 
