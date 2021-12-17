@@ -125,7 +125,7 @@
         icon.innerHTML = `<img src="{{asset('img/sun.svg')}}" alt="Buenos Días" width="20" height="20">`;
     }
     else if(hr > 12){
-        icon.innerHTML = `<img src="{{asset('img/eclipse.svg')}}" alt="Buenos Noches" width="20" height="20">`;
+        icon.innerHTML = `<img src="{{asset('img/eclipse.svg')}}" alt="Buenas Noches" width="20" height="20">`;
     }
 
     function showTime(){
