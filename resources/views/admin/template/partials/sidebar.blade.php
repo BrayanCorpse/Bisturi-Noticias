@@ -32,9 +32,9 @@
                 </li>
               </ul>  
             </li>
-            <li>
+            {{-- <li>
                 <a href="{{ route('analytics.report') }}" tabindex="-1">Google Analytics</a>
-            </li>
+            </li> --}}
             @elseif (Auth::user()->type === "root")
             <li>
                 <a href="{{ route('users.index') }}" tabindex="-1">Usuarios</a>
@@ -64,12 +64,12 @@
                 </li>
               </ul>  
             </li>
-            <li>
+            {{-- <li>
               <a href="{{ route('analytics.create') }}" tabindex="-1">Google Analytics</a>
             </li>
             <li>
                 <a href="{{ route('analytics.report') }}" tabindex="-1">Reportes GA</a>
-            </li>
+            </li> --}}
             @else
               <li>
                 <a href="{{ route('categories.index') }}" tabindex="-1" >Categorias</a>
