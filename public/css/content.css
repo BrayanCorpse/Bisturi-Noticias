@@ -582,7 +582,7 @@
     }
 
     .b-share-links,.b-sm-share-links{
-        display: inline-block;
+        display: inline-flex;
         bottom: 5px;
         left: 2%;
     }
