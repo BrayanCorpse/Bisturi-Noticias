@@ -540,6 +540,11 @@
         height: auto;
     }
 
+    .note-video-clip{
+        width: 100% !important;
+        height: auto;
+    }
+
     .b-h1-content{
         font-size: 30px;
     }
