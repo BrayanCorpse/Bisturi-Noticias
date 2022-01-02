@@ -31,6 +31,7 @@
                     </h3>
                     <hr class="uk-divider-small b-hr-s">
                 </div>
+                <small class="b-vineta-date">{{ $late->created_at->diffForHumans() }}</small>
             </div>
         @endif
     @endforeach
