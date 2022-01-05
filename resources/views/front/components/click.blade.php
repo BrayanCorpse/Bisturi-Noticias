@@ -13,7 +13,7 @@
                     @if ($key >= 0)
                         <a class="uk-inline" 
                             href="{{ asset('storage' . '/' . $click->user->name . '/'. $image->name ) }}"  
-                            data-caption="{{ Str::limit($click->excerpt, 250) }}"
+                            data-caption="{{ Str::limit($click->excerpt, 350) }}"
                             >
                     @endif
                     @if ($key == 0)

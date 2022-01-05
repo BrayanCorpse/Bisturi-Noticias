@@ -27,7 +27,7 @@ class ArticleRequest extends FormRequest
             'title'       => 'required|unique:articles',
             'category_id' => 'required',
             'content'     => 'min:60|required',
-            'excerpt'     => 'max:300|required',
+            'excerpt'     => 'max:600|required',
             'tags'        => 'required',
             'image'       => 'required'
         ];
