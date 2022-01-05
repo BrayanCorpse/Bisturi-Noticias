@@ -20,7 +20,7 @@
          @foreach ($click->images   as $key => $image)
             <a class="uk-inline b-click-link" 
                href="{{ asset('storage'.'/'.$click->user->name.'/'.$image->name ) }}"
-               data-caption="{{ Str::limit($click->excerpt, 250) }}">
+               data-caption="{{ Str::limit($click->excerpt, 300) }}">
                @if ($key == 0)
                   <img loading="lazy" class="b-card-image" 
                         src="{{ asset('storage'.'/'.$click->user->name.'/'.$image->name ) }}" 
