@@ -124,6 +124,10 @@
   .navbar > .list {
     display: flex;
   }
+  .navbar > .list > .item {
+    padding-right: 15px !important;
+    font-size: 16px !important;
+  }
 }
 @media (max-width: 768px) {
   .navbar > .list {
@@ -171,10 +175,10 @@
   height: 60px;
   line-height: 60px;
   padding-left: 15px;
-  padding-right: 15px;
+  padding-right: 0px;
   text-transform: uppercase;
   color: #555;
-  font-size: 16px;
+  font-size: 13px;
   font-family: 'Cousine', monospace !important;
 }
 .navbar > .list > .item.-link {
