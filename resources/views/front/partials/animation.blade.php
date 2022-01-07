@@ -1,1 +1,0 @@
-<img class="fade-in-image" src="{{asset('img/reyes.png')}}" alt="Reyes Magos" width="100" height="100">

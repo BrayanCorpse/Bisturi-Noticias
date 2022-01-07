@@ -6,9 +6,9 @@
 <div class="navbar-component">  {{-- uk-sticky="cls-active: uk-navbar-sticky" --}}
     <!-- Class `area` is a container -->
     <div class="navbar area">
-        <div class="animation">
+        {{-- <div class="animation">
             @include('front.partials.animation')
-        </div>
+        </div> --}}
         <!-- Logo -->
         <a class="uk-align-center uk-margin-top b-mb-remove brand" href="{{ route('index')}}" >
             <img class="img-fluid " src="{{asset('img/logop.png')}}" alt="Bisturí Noticias" width="750" height="300">
