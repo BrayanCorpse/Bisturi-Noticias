@@ -42,7 +42,9 @@
                     </h5>
 
                     <h6 class="uk-text-left uk-margin-remove-top uk-text-bold" style="color: #44AAD4">
-                        {{$article->user->name}}
+                        @if ($article->user->id != 28)
+                            {{$article->user->name}}
+                        @endif
                     </h6>
                    
 
