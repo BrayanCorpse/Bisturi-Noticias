@@ -21,11 +21,19 @@
                                 alt="{{ $click->title }}">
                         </a>
                         <div class=" uk-card-footer uk-card-default b-click-footer">
-                            {{ Str::limit($click->excerpt, 250) }}
-                            <br>
-                            <small class="b-creditos">
-                                Foto: {{ $click->author}}
-                            </small>
+                            
+                            @if(isset($click->excerpt))
+                                <br>
+                                {{ Str::limit($click->excerpt, 250) }}
+                                <small class="b-creditos">
+                                    Foto: {{ $click->author}}
+                                </small>
+                            @else 
+                                <small class="b-creditos">
+                                    Foto: {{ $click->author}}
+                                </small>
+                            @endif   
+                            
                         </div>
                     @else
                         <img  src="{{ asset('storage' . '/' . $click->user->name . '/'. $image->name ) }}" 

@@ -55,8 +55,10 @@
                                     Portada
                                 @elseif ($article->tipo_id == 5)
                                     Noti-foto
-                                @else
+                                @elseif ($article->tipo_id == 6)
                                     Noti-Texto
+                                @else
+                                    Click-Del-Dia
                                 @endif
                             </span>
                             <strong>|</strong>
