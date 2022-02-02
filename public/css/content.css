@@ -529,6 +529,10 @@
     .b-center {
         top: 70%;
     }
+
+    .note-video-clip{
+        width: 100% !important;
+    }
 }
 
 @media (max-width: 768px) {
