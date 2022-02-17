@@ -81,6 +81,18 @@
             <li class="uk-active"><a href="tel:+527225061527" uk-icon="phone">Contacto</a></li>
         </ul>
 
+        <div class=" uk-text-center">
+            <hr>
+            <small>
+                © 2022 
+                <a class="uk-link-reset" href="https://bydsolutions.com/" target="_blank" rel="noopener noreferrer">
+                    ByD Solutions 
+                </a>  
+                💻  
+            </small>
+        </div>
+        
+
         @include('front.partials.bienvenida')
 
     </div>
