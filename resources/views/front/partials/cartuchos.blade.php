@@ -72,7 +72,9 @@
                             <h6 class="b-sumario">
                                 {{ Str::limit($lastNt->summary, 150) }}
                             </h6>
-                            <h6 class="b-creditos">{{ $lastNt->user->name}}</h6>
+                            @if ($lastNt->user->id != 28)
+                                <h6 class="b-creditos">{{ $lastNt->user->name}}</h6>
+                            @endif
                             <p class="b-content-duo">
                                 {{ Str::limit($lastNt->excerpt, 320) }}
                             </p>
