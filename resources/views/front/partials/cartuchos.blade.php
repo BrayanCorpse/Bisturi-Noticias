@@ -60,7 +60,7 @@
                             @if ($key == 0)
                             <a href="{{ route('showArticle', ['category' => $lastNt->category->slug, 'slug' => $lastNt->slug]) }}" title="{{ $lastNt->title }}">
 
-                                <img class="b-card-img" src="{{ asset('storage' . '/' . $lastNt->user->name . '/'. $image->name ) }}" alt="{{ $lastNt->title }}" width="330" height="330">
+                                <img class="b-card-img" src="{{ asset('storage' . '/' . $lastNt->user->name . '/'. $image->name ) }}" alt="{{ $lastNt->title }}" width="350" height="350">
 
                             </a>
                             @endif
@@ -76,7 +76,7 @@
                                 <h6 class="b-creditos">{{ $lastNt->user->name}}</h6>
                             @endif
                             <p class="b-content-duo">
-                                {{ Str::limit($lastNt->excerpt, 320) }}
+                                {{ Str::limit($lastNt->excerpt, 290) }}
                             </p>
                         </div>
                     </div>

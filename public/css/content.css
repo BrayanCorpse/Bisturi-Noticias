@@ -294,7 +294,7 @@
 
 .b-card-img{
     width: 100%;
-    height: 330px;
+    height: 350px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -302,7 +302,7 @@
 
 .b-card-img2{
     width: 100%;
-    height: 315px;
+    height: 335px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -525,6 +525,9 @@
 @media (min-width: 1200px){
     .b-card-body {
         padding: 10px 10px;
+    }
+    .b-body-content {
+        padding: 50px 40px 0 40px;
     }
     .b-center {
         top: 70%;
