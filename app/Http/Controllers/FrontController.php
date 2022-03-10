@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
-// use Carbon\Carbon;
 use App\Category;
 use App\Tag;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -31,8 +30,6 @@ class FrontController extends Controller
             // dd($articles->user);
         });
 
-        // dd($date = Carbon::now());
-        // dd($article);
         return view('admin.template.main', compact('articles'));
         
     }
