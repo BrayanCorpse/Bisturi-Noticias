@@ -56,10 +56,16 @@ class ArticlesController extends Controller
         FROM users AS us
         WHERE us.`id` = ?",[\Auth::user()->id]);
 
+        $tipos = Tipo::all();
+
+        $distinctipos = Tipo::where('id','!=',$request->tipo_id)->get();
+        
         return view('admin.articles.indexPublics')
         ->with('articles',$articles)
         ->with('count',$count)
-        ->with('user',$user[0]->user);
+        ->with('user',$user[0]->user)
+        ->with('tipos',$tipos)
+        ->with('distinctipos',$distinctipos);
 
     }
 
@@ -146,6 +152,15 @@ class ArticlesController extends Controller
 
         $article = Article::findOrFail($id);
         $article->status = 'publico';
+        $article->save();
+
+        return redirect()->route('articles.indexPublics');
+    }
+
+    public function changeSection(Request $request, $id){
+
+        $article = Article::findOrFail($id);
+        $article->tipo_id = $request->tipo_id;
         $article->save();
 
         return redirect()->route('articles.indexPublics');

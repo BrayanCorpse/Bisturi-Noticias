@@ -31,13 +31,8 @@
                             <p class="font-weight-light m-0">
                                 <i class="fa fa-bookmark" aria-hidden="true"></i> {{ $article->category->name }}
                             </p>
-                            <p class="m-0">
-                                @foreach ($article->tags as $tag)
-                                    #<small>{{$tag->name}}</small>
-                                @endforeach
-                            </p>
                             <small>
-                                {{ $article->updated_at->diffForHumans()}}
+                                {{ $article->created_at->diffForHumans()}}
                                 <strong>|</strong> 
                                 {{ $article->user->name }} 
                                 <strong>|</strong> 
@@ -61,11 +56,37 @@
                                     Click-Del-Dia
                                 @endif
                             </span>
-                            <strong>|</strong>
-                            <small>{{$article->created_at->diffForHumans()}}</small>
-                            
+
+                            <form action="{{ route('articles.changeSection',$article->id)}}" method="POST">
+                                @method('POST')
+                                @csrf
+                                <div class="form-row align-items-center">
+                                    <span class="badge badge-light mt-4">Cambiar Sección:</span>
+                                  <div class="col-sm-3 mt-4">
+                                    <select class="form-control form-control-sm" 
+                                            id="tipo_id" name="tipo_id">
+                                        @foreach ($tipos->where('id',$article->tipo_id) as $tipo)
+                                        <option value="{{ $tipo->id }}" selected>
+                                            {{ $tipo->name }}
+                                        </option>
+                                        @endforeach
+                                        @foreach ($distinctipos as $distipo)
+                                        <option value="{{$distipo->id}}">{{ $distipo->name }}</option>
+                                        @endforeach
+                                    </select>
+                                  </div>
+                                 
+                                  <div class="col-auto mt-4">
+                                    <button type="submit" class="btn btn-sm btn-dark">
+                                        Guardar Cambios
+                                    </button>
+                                  </div>
+                                </div>
+                            </form>
                         </td>
                         <td>
+                            <span class="badge badge-light">Acciones del Artículo</span>
+                            <br>
                             <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-info btn-sm mt-4">
                                 Editar
                             </a>
@@ -73,6 +94,7 @@
                                 Eliminar
                             </a>
                         </td>
+                        
                     </tr>
                 {{-- @endif --}}
             @endforeach

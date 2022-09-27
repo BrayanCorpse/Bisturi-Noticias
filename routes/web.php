@@ -37,6 +37,7 @@ Route::prefix('admin')->group(function () {
     Route::get('articlesPublics', 'ArticlesController@indexPublics')->name('articles.indexPublics');
     Route::get('articlesDeletes', 'ArticlesController@indexSoftDeletes')->name('articles.indexSoftDeletes');
     Route::get('articles/{id}/changeStatus', 'ArticlesController@changeStatus')->name('articles.changeStatus');
+    Route::post('articles/{id}/changeSection', 'ArticlesController@changeSection')->name('articles.changeSection');
     Route::get('articles/{id}/SoftDelete', 'ArticlesController@SoftDelete')->name('articles.SoftDelete');
     Route::get('articles/{id}/restore', 'ArticlesController@restore')->name('articles.restore');
     Route::get('articles/{id}/destroy', 'ArticlesController@destroy')->name('articles.destroy');
