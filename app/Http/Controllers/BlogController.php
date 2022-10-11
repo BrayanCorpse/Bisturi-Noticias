@@ -345,8 +345,8 @@ class BlogController extends Controller
             ->where('status', '=', 'publico')
             ->whereNotIn('tipo_id', [2, 3, 7])
             ->whereNull('deleted_at')
-           
-            ->get();    
+            ->orderBy('created_at', 'DESC')
+            ->paginate(6);   
 
         $images = DB::table('images')
             ->select('images.name AS imgname', 'images.article_id AS artid') 

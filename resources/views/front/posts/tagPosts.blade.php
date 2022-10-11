@@ -17,7 +17,7 @@
         <div class="card__header">
           @foreach ($images->where('artid',$article->id)->take(1) as $key => $image)
           <a href="{{ route('showArticle', ['category' => $article->catslug , 'slug' => $article->slug]) }}" title="{{ $article->title }}">
-            <img src="{{ asset('storage' . '/' . $article->uname . '/'. $image->imgname) }}" alt="{{ $article->title }}" class="card__image" width="600">
+            <img  loading="lazy" src="{{ asset('storage' . '/' . $article->uname . '/'. $image->imgname) }}" alt="{{ $article->title }}" class="card__image" width="600">
           </a>
           @endforeach
           <a class="uk-link-reset" href="{{url( $article->catslug )}}">
@@ -53,5 +53,6 @@
   </div>
 </section>
 
+{{ $articles->onEachSide(2)->links() }} 
 
  @endsection
