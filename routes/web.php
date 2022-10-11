@@ -45,9 +45,9 @@ Route::prefix('admin')->group(function () {
 
     Route::get('search', 'TagsController@search')->name('tags.search');
 
-    Route::get('analytics-report', 'AnalyticsController@analyticsReport')->name('analytics.report');
-    Route::get('analytics-create', 'AnalyticsController@create')->name('analytics.create');
-    Route::post('analytics-store', 'AnalyticsController@store')->name('analytics.store');
+    // Route::get('analytics-report', 'AnalyticsController@analyticsReport')->name('analytics.report');
+    // Route::get('analytics-create', 'AnalyticsController@create')->name('analytics.create');
+    // Route::post('analytics-store', 'AnalyticsController@store')->name('analytics.store');
     
 
 });
@@ -59,7 +59,10 @@ Route::get('salud', 'BlogController@salud')->name('salud');
 Route::get('deportes', 'BlogController@deportes')->name('deportes');
 Route::get('clicks', 'BlogController@clicks')->name('clicks');
 
+// Show Routes
 Route::get('{category}/{slug}', 'BlogController@showArticle')->name('showArticle');
+Route::get('{tagName}-{tagId}','BlogController@showTagPosts')->name('showTagPosts');
+
 // Delete Images
 Route::resource('ajax-posts', 'ajaxcrud\AjaxPostController');
 

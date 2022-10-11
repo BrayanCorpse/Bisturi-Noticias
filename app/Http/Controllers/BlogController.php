@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
 
 
 
+
 class BlogController extends Controller
 {
     /**
@@ -326,6 +327,40 @@ class BlogController extends Controller
 
         return view('front.posts.showArticle', compact('article','generals'));
 
+    }
+
+    public function getTime(){
+        list($usec, $sec) = explode(" ", microtime());
+        return (float) $usec + (float) $sec;
+    }
+
+    public function showTagPosts($tagName,$tagId){
+
+        $articles = DB::table('article_tag')
+            ->join('articles', 'articles.id', '=', 'article_tag.article_id')
+            ->join('categories', 'categories.id', '=', 'articles.category_id')
+            ->join('users', 'users.id', '=', 'articles.user_id')
+            ->select('articles.*', 'categories.name As cname',  'categories.slug As catslug', 'users.name AS uname','article_tag.article_id')
+            ->where('article_tag.tag_id', '=', $tagId)
+            ->where('status', '=', 'publico')
+            ->whereNotIn('tipo_id', [2, 3, 7])
+            ->whereNull('deleted_at')
+           
+            ->get();    
+
+        $images = DB::table('images')
+            ->select('images.name AS imgname', 'images.article_id AS artid') 
+            ->get();  
+
+
+        $tags = DB::select("SELECT tg.`id`, tg.`name`, artg.`article_id`
+            FROM article_tag AS artg
+            INNER JOIN articles AS art ON art.`id` = artg.`article_id`
+            INNER JOIN tags AS tg ON tg.`id` = artg.`tag_id`");
+        
+
+        return view('front.posts.tagPosts', compact('articles','tags','images','tagName'));
+        
     }
     
 }

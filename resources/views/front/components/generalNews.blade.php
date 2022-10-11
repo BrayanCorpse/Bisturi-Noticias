@@ -14,9 +14,11 @@
                 <div class="uk-card-footer uk-card-default b-card-body">
                     <h6 class="b-h6-title-gn">{{ $general->title}}</h6>
                     @foreach ($general->tags as $tag)
-                    <span class="uk-badge b-badge">
-                        <small>#{{ $tag->name }}</small> 
-                    </span>
+                    <a href="{{ route('showTagPosts', ['tagName' => $tag->name, 'tagId' => $tag->id] ) }}" style="text-decoration: none">
+                        <span class="uk-badge b-badge">
+                            <small>#{{ $tag->name }}</small> 
+                        </span>
+                    </a>
                 @endforeach
                 </div>
                

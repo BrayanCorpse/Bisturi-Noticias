@@ -54,10 +54,11 @@
                     
                     <div class="uk-margin-large-top">
                         @foreach ($article->tags as $tag)
-                            <span class="uk-label"
-                                    style="background: #43A1C4;">
-                                #{{ $tag->name }}
-                            </span>
+                            <a href="{{ route('showTagPosts', ['tagName' => $tag->name, 'tagId' => $tag->id] ) }}" style="text-decoration: none">
+                                <span class="uk-label"style="background: #43A1C4;">
+                                    #{{ $tag->name }}
+                                </span>
+                            </a>
                         @endforeach
                     </div>
                       
@@ -86,6 +87,7 @@
     let Swtwitter = document.querySelector('.show-twitter');
     let Swnewtags = [];
     let Swurl = ';'
+
     function SwnewTags(){
         for (var i = 0; i < Swmytags.length; i++) {
             Swnewtags.push(Swmytags[i].value);
@@ -95,7 +97,6 @@
         
         Swtwitter.setAttribute('href',Swurl);
 
-        // console.log(twitter);
 
     }
 
