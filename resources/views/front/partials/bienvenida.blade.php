@@ -1,7 +1,8 @@
 <div id="modal-full" class="uk-modal-full" uk-modal>
     <div class="uk-modal-dialog">
-        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-        <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
+        <button class="uk-modal-close-full uk-close-large" type="button" uk-close style="background: transparent; color:#ffff;"></button>
+        @include('front.partials.animation')
+        {{-- <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
             <div class="uk-background-cover b-logo-welcome">
                 <img src="{{asset('img/logop.png')}}" alt="Bisturi Noticias">
             </div>
@@ -22,6 +23,6 @@
                 </p>
                 
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>

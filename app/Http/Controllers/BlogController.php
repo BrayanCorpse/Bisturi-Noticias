@@ -18,7 +18,6 @@ use Illuminate\Support\Str;
 
 
 
-
 class BlogController extends Controller
 {
     /**
@@ -340,7 +339,7 @@ class BlogController extends Controller
             ->join('articles', 'articles.id', '=', 'article_tag.article_id')
             ->join('categories', 'categories.id', '=', 'articles.category_id')
             ->join('users', 'users.id', '=', 'articles.user_id')
-            ->select('articles.*', 'categories.name As cname',  'categories.slug As catslug', 'users.name AS uname','article_tag.article_id')
+            ->select('articles.*', 'categories.name As cname',  'categories.slug As catslug', 'users.name AS uname','users.id As userId','article_tag.article_id')
             ->where('article_tag.tag_id', '=', $tagId)
             ->where('status', '=', 'publico')
             ->whereNotIn('tipo_id', [2, 3, 7])
@@ -361,6 +360,33 @@ class BlogController extends Controller
 
         return view('front.posts.tagPosts', compact('articles','tags','images','tagName'));
         
+    }
+
+    public function showAuthorPosts($userName){
+
+        $userName = Str::title(str_replace('-', ' ', $userName));
+
+        $user = DB::table('users')
+            ->select('users.id', 'users.name') 
+            ->where('users.name', '=', $userName)
+            ->get();  
+
+        $articles = Article::where('user_id',$user[0]->id)
+        ->where('status', '=', 'publico')
+        ->whereNotIn('tipo_id', [2, 3, 7])
+        ->whereNull('deleted_at')
+        ->orderBy('created_at', 'DESC')
+        ->paginate(6);
+
+        $articles->each(function($articles){
+            $articles->category;
+            $articles->tags;
+            $articles->images;
+            $articles->user;
+        });
+
+        return view('front.posts.authorPosts', compact('articles', 'userName'));
+
     }
     
 }

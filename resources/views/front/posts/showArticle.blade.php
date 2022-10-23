@@ -43,7 +43,9 @@
 
                     <h6 class="uk-text-left uk-margin-remove-top uk-text-bold" style="color: #44AAD4">
                         @if ($article->user->id != 28)
+                        <a href="{{ route('showAuthorPosts', ['userName' => Str::slug($article->user->name, '-') ] ) }}" style="text-decoration: none">
                             {{$article->user->name}}
+                        </a>
                         @endif
                     </h6>
                    

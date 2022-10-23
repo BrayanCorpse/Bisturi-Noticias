@@ -46,7 +46,11 @@
             <span uk-icon="icon: calendar; ratio: 1"></span>
             {{ \Carbon\Carbon::parse($article->created_at)->diffForHumans() }}
           </h6>
-          <small> <span uk-icon="icon: user; ratio: 1"></span> {{ $article->uname }} </small>
+          @if ($article->user_id != 28)
+            <a href="{{ route('showAuthorPosts', ['userName' => Str::slug($article->uname, '-') ] ) }}" style="text-decoration: none">
+              <small> <span uk-icon="icon: user; ratio: 1"></span> {{ $article->uname }} </small>
+            </a>
+          @endif
         </div>
       </div>
     @endforeach

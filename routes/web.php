@@ -51,6 +51,7 @@ Route::prefix('admin')->group(function () {
     
 
 });
+
 Route::get('informacion-general', 'BlogController@informacionGeneral')->name('informacion General');
 Route::get('opinion', 'BlogController@opinion')->name('opinion');
 Route::get('telon-y-espectaculos', 'BlogController@telonyEspectaculos')->name('telon y Espectaculos');
@@ -60,8 +61,13 @@ Route::get('deportes', 'BlogController@deportes')->name('deportes');
 Route::get('clicks', 'BlogController@clicks')->name('clicks');
 
 // Show Routes
+
+Route::get('autores/{userName}', 'BlogController@showAuthorPosts')->name('showAuthorPosts');
 Route::get('{category}/{slug}', 'BlogController@showArticle')->name('showArticle');
 Route::get('{tagName}-{tagId}','BlogController@showTagPosts')->name('showTagPosts');
+
+
+
 
 // Delete Images
 Route::resource('ajax-posts', 'ajaxcrud\AjaxPostController');
