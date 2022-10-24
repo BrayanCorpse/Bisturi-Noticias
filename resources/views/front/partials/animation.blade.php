@@ -121,7 +121,7 @@
   .text-trucazo {
     grid-column-start: 2;
     grid-column-end: 7;
-    font-size: 1.6em;
+    font-size: 1em;
     text-align: center;
   }
 }
