@@ -91,9 +91,6 @@
                 💻  
             </small>
         </div>
-        
-
-        @include('front.partials.bienvenida')
 
     </div>
 </div>

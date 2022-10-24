@@ -61,7 +61,7 @@
 
     window.onload = load;
 </script>
-     -
+     
 @endpush
 
 {{-- @push('js')

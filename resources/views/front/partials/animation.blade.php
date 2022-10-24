@@ -2,16 +2,16 @@
     @import url("https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap");
 
 :root {
-  --primary-color: #43A1C4;
+  --primary-color: #44A1C3;
 }
 
-.body {
+.c-body {
   background-image: url("/img/ofrenda/background.svg");
-  background-size: 50px;
+  background-size: 60px;
   overflow: hidden;
 }
 
-.header {
+.c-header {
   display: block;
   position: absolute;
   top: 0;
@@ -41,19 +41,19 @@
   background-image: url("/img/ofrenda/side-left.svg");
 }
 
-.footer {
+.c-footer {
   display: block;
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 25px;
+  right: 26px;
   bottom: 0;
-  height: 52px;
+  height: 30px;
   background-image: url("/img/ofrenda/footer.svg");
   background-size: 35px;
   z-index: 2;
 }
 
-.grid-container {
+.c-grid-container {
   display: grid;
   margin: 50px 42px 0px;
   grid-template-columns: repeat(7, 1fr);
@@ -72,9 +72,9 @@
   -ms-transition: background 400ms ease-in-out;
   -o-transition: background 400ms ease-in-out;
   transition: background 400ms ease-in-out;
-  width: 178px;
+  width: 125px;
   height: 200px;
-  background-size: 178px 200px;
+  background-size: 125px 200px;
   background-repeat: no-repeat;
   z-index: 1;
   cursor: pointer;
@@ -165,13 +165,13 @@
 
 </style>
 
-<section class="body">
-    <div class="header"></div>
+<section class="c-body">
+    <div class="c-header"></div>
     <div class="side-right"></div>
     <div class="side-left"></div>
-    <div class="footer"></div>
+    <div class="c-footer"></div>
     
-    <div class="grid-container">
+    <div class="c-grid-container">
       <div class="calavera-up"></div>
       <div class="calavera-up"></div>
       <div class="calavera-up"></div>
@@ -187,7 +187,7 @@
         <span class="text-trucazo-content">
           FELIZ DÍA DE MUERTOS <br>
             LES DESEA <br>
-                BISTURÍ NOTICIAS
+             BISTURÍ NOTICIAS
         </span>
       </div>
       <div class="calavera-up"></div>
