@@ -73,7 +73,7 @@
     else if(window.location.pathname == '/opinion'){
         document.getElementById('opinion').style.cssText = 'color: #459FC4;';
     }
-    else if(window.location.pathname == '/click'){
+    else if(window.location.pathname == '/clicks'){
         document.getElementById('click').style.cssText = 'color: #459FC4;';
     }
 

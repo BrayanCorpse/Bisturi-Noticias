@@ -10,6 +10,7 @@
 
             <div class="uk-card">
                 <div class="uk-card uk-card-default uk-card-body">
+                    @include('front.partials.showSharelinks', ['article' => $article])
                     @if ($article->category->id == 15 || 
                          $article->category->id == 16 ||
                          $article->category->id == 17 || 
@@ -68,7 +69,7 @@
                    
 
                 </div>
-                @include('front.partials.showSharelinks', ['article' => $article])
+               
             </div>
         </div>
         

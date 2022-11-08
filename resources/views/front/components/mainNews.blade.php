@@ -69,6 +69,6 @@
 
     }
 
-    window.onload = newTags;
+    newTags();
 </script>  
 @endpush

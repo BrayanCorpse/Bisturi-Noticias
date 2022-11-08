@@ -32,9 +32,9 @@
                         <small>{{ $article->created_at->toFormattedDateString() }}</small>
                     </td>
                     <td>
-                        <img class="ath-img" loading="lazy" src="{{ asset('img/plum.png')}}" width="150" height="100">
+                        <img class="ath-img" loading="lazy" src="{{ asset('img/plum.png')}}" width="100" height="100">
                     </td>
-                    <td>
+                    <td class=" uk-width-3-4">
                         <a href="{{ route('showArticle', ['category' => $article->category->slug, 'slug' => $article->slug]) }}" title="{{ $article->title }}" style="color:#222;">
                             <h1 class="ath-title uk-margin-left">{{ $article->title }}</h1>
                         </a>

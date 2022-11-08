@@ -49,20 +49,18 @@
 
 
 
-@push('js')
+{{-- @push('js')
 
 <script>
-
     function load() {
         element =document.getElementsByName('body').innerHTML = 
         `@include('front.partials.bienvenida')`;
         UIkit.modal(element).show();
     }
-
     window.onload = load;
 </script>
      
-@endpush
+@endpush --}}
 
 {{-- @push('js')
 

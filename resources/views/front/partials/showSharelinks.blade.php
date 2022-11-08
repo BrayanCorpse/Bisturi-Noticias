@@ -1,4 +1,4 @@
-<div class="uk-flex uk-flex-column b-share-links-post-show">
+<div class="uk-flex b-share-links-post-show">
     <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::root().'/'.$article->category->slug.'/'.$article->slug }}&title={{ $article->title }}" 
         rel="noopener noreferrer nofollow"
         target="_blank" 
@@ -22,6 +22,17 @@
         class="uk-icon-button b-icon-button" 
         uk-icon="icon: whatsapp; ratio: 1">
     </a>
+
+    <a  rel="noopener noreferrer nofollow"
+        class="uk-icon-button b-icon-button copy uk-margin-small-right" 
+        uk-icon="icon: link; ratio: 1.3"
+        onclick="navigator.clipboard.writeText(window.location.href);
+                this.insertAdjacentHTML('afterend', '<div class=tooltip>copiado</div>');
+                setTimeout(() => { 
+                document.querySelector('.tooltip').remove(); 
+                    }, 250);">
+    </a>
+
 </div>     
 
 @push('ogf')
@@ -53,4 +64,5 @@
         content="{{ asset('storage' . '/' . $article->user->name . '/'. $article->images[0]->name ) }}">
 <meta name="twitter:image:alt" content="{{ $article->title }}">
 @endpush
+
 

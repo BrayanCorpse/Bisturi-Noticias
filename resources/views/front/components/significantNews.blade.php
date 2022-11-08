@@ -48,7 +48,7 @@
         // console.log(twitter);
 
     }
-
-    window.onload = newTags;
+    newTags();
+    // window.onload = newTags;
 </script>  
 @endpush
