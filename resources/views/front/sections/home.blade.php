@@ -49,7 +49,7 @@
 
 
 
-{{-- @push('js')
+@push('js')
 
 <script>
     function load() {
@@ -60,7 +60,7 @@
     window.onload = load;
 </script>
      
-@endpush --}}
+@endpush
 
 {{-- @push('js')
 
