@@ -300,6 +300,9 @@ class BlogController extends Controller
 
     public function showArticle($category,$slug){
 
+        // // Capturamos el tiempo de inicio
+        // $tiempoInicio = microtime(true);
+
         $article = Article::findBySlugOrFail($slug);
         $article->each(function($article){
             $article->category;
@@ -322,6 +325,14 @@ class BlogController extends Controller
             $generals->images;
             $generals->user;
         });
+
+        // // Capturamos el tiempo de finalización
+        // $tiempoFin = microtime(true);
+        
+        // // Calculamos la resta
+        // $tiempoEjecucion = $tiempoFin - $tiempoInicio;
+        
+        // echo 'Tiempo de ejecución: ' . $tiempoEjecucion . ' segundos';
         
 
         return view('front.posts.showArticle', compact('article','generals'));
