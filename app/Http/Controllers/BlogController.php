@@ -298,16 +298,15 @@ class BlogController extends Controller
                         
     }
 
-    public function showArticle($category,$slug){
+    public function showArticle(Request $request){
 
         // // Capturamos el tiempo de inicio
         // $tiempoInicio = microtime(true);
 
-        $article = Article::findBySlugOrFail($slug);
+        $article = Article::findOrFail($request->ida);
         $article->each(function($article){
             $article->category;
             $article->tags;
-            $article->images;
             $article->user;
         });
 
@@ -332,18 +331,13 @@ class BlogController extends Controller
         // // Calculamos la resta
         // $tiempoEjecucion = $tiempoFin - $tiempoInicio;
         
-        // echo 'Tiempo de ejecución: ' . $tiempoEjecucion . ' segundos';
+        // // dd($tiempoEjecucion . ' segundos');
         
-
+        // dd(' ID: ' .$request->ida. ' | Tiempo Ejecucion '. $tiempoEjecucion. ' segundos');
         return view('front.posts.showArticle', compact('article','generals'));
 
     }
-
-    public function getTime(){
-        list($usec, $sec) = explode(" ", microtime());
-        return (float) $usec + (float) $sec;
-    }
-
+    
     public function showTagPosts($tagName,$tagId){
 
         $articles = DB::table('article_tag')

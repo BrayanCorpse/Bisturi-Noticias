@@ -16,19 +16,24 @@
         </div>
         
     @endforeach
-</div> --}}
+</div> --}}    
 
 <div class="uk-text-center" uk-grid>
     <div class="uk-width-1-3@m">
-        <div class="uk-card b-card-body">
-            @foreach ($lastNewPhoto as $lastNp)
+        
+        @foreach ($lastNewPhoto as $lastNp)
+        <form action="{{  route('showArticle', ['category' => $lastNp->category->slug, 'slug' => $lastNp->slug]) }}" method="POST"> @csrf @method('POST')
+            <input type="hidden" name="ida" value="{{ $lastNp->id }}">
+
+            <div class="uk-card b-card-body">
                 @foreach ($lastNp->images as $key => $image)
                     @if ($key == 0)
-                    <a href="{{ route('showArticle', ['category' => $lastNp->category->slug, 'slug' => $lastNp->slug]) }}" title="{{ $lastNp->title }}">
-
+                    {{-- <a href="{{ route('showArticle', ['category' => $lastNp->category->slug, 'slug' => $lastNp->slug]) }}" title="{{ $lastNp->title }}"> --}}
+                    <button class="btn-bisturi" type="submit" 
+                        title="{{ $lastNp->title }}">   
                         <img class="b-card-img2" src="{{ asset('storage' . '/' . $lastNp->user->name . '/'. $image->name ) }}" alt="{{ $lastNp->title }}" width="315" height="315">
-
-                    </a>
+                    </button>
+                    {{-- </a> --}}
                     @endif
                 @endforeach
                 {{-- <div class="b-lastgN-center uk-h6">
@@ -48,21 +53,28 @@
                         @endif  
                     </div>   
                 </div>
-            @endforeach
-        </div>
+            </div>
+        </form>
+        @endforeach
     </div>
+
     <div class="uk-width-expand@m uk-padding-remove-left uk-margin-remove-top">
-        <div class="uk-card b-card-body">
-            @foreach ($lastNewText as $lastNt)
+
+        @foreach ($lastNewText as $lastNt)
+        <form action="{{  route('showArticle', ['category' => $lastNt->category->slug, 'slug' => $lastNt->slug]) }}" method="POST"> @csrf @method('POST')
+            <input type="hidden" name="ida" value="{{ $lastNt->id }}">
+
+            <div class="uk-card b-card-body">
                 <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s b-border-duo" uk-grid>
                     <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
                         @foreach ($lastNt->images as $key => $image)
                             @if ($key == 0)
-                            <a href="{{ route('showArticle', ['category' => $lastNt->category->slug, 'slug' => $lastNt->slug]) }}" title="{{ $lastNt->title }}">
-
+                            {{-- <a href="{{ route('showArticle', ['category' => $lastNt->category->slug, 'slug' => $lastNt->slug]) }}" title="{{ $lastNt->title }}"> --}}
+                            <button class="btn-bisturi" type="submit" 
+                                title="{{ $lastNt->title }}" style="padding: inherit;">   
                                 <img class="b-card-img" src="{{ asset('storage' . '/' . $lastNt->user->name . '/'. $image->name ) }}" alt="{{ $lastNt->title }}" width="350" height="350">
-
-                            </a>
+                            </button>
+                            {{-- </a> --}}
                             @endif
                         @endforeach
                     </div>
@@ -81,7 +93,9 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
-        </div>
+            </div>
+        </form>
+        @endforeach
     </div>
+
 </div>

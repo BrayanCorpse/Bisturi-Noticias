@@ -1,12 +1,20 @@
 <div class="uk-card uk-margin-small-bottom">
+    <form action="{{  route('showArticle', ['category' => $article->category->slug, 
+        'slug' => $article->slug]) }}" method="POST"> @csrf @method('POST')
+      
     <div class="uk-card b-card-body">
-        <div class="uk-position-relative" uk-slideshow="animation: fade; autoplay: true">
-            <a href="{{ route('showArticle', ['category' => $article->category->slug, 'slug' => $article->slug]) }}" title="{{ $article->title }}">
+        <div class="uk-position-relative" uk-slideshow="animation: fade; autoplay: true"> 
+            {{-- <a href="{{ route('showArticle', ['category' => $article->category->slug, 'slug' => $article->slug]) }}" title="{{ $article->title }}"> --}}
+                <input type="hidden" name="ida" value="{{ $article->id }}">
+            
                 <ul class="uk-slideshow-items">
                     @foreach ($article->images as $key =>  $image)
                         @if ($key >= 0)
                             <li>
+                                <button class="btn-bisturi" type="submit" 
+                                        title="{{ $article->title }}" uk-cover>   
                                 <img loading="lazy" src="{{ asset('storage' . '/' . $article->user->name . '/'. $image->name ) }}" alt="{{ $article->title }}" uk-cover>
+                            </button> 
                             </li>
                         @endif
                     @endforeach
@@ -24,7 +32,7 @@
                     @endif
                 @endforeach
 
-            </a>
+          
             {{-- <div class="b-center uk-h4">{{$article->title}}</div>   --}}
             @include('front.partials.sharelinks', ['article' => $article])
         </div>
@@ -48,6 +56,8 @@
         </div>
         
     </div>
+   
+</form>
 </div>
 
 @push('js')

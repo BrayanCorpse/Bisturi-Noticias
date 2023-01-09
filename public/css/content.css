@@ -244,6 +244,9 @@
 .b-h5-title{
     font-family: 'Roboto Mono', monospace;
 }
+.b-h5-title:hover{
+    text-decoration: underline !important;
+}
 
 .b a:hover{
     color: #222;
@@ -384,7 +387,6 @@
     font-size: 0.875rem;
     line-height: 1.4;
     padding: 12px;
-    
 }
 
 .b-card-category{
@@ -644,7 +646,14 @@
     right: 0%;
     top: 100%;
   }
-  
+
+  .btn-bisturi {
+    background-color: transparent;
+    color: transparent;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+  }
 
  /* media Queries */   
 @media all and (max-width: 500px) {

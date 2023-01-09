@@ -63,9 +63,8 @@ Route::get('clicks', 'BlogController@clicks')->name('clicks');
 // Show Routes
 
 Route::get('autores/{userName}', 'BlogController@showAuthorPosts')->name('showAuthorPosts');
-Route::get('{category}/{slug}', 'BlogController@showArticle')->name('showArticle');
+Route::post('{category}/{slug}', 'BlogController@showArticle')->name('showArticle');
 Route::get('{tagName}-{tagId}','BlogController@showTagPosts')->name('showTagPosts');
-
 
 
 
