@@ -28,7 +28,7 @@ class BlogController extends Controller
 
     public function index(){
         
-        $articles = Article::select('id','title','summary','category_id','user_id','created_at','slug')
+        $articles = Article::select('id','title','summary','category_id','user_id','created_at','slug','author')
                 ->where('status', '=', 'publico')
                 ->where('tipo_id', '=', 4)
                 ->whereNull('deleted_at')
@@ -41,7 +41,7 @@ class BlogController extends Controller
             $articles->user;
         });
 
-        $lastNewPhoto = Article::select('id','title','summary',
+        $lastNewPhoto = Article::select('id','title','summary','author',
         'category_id','user_id','created_at','slug')
                 ->where('status', '=', 'publico')
                 ->where('tipo_id', '=', 5)
@@ -55,7 +55,7 @@ class BlogController extends Controller
             $lastNewPhoto->user;
             });
 
-        $lastNewText = Article::select('id','title','summary','excerpt',
+        $lastNewText = Article::select('id','title','summary','excerpt','author',
         'category_id','user_id','created_at','slug')
                 ->where('status', '=', 'publico')
                 ->where('tipo_id', '=', 6)
@@ -118,7 +118,8 @@ class BlogController extends Controller
 
         $catId = $categoryId->implode('id'); 
             
-        $articles = Article::select('id','title','summary','category_id','user_id','created_at','slug')
+        $articles = Article::select('id','title','summary','category_id',
+        'user_id','created_at','slug','author')
                 ->where('category_id',$catId)
                 ->where('status', '=', 'publico')
                 ->whereNotIn('tipo_id', [2, 3, 7])
@@ -132,7 +133,8 @@ class BlogController extends Controller
                     $articles->user;
             });
 
-        $categories = Article::select('id','title','summary','category_id','user_id','slug')
+        $categories = Article::select('id','title','summary',
+        'category_id','user_id','slug','author')
                 ->where('category_id',$catId)
                 ->where('status', '=', 'publico')
                 ->whereNotIn('tipo_id', [2, 3, 7])
@@ -212,7 +214,7 @@ class BlogController extends Controller
 
             // findBySlugOrFail($slug);
             $article = Article::select('id','title','summary','content','category_id',
-            'user_id','created_at','slug')
+            'user_id','created_at','slug','author','subcategoria')
                     ->where('slug', $slug)
                     ->get();
             $article->each(function($article){

@@ -21,18 +21,23 @@
           </a>
           @endforeach
           <a class="uk-link-reset" href="{{url( $article->catslug )}}">
-              <span class="uk-label uk-margin-left uk-margin-top">{{ $article->subcategoria }}</span>
+              <span class="uk-label uk-margin-left uk-margin-top">{{ $tagName }}</span>
           </a>
         </div>
         <div class="card__body">
           @foreach($tags as $tag)
               @if ( $tag->article_id == $article->article_id)
               <div class="tag-content uk-margin-top">
+                @if ($tagName != $tag->name)
                 <a href="{{ route('showTagPosts', ['tagName' => $tag->name, 'tagId' => $tag->id] ) }}" style="text-decoration: none">
-                    <span class="uk-badge b-badge">
-                      <small>  <span uk-icon="icon: tag; ratio: 0.8"></span> {{ $tag->name }}</small> 
-                    </span>
-                </a>
+                  <span class="uk-badge b-badge">
+                    <small>  <span uk-icon="icon: tag; ratio: 0.8"></span> {{ $tag->name }}</small> 
+                  </span>
+              </a>
+                @else
+                    
+                @endif
+               
               </div>
               @endif    
           @endforeach

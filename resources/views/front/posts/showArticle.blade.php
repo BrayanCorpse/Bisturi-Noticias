@@ -13,23 +13,16 @@
                 <div class="uk-card uk-card-default uk-card-body">
                 @foreach ($article as $art)
                     @each('front.partials.showSharelinks', $article, 'article')
-                    @if ($art->category->id == 15 || 
-                         $art->category->id == 16 ||
-                         $art->category->id == 17 || 
-                         $art->category->id == 18 ||
-                         $art->category->id == 20 ||
-                         $art->category->id == 21)
 
                         <span class="b-h5-link uk-align-left uk-label">
                             <a class="uk-link-reset" href="{{url($art->category->slug)}}">
-                                {{ $art->category->name }}
+                                @if ($art->category->slug == 'opinion')
+                                    {{ $art->subcategoria }}
+                                @else
+                                    {{ $art->category->name }}
+                                @endif
                             </a>
-                        </span>
-                    @else
-                        {{-- NO MOSTRAR LABEL --}}
-                    @endif
-
-                  
+                        </span> 
                     <br>
 
                     <h1 class=" uk-text-left b-h1-content">{{$art->title}}</h1>
@@ -54,10 +47,21 @@
                    
 
                     <hr>
-                    {!! $art->content !!}
-               
+                    {!! $art->content !!}  
                     
-                    <div class="uk-margin-large-top">
+                    <div class=" uk-float-left">
+                        @if (empty($art->author))
+                            <sub>
+                                Foto(s): Cortesía | Bisturí Noticias
+                            </sub>
+                        @else
+                            <sub>
+                                Foto(s): {{$art->author}} | Bisturí Noticias
+                            </sub>
+                        @endif  
+                    </div>   
+                    
+                    <div class="uk-margin-xlarge-top">
                         @foreach ($art->tags as $tag)
                             <a href="{{ route('showTagPosts', ['tagName' => $tag->name, 'tagId' => $tag->id] ) }}" style="text-decoration: none">
                                 <span class="uk-label"style="background: #43A1C4;">
