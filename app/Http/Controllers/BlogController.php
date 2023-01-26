@@ -17,7 +17,6 @@ use Cviebrock\EloquentSluggable\findBySlugOrFail;
 use Illuminate\Support\Str;
 
 
-
 class BlogController extends Controller
 {
     /**
@@ -29,11 +28,12 @@ class BlogController extends Controller
 
     public function index(){
         
-        $articles = Article::where('status', '=', 'publico')
-                    ->where('tipo_id', '=', 4)
-                    ->whereNull('deleted_at')
-                    ->orderBy('created_at', 'DESC')
-                    ->limit(1)->get();
+        $articles = Article::select('id','title','summary','category_id','user_id','created_at','slug')
+                ->where('status', '=', 'publico')
+                ->where('tipo_id', '=', 4)
+                ->whereNull('deleted_at')
+                ->orderBy('created_at', 'DESC')
+                ->limit(1)->get();
         $articles->each(function($articles){
             $articles->category;
             $articles->tags;
@@ -41,11 +41,13 @@ class BlogController extends Controller
             $articles->user;
         });
 
-        $lastNewPhoto = Article::where('status', '=', 'publico')
-                    ->where('tipo_id', '=', 5)
-                    ->whereNull('deleted_at')
-                    ->orderBy('created_at', 'DESC')
-                    ->limit(1)->get();
+        $lastNewPhoto = Article::select('id','title','summary',
+        'category_id','user_id','created_at','slug')
+                ->where('status', '=', 'publico')
+                ->where('tipo_id', '=', 5)
+                ->whereNull('deleted_at')
+                ->orderBy('created_at', 'DESC')
+                ->limit(1)->get();
             $lastNewPhoto->each(function($lastNewPhoto){
             $lastNewPhoto->category;
             $lastNewPhoto->tags;
@@ -53,13 +55,13 @@ class BlogController extends Controller
             $lastNewPhoto->user;
             });
 
-
-
-        $lastNewText = Article::where('status', '=', 'publico')
-                    ->where('tipo_id', '=', 6)
-                    ->whereNull('deleted_at')
-                    ->orderBy('created_at', 'DESC')
-                    ->limit(1)->get();
+        $lastNewText = Article::select('id','title','summary','excerpt',
+        'category_id','user_id','created_at','slug')
+                ->where('status', '=', 'publico')
+                ->where('tipo_id', '=', 6)
+                ->whereNull('deleted_at')
+                ->orderBy('created_at', 'DESC')
+                ->limit(1)->get();
         $lastNewText->each(function($lastNewText){
             $lastNewText->category;
             $lastNewText->tags;
@@ -70,7 +72,9 @@ class BlogController extends Controller
        
         // dd($lastgeneralNews);
 
-        $clicks = Article::where('tipo_id',7)
+        $clicks = Article::select('id','title','summary','excerpt','author','category_id',
+        'user_id','created_at','slug')
+                ->where('tipo_id',7)
                 ->where('status', '=', 'publico')
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
@@ -86,46 +90,76 @@ class BlogController extends Controller
         
     }
 
-    public function informacionGeneral(){
+    public function categories($categorySlug){
+ 
+        if( DB::table('categories')->where('slug', $categorySlug)->doesntExist() ){
+            abort(404);
+        }
+        elseif( $categorySlug == 'opinion' ){
+            return $this->opinion();
+        }
+        elseif( $categorySlug == 'clicks'){
+            return $this->clicks();
+        }
+        else{
+            return $this->sections($categorySlug);
+        }
 
-        $articles = Article::where('category_id',21)
+    }
+
+    public function sections($categorySlug){
+
+        // $start = microtime(true);
+
+        $categoryId = DB::table('categories')
+            ->select('id')
+            ->where('slug', $categorySlug)
+            ->get();
+
+        $catId = $categoryId->implode('id'); 
+            
+        $articles = Article::select('id','title','summary','category_id','user_id','created_at','slug')
+                ->where('category_id',$catId)
                 ->where('status', '=', 'publico')
                 ->whereNotIn('tipo_id', [2, 3, 7])
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
                 ->limit(1)->get();
-        $articles->each(function($articles){
-            $articles->category;
-            $articles->tags;
-            $articles->images;
-            $articles->user;
-        });
+            $articles->each(function($articles){
+                    $articles->category;
+                    $articles->tags;
+                    $articles->images;
+                    $articles->user;
+            });
 
-        $categories = Article::where('category_id',21)
+        $categories = Article::select('id','title','summary','category_id','user_id','slug')
+                ->where('category_id',$catId)
                 ->where('status', '=', 'publico')
                 ->whereNotIn('tipo_id', [2, 3, 7])
                 ->where('created_at', '!=', $articles[0]->created_at)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
-                ->paginate(2);
-        // dd($categories);
-        $categories->each(function($categories){
-            $categories->category;
-            $categories->tags;
-            $categories->images;
-            $categories->user;
-        });
+                ->paginate(2);     
+            $categories->each(function($categories){
+                $categories->category;
+                $categories->tags;
+                $categories->images;
+                $categories->user;
+            });
 
-        // dd($categories);
+            // $end = microtime(true);
+            // $execution_time = ($end - $start);
+    
+            // dd("Tiempo de ejecución: " . $execution_time . " segundos");
+            return view('front.sections.'.$categorySlug, compact('articles','categories'));
 
-        return view('front.sections.informacionGeneral')
-        ->with('articles',$articles)
-        ->with('categories',$categories);
     }
 
     public function opinion(){
 
-        $latest = Article::where('category_id',15)
+        $latest = Article::select('id','title','summary','subcategoria','category_id','user_id',
+            'created_at','slug')
+                ->where('category_id',15)
                 ->where('status', '=', 'publico')
                 ->where('tipo_id','=',2)
                 ->whereNull('deleted_at')
@@ -137,159 +171,22 @@ class BlogController extends Controller
             $latest->images;
             $latest->user;
         });
-        
-        return view('front.sections.opinion')->with('latest',$latest);
-    }
 
-    public function telonyEspectaculos(){
-
-        $articles = Article::where('category_id',16)
-                ->where('status', '=', 'publico')
-                ->whereNotIn('tipo_id', [2, 3, 7])
-                ->whereNull('deleted_at')
-                ->orderBy('created_at', 'DESC')
-                ->limit(1)->get();
-        $articles->each(function($articles){
-            $articles->category;
-            $articles->tags;
-            $articles->images;
-            $articles->user;
-        });
-
-        $categories = Article::where('category_id',16)
-                ->where('status', '=', 'publico')
-                ->whereNotIn('tipo_id', [2, 3, 7])
-                ->where('created_at', '!=', $articles[0]->created_at)
-                ->whereNull('deleted_at')
-                ->orderBy('created_at', 'DESC')
-                ->paginate(2);
-        $categories->each(function($categories){
-            $categories->category;
-            $categories->tags;
-            $categories->images;
-            $categories->user;
-        });
-
-        return view('front.sections.telonyEspectaculos')
-        ->with('articles',$articles)
-        ->with('categories',$categories);
-    }
-
-    public function emergencias(){
-
-        $articles = Article::where('category_id',20)
-                ->where('status', '=', 'publico')
-                ->whereNotIn('tipo_id', [2, 3, 7])
-                ->whereNull('deleted_at')
-                ->orderBy('created_at', 'DESC')
-                ->limit(1)->get();
-        $articles->each(function($articles){
-            $articles->category;
-            $articles->tags;
-            $articles->images;
-            $articles->user;
-        });
-
-        $categories = Article::where('category_id',20)
-                ->where('status', '=', 'publico')
-                ->whereNotIn('tipo_id', [2, 3, 7])
-                ->where('created_at', '!=', $articles[0]->created_at)
-                ->whereNull('deleted_at')
-                ->orderBy('created_at', 'DESC')
-                ->paginate(2);
-        $categories->each(function($categories){
-            $categories->category;
-            $categories->tags;
-            $categories->images;
-            $categories->user;
-        });
-
-        
-        return view('front.sections.emergencias')
-        ->with('articles',$articles)
-        ->with('categories',$categories);
-    }
-
-
-    public function salud(){
-
-        $articles = Article::where('category_id',17)
-                ->where('status', '=', 'publico')
-                ->whereNotIn('tipo_id', [2, 3, 7])
-                ->whereNull('deleted_at')
-                ->orderBy('created_at', 'DESC')
-                ->limit(1)->get();
-        $articles->each(function($articles){
-            $articles->category;
-            $articles->tags;
-            $articles->images;
-            $articles->user;
-        });
-
-        $categories = Article::where('category_id',17)
-                ->where('status', '=', 'publico')
-                ->whereNotIn('tipo_id', [2, 3, 7])
-                ->where('created_at', '!=', $articles[0]->created_at)
-                ->whereNull('deleted_at')
-                ->orderBy('created_at', 'DESC')
-                ->paginate(2);
-        $categories->each(function($categories){
-            $categories->category;
-            $categories->tags;
-            $categories->images;
-            $categories->user;
-        });
-
-        return view('front.sections.salud')
-        ->with('articles',$articles)
-        ->with('categories',$categories);
-    }
-
-    public function deportes(){
-
-        $articles = Article::where('category_id',18)
-                ->where('status', '=', 'publico')
-                ->whereNotIn('tipo_id', [2, 3, 7])
-                ->whereNull('deleted_at')
-                ->orderBy('created_at', 'DESC')
-                ->limit(1)->get();
-        $articles->each(function($articles){
-            $articles->category;
-            $articles->tags;
-            $articles->images;
-            $articles->user;
-        });
-
-        $categories = Article::where('category_id',18)
-                ->where('status', '=', 'publico')
-                ->whereNotIn('tipo_id', [2, 3, 7])
-                ->where('created_at', '!=', $articles[0]->created_at)
-                ->whereNull('deleted_at')
-                ->orderBy('created_at', 'DESC')
-                ->paginate(2);
-        $categories->each(function($categories){
-            $categories->category;
-            $categories->tags;
-            $categories->images;
-            $categories->user;
-        });
-        
-        return view('front.sections.deportes')
-        ->with('articles',$articles)
-        ->with('categories',$categories);
+        return view('front.sections.opinion')
+        ->with('latest',$latest);
     }
 
     public function clicks(){
 
-        $clicks = Article::where('status', '=', 'publico')
-                    ->where('tipo_id', '=',7)
-                    ->whereNull('deleted_at')
-                    ->orderBy('created_at', 'DESC')
-                    ->paginate(6);
+        $clicks = Article::select('id','title','excerpt','category_id','user_id','created_at')
+                ->where('status', '=', 'publico')
+                ->where('tipo_id', '=',7)
+                ->whereNull('deleted_at')
+                ->orderBy('created_at', 'DESC')
+                ->paginate(6);
 
         $clicks->each(function($clicks){
                 $clicks->category;
-                $clicks->tags;
                 $clicks->images;
                 $clicks->user;
             });
@@ -298,49 +195,67 @@ class BlogController extends Controller
                         
     }
 
-    public function showArticle(Request $request){
+    public function showArticle($category, $slug){
 
-        // // Capturamos el tiempo de inicio
-        // $tiempoInicio = microtime(true);
+        if( DB::table('categories')->where('slug', $category)->doesntExist() ){
+            abort(404);
+        }
+        elseif(DB::table('articles')->where('slug', $slug)->doesntExist()){
+            abort(404);
+        }
+        elseif(DB::table('artcategory')->where('slug',$slug)->where('catslug',$category)->doesntExist()){
+            abort(404);
+        }
+        else{
+            // Capturamos el tiempo de inicio
+            // $start = microtime(true);
 
-        $article = Article::findOrFail($request->ida);
-        $article->each(function($article){
-            $article->category;
-            $article->tags;
-            $article->user;
-        });
+            // findBySlugOrFail($slug);
+            $article = Article::select('id','title','summary','content','category_id',
+            'user_id','created_at','slug')
+                    ->where('slug', $slug)
+                    ->get();
+            $article->each(function($article){
+                $article->category;
+                $article->tags;
+                $article->user;
+            });
 
-        // dd($article->images[0]->name);
+            $generals = Article::select('id','title','slug','category_id','user_id')
+                    ->where('status', '=', 'publico')
+                    ->whereNotIn('tipo_id', [2, 3, 7])
+                    ->where('created_at', '!=', $article[0]->created_at)
+                    ->whereNull('deleted_at')
+                    ->orderBy('created_at', 'DESC')
+                    ->limit(7)->get();
+            $generals->each(function($generals){
+                $generals->category;
+                $generals->tags;
+                $generals->images;
+                $generals->user;
+            });
 
-        $generals = Article::where('status', '=', 'publico')
-                ->whereNotIn('tipo_id', [2, 3, 7])
-                ->where('created_at', '!=', $article->created_at)
-                ->whereNull('deleted_at')
-                ->orderBy('created_at', 'DESC')
-                ->limit(7)->get();
-        $generals->each(function($generals){
-            $generals->category;
-            $generals->tags;
-            $generals->images;
-            $generals->user;
-        });
+            
+            // $end = microtime(true);
+            // $execution_time = ($end - $start);
 
-        // // Capturamos el tiempo de finalización
-        // $tiempoFin = microtime(true);
-        
-        // // Calculamos la resta
-        // $tiempoEjecucion = $tiempoFin - $tiempoInicio;
-        
-        // // dd($tiempoEjecucion . ' segundos');
-        
-        // dd(' ID: ' .$request->ida. ' | Tiempo Ejecucion '. $tiempoEjecucion. ' segundos');
-        return view('front.posts.showArticle', compact('article','generals'));
+            // echo "Tiempo de ejecución: " . $execution_time . " segundos";
+
+            return view('front.posts.showArticle', compact('article','generals'));
+        }    
 
     }
     
     public function showTagPosts($tagName,$tagId){
 
-        $articles = DB::table('article_tag')
+        if(DB::table('tags')->where('name', $tagName)->where('id',$tagId)->doesntExist()){
+            abort(404);
+        }
+        else{
+            // // Capturamos el tiempo de inicio
+            // $start = microtime(true);
+
+            $articles = DB::table('article_tag')
             ->join('articles', 'articles.id', '=', 'article_tag.article_id')
             ->join('categories', 'categories.id', '=', 'articles.category_id')
             ->join('users', 'users.id', '=', 'articles.user_id')
@@ -352,45 +267,58 @@ class BlogController extends Controller
             ->orderBy('created_at', 'DESC')
             ->paginate(6);   
 
-        $images = DB::table('images')
-            ->select('images.name AS imgname', 'images.article_id AS artid') 
-            ->get();  
+            $images = DB::table('images')
+                ->select('images.name AS imgname', 'images.article_id AS artid') 
+                ->get();  
 
 
-        $tags = DB::select("SELECT tg.`id`, tg.`name`, artg.`article_id`
-            FROM article_tag AS artg
-            INNER JOIN articles AS art ON art.`id` = artg.`article_id`
-            INNER JOIN tags AS tg ON tg.`id` = artg.`tag_id`");
+            $tags = DB::select("SELECT tg.`id`, tg.`name`, artg.`article_id`
+                FROM article_tag AS artg
+                INNER JOIN articles AS art ON art.`id` = artg.`article_id`
+                INNER JOIN tags AS tg ON tg.`id` = artg.`tag_id`");
+
+            // $end = microtime(true);
+            // $execution_time = ($end - $start);
+
+            // dd("Tiempo de ejecución: " . $execution_time . " segundos");
         
 
-        return view('front.posts.tagPosts', compact('articles','tags','images','tagName'));
-        
+            return view('front.posts.tagPosts', compact('articles','tags','images','tagName'));
+
+        }       
     }
 
     public function showAuthorPosts($userName){
 
         $userName = Str::title(str_replace('-', ' ', $userName));
 
-        $user = DB::table('users')
-            ->select('users.id', 'users.name') 
-            ->where('users.name', '=', $userName)
-            ->get();  
-
-        $articles = Article::where('user_id',$user[0]->id)
-        ->where('status', '=', 'publico')
-        ->whereNotIn('tipo_id', [2, 3, 7])
-        ->whereNull('deleted_at')
-        ->orderBy('created_at', 'DESC')
-        ->paginate(6);
-
-        $articles->each(function($articles){
-            $articles->category;
-            $articles->tags;
-            $articles->images;
-            $articles->user;
-        });
-
-        return view('front.posts.authorPosts', compact('articles', 'userName'));
+        if( DB::table('users')->where('name', $userName)->doesntExist() ){
+            abort(404);
+        }
+        else{
+           
+            $user = DB::table('users')
+                ->select('users.id', 'users.name') 
+                ->where('users.name', '=', $userName)
+                ->get();  
+    
+            $articles = Article::select('id','title','slug','category_id','user_id','created_at')
+                        ->where('user_id',$user[0]->id)
+                        ->where('status', '=', 'publico')
+                        ->whereNotIn('tipo_id', [2, 3, 7])
+                        ->whereNull('deleted_at')
+                        ->orderBy('created_at', 'DESC')
+                        ->paginate(6);
+                
+            $articles->each(function($articles){
+                $articles->category;
+                $articles->tags;
+                $articles->images;
+                $articles->user;
+            });
+    
+            return view('front.posts.authorPosts', compact('articles', 'userName'));
+        }  
 
     }
     

@@ -58,17 +58,29 @@
             
             <li class="uk-active"><a href="{{ route('index')}}">Inicio</a></li>
             <li class="uk-active">
-                <a href="{{ route('informacion General')}}">Información General</a>
+                <a href="{{ route('categories', [ 'categorySlug' => 'informacion-general' ]) }}"        class="item -link" id="info">
+                    Información General
+                </a>
             </li>
-            <li class="uk-active"><a href="{{ route('salud') }}">Salud</a></li>
-            <li class="uk-active"><a href="{{ route('emergencias') }}">Emergencias</a></li>
-            <li class="uk-active"><a href="{{ route('deportes') }}">Deportes</a></li>
             <li class="uk-active">
-                <a href="{{ route('telon y Espectaculos')}}">Telón,Espectáculos y Letras</a>
+                <a href="{{ route('categories', [ 'categorySlug' => 'salud' ]) }}" class="item -link" id="salud">Salud</a>
             </li>
-            <li class="uk-active"><a href="{{ route('opinion')}}">Opinión</a></li>
             <li class="uk-active">
-                <a href="{{ route('clicks') }}">Click del Día</a>
+                <a href="{{ route('categories', [ 'categorySlug' => 'emergencias' ]) }}" class="item -link" id="emergencias">Emergencias</a>
+            </li>
+            <li class="uk-active">
+                <a href="{{ route('categories', [ 'categorySlug' => 'deportes' ]) }}" class="item -link" id="deportes">Deportes</a>
+            </li>
+            <li class="uk-active">
+                <a href="{{ route('categories', [ 'categorySlug' => 'telon-y-espectaculos' ]) }}"       class="item -link" id="telon">
+                    Telón,Espectáculos y Letras
+                </a>
+            </li>
+            <li class="uk-active">
+                <a href="{{ route('categories', [ 'categorySlug' => 'opinion' ]) }}" class="item -link" id="opinion">Opinión</a>
+            </li>
+            <li class="uk-active">
+                <a href="{{ route('categories', [ 'categorySlug' => 'clicks' ]) }}" class="item -link" id="click">Click del Día</a>
             </li>
         </ul>
 

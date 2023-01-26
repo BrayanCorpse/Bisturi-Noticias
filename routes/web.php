@@ -45,28 +45,13 @@ Route::prefix('admin')->group(function () {
 
     Route::get('search', 'TagsController@search')->name('tags.search');
 
-    // Route::get('analytics-report', 'AnalyticsController@analyticsReport')->name('analytics.report');
-    // Route::get('analytics-create', 'AnalyticsController@create')->name('analytics.create');
-    // Route::post('analytics-store', 'AnalyticsController@store')->name('analytics.store');
-    
-
 });
-
-Route::get('informacion-general', 'BlogController@informacionGeneral')->name('informacion General');
-Route::get('opinion', 'BlogController@opinion')->name('opinion');
-Route::get('telon-y-espectaculos', 'BlogController@telonyEspectaculos')->name('telon y Espectaculos');
-Route::get('emergencias', 'BlogController@emergencias')->name('emergencias');
-Route::get('salud', 'BlogController@salud')->name('salud');
-Route::get('deportes', 'BlogController@deportes')->name('deportes');
-Route::get('clicks', 'BlogController@clicks')->name('clicks');
-
+// Section Routes
+Route::get('{categorySlug}', 'BlogController@categories')->name('categories');
 // Show Routes
-
+Route::get('tags/{tagName}-{tagId}','BlogController@showTagPosts')->name('showTagPosts');
 Route::get('autores/{userName}', 'BlogController@showAuthorPosts')->name('showAuthorPosts');
-Route::post('{category}/{slug}', 'BlogController@showArticle')->name('showArticle');
-Route::get('{tagName}-{tagId}','BlogController@showTagPosts')->name('showTagPosts');
-
-
+Route::get('{category}/{slug}', 'BlogController@showArticle')->name('showArticle');
 
 // Delete Images
 Route::resource('ajax-posts', 'ajaxcrud\AjaxPostController');

@@ -1,18 +1,18 @@
 @extends('front.template.layout')
 
-@section('title', 'Bisturí Noticias | Telón, Espectáculos y Letras')
+@section('title', 'Bisturí Noticias | Información General')
 
 @section('content')
 
     <div class="uk-text-center uk-grid-collapse uk-margin-medium-top" uk-grid>
 
-        <div class="b-mt-espec uk-width-expand@m">
+        <div class="uk-width-expand@m">
             @each('front.components.mainNews',$articles, 'article')
         </div>
 
         <div class="uk-width-1-3@m">   
             <div class="b-header">
-                <h6 class="b-title uk-h6" id="title-seccion">Telón,Espectaculos y Letras</h6>
+                <h6 class="b-title uk-h6" id="title-seccion">{{ Request::path() }}</h6>
             </div> 
             @each('front.components.newsCategory',$categories, 'category')
         </div>
@@ -29,7 +29,7 @@
         @each('front.components.latestNews',$latest, 'late')
     </div>
      --}}
-     
-     {{ $categories->links() }} 
+    {{ $categories->onEachSide(2)->links() }} 
+
    
 @endsection

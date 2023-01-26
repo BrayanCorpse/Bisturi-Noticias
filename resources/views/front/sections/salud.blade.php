@@ -12,7 +12,7 @@
 
         <div class="uk-width-1-3@m">   
             <div class="b-header">
-                <h4 class="b-title uk-h4" id="title-seccion">{{Route::current()->getName()}} </h4>
+                <h4 class="b-title uk-h4" id="title-seccion">{{ Request::path() }} </h4>
             </div> 
             @each('front.components.newsCategory',$categories, 'category')
         </div>

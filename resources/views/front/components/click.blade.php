@@ -2,7 +2,7 @@
     <div class="b-card-body b-mrt uk-position-relative" >
             <div class="uk-card-header b-card-header">
                 {{-- <img class="uk-border-circle uk-float-left" src="{{asset('img/icon.png')}}" alt="Bisturí Noticias" width="25" height="25"> --}}
-                <a href="{{ route('clicks')}}">
+                <a href="{{ route('categories', [ 'categorySlug' => 'clicks' ]) }}">
                     <span class="b-span-text" uk-icon="icon: expand">
                         Click Del Día
                     </span>

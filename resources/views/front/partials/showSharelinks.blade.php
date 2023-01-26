@@ -33,7 +33,30 @@
                     }, 250);">
     </a>
 
-</div>     
+</div>    
+
+@push('js')
+<script>
+    let Swmytags = document.getElementsByClassName('show-tags');
+    let Swtwitter = document.querySelector('.show-twitter');
+    let Swnewtags = [];
+    let Swurl = ';'
+
+    function SwnewTags(){
+        for (var i = 0; i < Swmytags.length; i++) {
+            Swnewtags.push(Swmytags[i].value);
+        }
+        Swnewtags = Swnewtags.toString();
+        Swurl = `https://twitter.com/intent/tweet?url={{ Request::root().'/'.$article->category->slug.'/'.$article->slug }}&text={{ $article->title }}&via=BisturiNoticias&hashtags=${Swnewtags}`
+        
+        Swtwitter.setAttribute('href',Swurl);
+
+
+    }
+
+    window.onload = SwnewTags;
+</script>  
+@endpush
 
 @push('ogf')
     <meta property="og:locale" content="es_MX">
@@ -45,7 +68,7 @@
             <meta property="og:site_name" content="Bisturí Noticias">  
         @else
             <meta property="og:site_name" 
-                    content="Bisturí Noticias | {{ $article->slug }}">
+                    content="Bisturí Noticias | {{ $article->category->name .' | '. $article->slug }}">
         @endif
         <meta property="article:publisher" content="https://www.facebook.com/bisturinoticias">
         <meta property="og:image" 

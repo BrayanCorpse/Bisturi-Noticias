@@ -16,17 +16,17 @@
         <!-- List of links -->
         <nav role="navigation" id="navigation" class="list uk-align-center uk-margin-remove-top">
           <a href="{{ route('index')}}" class="item -link" id="inicio">Inicio</a>
-          <a href="{{ route('informacion General')}}" class="item -link" id="info">
+          <a href="{{ route('categories', [ 'categorySlug' => 'informacion-general' ]) }}" class="item -link" id="info">
             Información General
           </a>
-          <a href="{{ route('salud') }}" class="item -link" id="salud">Salud</a>
-          <a href="{{ route('emergencias') }}" class="item -link" id="emergencias">Emergencias</a>
-          <a href="{{ route('deportes') }}" class="item -link" id="deportes">Deportes</a>
-          <a href="{{ route('telon y Espectaculos')}}" class="item -link" id="telon">
+          <a href="{{ route('categories', [ 'categorySlug' => 'salud' ]) }}" class="item -link" id="salud">Salud</a>
+          <a href="{{ route('categories', [ 'categorySlug' => 'emergencias' ]) }}" class="item -link" id="emergencias">Emergencias</a>
+          <a href="{{ route('categories', [ 'categorySlug' => 'deportes' ]) }}" class="item -link" id="deportes">Deportes</a>
+          <a href="{{ route('categories', [ 'categorySlug' => 'telon-y-espectaculos' ]) }}" class="item -link" id="telon">
             Telón,Espectáculos y Letras
           </a>
-          <a href="{{ route('opinion')}}" class="item -link" id="opinion">Opinión</a>
-          <a href="{{ route('clicks') }}" class="item -link" id="click">Click del Día</a>
+          <a href="{{ route('categories', [ 'categorySlug' => 'opinion' ]) }}" class="item -link" id="opinion">Opinión</a>
+          <a href="{{ route('categories', [ 'categorySlug' => 'clicks' ]) }}" class="item -link" id="click">Click del Día</a>
 
         </nav>
 

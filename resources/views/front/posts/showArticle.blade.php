@@ -1,8 +1,9 @@
 @extends('front.template.layout')
 
-@section('title', 'Bisturi Noticias |'.' '.$article->category->name)
+@section('title', 'Bisturi Noticias |'.' '.$article[0]->category->name)
 
 @section('content')
+
 
     <div class="uk-text-center uk-grid-collapse uk-margin-medium-top b-show" uk-grid>
 
@@ -10,17 +11,18 @@
 
             <div class="uk-card">
                 <div class="uk-card uk-card-default uk-card-body">
-                    @include('front.partials.showSharelinks', ['article' => $article])
-                    @if ($article->category->id == 15 || 
-                         $article->category->id == 16 ||
-                         $article->category->id == 17 || 
-                         $article->category->id == 18 ||
-                         $article->category->id == 20 ||
-                         $article->category->id == 21)
+                @foreach ($article as $art)
+                    @each('front.partials.showSharelinks', $article, 'article')
+                    @if ($art->category->id == 15 || 
+                         $art->category->id == 16 ||
+                         $art->category->id == 17 || 
+                         $art->category->id == 18 ||
+                         $art->category->id == 20 ||
+                         $art->category->id == 21)
 
                         <span class="b-h5-link uk-align-left uk-label">
-                            <a class="uk-link-reset" href="{{url($article->category->slug)}}">
-                                {{ $article->category->name }}
+                            <a class="uk-link-reset" href="{{url($art->category->slug)}}">
+                                {{ $art->category->name }}
                             </a>
                         </span>
                     @else
@@ -30,33 +32,33 @@
                   
                     <br>
 
-                    <h1 class=" uk-text-left b-h1-content">{{$article->title}}</h1>
+                    <h1 class=" uk-text-left b-h1-content">{{$art->title}}</h1>
 
                     <h4 class="uk-text-left uk-text-secondary uk-text-uppercase uk-margin-remove-top"> 
-                        {{$article->created_at->diffForHumans()}}
+                        {{$art->created_at->diffForHumans()}}
                     </h4>
 
                     
                       
                     <h5 class="uk-text-left uk-margin-remove-top uk-text-bold">
-                       {{$article->summary}}
+                       {{$art->summary}}
                     </h5>
 
                     <h6 class="uk-text-left uk-margin-remove-top uk-text-bold" style="color: #44AAD4">
-                        @if ($article->user->id != 28)
-                        <a href="{{ route('showAuthorPosts', ['userName' => Str::slug($article->user->name, '-') ] ) }}" style="text-decoration: none">
-                            {{$article->user->name}}
+                        @if ($art->user->id != 28)
+                        <a href="{{ route('showAuthorPosts', ['userName' => Str::slug($art->user->name, '-') ] ) }}" style="text-decoration: none">
+                            {{$art->user->name}}
                         </a>
                         @endif
                     </h6>
                    
 
                     <hr>
-                    {!! $article->content !!}
+                    {!! $art->content !!}
                
                     
                     <div class="uk-margin-large-top">
-                        @foreach ($article->tags as $tag)
+                        @foreach ($art->tags as $tag)
                             <a href="{{ route('showTagPosts', ['tagName' => $tag->name, 'tagId' => $tag->id] ) }}" style="text-decoration: none">
                                 <span class="uk-label"style="background: #43A1C4;">
                                     #{{ $tag->name }}
@@ -64,16 +66,11 @@
                             </a>
                         @endforeach
                     </div>
-                      
-                    
-                   
-
-                </div>
-               
+                @endforeach 
+                </div>               
             </div>
         </div>
         
-
         <div class="uk-width-1-3@m">  
             @each('front.components.generalNews',$generals, 'general')
             {{-- {{ $generals->links() }} --}}
@@ -84,27 +81,6 @@
 
 @endsection
 
-@push('js')
-<script>
-    let Swmytags = document.getElementsByClassName('show-tags');
-    let Swtwitter = document.querySelector('.show-twitter');
-    let Swnewtags = [];
-    let Swurl = ';'
 
-    function SwnewTags(){
-        for (var i = 0; i < Swmytags.length; i++) {
-            Swnewtags.push(Swmytags[i].value);
-        }
-        Swnewtags = Swnewtags.toString();
-        Swurl = `https://twitter.com/intent/tweet?url={{ Request::root().'/'.$article->category->slug.'/'.$article->slug }}&text={{ $article->title }}&via=BisturiNoticias&hashtags=${Swnewtags}`
-        
-        Swtwitter.setAttribute('href',Swurl);
-
-
-    }
-
-    window.onload = SwnewTags;
-</script>  
-@endpush
     
 

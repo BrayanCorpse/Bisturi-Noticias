@@ -1,17 +1,10 @@
 <div class="uk-card b-margin-bt-category">
     @foreach ($category->images as $key =>  $image)
-        <form action="{{  route('showArticle', ['category' => $category->category->slug, 
-                'slug' => $category->slug]) }}" method="POST"> @csrf @method('POST')
-
-            <input type="hidden" name="ida" value="{{ $category->id }}">
-
-            @if ($key == 0)
+        @if ($key == 0)
             <div class="b-card-category">
-                {{-- <a href="{{ route('showArticle', ['category' => $category->category->slug, 'slug' => $category->slug]) }}" title="{{ $category->title }}"> --}}
-                <button class="btn-bisturi" type="submit" title="{{ $category->title }}"> 
+                <a href="{{ route('showArticle', ['category' => $category->category->slug, 'slug' => $category->slug]) }}" title="{{ $category->title }}">
                     <img loading="lazy" class="b-image" src="{{ asset('storage' . '/' . $category->user->name . '/'. $image->name ) }}" alt="{{ $category->title }}" width="400">
-                </button>
-                {{-- </a> --}}
+                </a>
                 <div class="uk-card-footer uk-card-default b-click-footer">
                     <h6 class="b-h5-title">
                         <strong>{{ Str::limit($category->title, 70) }}</strong> 
@@ -21,8 +14,7 @@
                 </div>
             </div>
             <br>
-            @endif
-        </form>
+        @endif
     @endforeach  
     {{-- @if($category->tipo_id == 3)
         @foreach ($category->images as $key =>  $image)
