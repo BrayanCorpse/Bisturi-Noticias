@@ -34,7 +34,7 @@
             <meta property="og:site_name" content="Bisturí Noticias">  
         @else
             <meta property="og:site_name" 
-                    content="Bisturí Noticias | {{ Route::current()->getName() }}">
+                    content="Bisturí Noticias | {{ $article->category->name }}">
         @endif
         <meta property="article:publisher" content="https://www.facebook.com/bisturinoticias">
         <meta property="og:image" 

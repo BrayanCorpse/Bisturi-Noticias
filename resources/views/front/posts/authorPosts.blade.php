@@ -77,3 +77,10 @@
 {{ $articles->onEachSide(2)->links() }} 
 
  @endsection
+
+ @push('ogf')
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:type" content="article"> 
+    <meta property="og:url" content="{{ Request::fullUrl() }}">
+    <meta property="og:site_name" content="Bisturí Noticias | {{ $userName }} ">
+@endpush 
