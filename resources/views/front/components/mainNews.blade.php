@@ -8,7 +8,7 @@
                             <li>
                                 <button class="btn-bisturi" type="submit" 
                                         title="{{ $article->title }}" uk-cover>   
-                                <img loading="lazy" src="{{ asset('storage' . '/' . $article->user->name . '/'. $image->name ) }}" alt="{{ $article->title }}" uk-cover>
+                                <img src="{{ asset('storage' . '/' . $article->user->name . '/'. $image->name ) }}" alt="{{ $article->title }}" uk-cover>
                             </button> 
                             </li>
                         @endif
