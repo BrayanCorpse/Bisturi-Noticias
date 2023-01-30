@@ -28,7 +28,11 @@
     <meta property="og:locale" content="es_MX">
         <meta property="og:type" content="article"> 
         <meta property="og:title" content="{{ $article->title }}"> 
-        <meta property="og:description" content="{{ $article->summary }}"> 
+        @if ( empty($article->excerpt) )
+            <meta property="og:description" content="{{ $article->summary }}">
+        @else
+            <meta property="og:description" content="{{ $article->excerpt }}">
+        @endif
         <meta property="og:url" content="{{ Request::root().'/'.$article->category->slug.'/'.$article->slug }}">
         @if ( Route::current()->getName() == "index" )
             <meta property="og:site_name" content="Bisturí Noticias">  
