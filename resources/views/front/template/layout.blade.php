@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
     {{-- animation --}}
     <link rel="stylesheet" href="{{asset('css/animation.css')}}">
+    @stack('css')
 </head>
 <body>  
 

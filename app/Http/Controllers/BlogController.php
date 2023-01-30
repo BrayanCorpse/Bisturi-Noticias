@@ -93,7 +93,7 @@ class BlogController extends Controller
     public function categories($categorySlug){
  
         if( DB::table('categories')->where('slug', $categorySlug)->doesntExist() ){
-            abort(404);
+            return view('front.errors.404');
         }
         elseif( $categorySlug == 'opinion' ){
             return $this->opinion();
@@ -200,13 +200,13 @@ class BlogController extends Controller
     public function showArticle($category, $slug){
 
         if( DB::table('categories')->where('slug', $category)->doesntExist() ){
-            abort(404);
+            return view('front.errors.404');
         }
         elseif(DB::table('articles')->where('slug', $slug)->doesntExist()){
-            abort(404);
+            return view('front.errors.404');
         }
         elseif(DB::table('artcategory')->where('slug',$slug)->where('catslug',$category)->doesntExist()){
-            abort(404);
+            return view('front.errors.404');
         }
         else{
             // Capturamos el tiempo de inicio
@@ -251,7 +251,7 @@ class BlogController extends Controller
     public function showTagPosts($tagName,$tagId){
 
         if(DB::table('tags')->where('name', $tagName)->where('id',$tagId)->doesntExist()){
-            abort(404);
+            return view('front.errors.404');
         }
         else{
             // // Capturamos el tiempo de inicio
@@ -295,7 +295,7 @@ class BlogController extends Controller
         $userName = Str::title(str_replace('-', ' ', $userName));
 
         if( DB::table('users')->where('name', $userName)->doesntExist() ){
-            abort(404);
+            return view('front.errors.404');
         }
         else{
            
