@@ -20,7 +20,7 @@
     <meta name="copyright" content="Bisturí Noticias" />
     <link rel="canonical" href="https://bisturinoticias.com/">
     <meta name="robots" content="index,follow">
-    <meta name="description" content="En Bisturí Noticias estamos convencidos de que la noticia debe vivirse, respirarse y palparla para poder contarla.Somos un portal de noticias, dónde verás reportajes sobre Salud, Deportes y Espectáculos.">
+    <meta name="description" content="En Bisturí Noticias estamos convencidos de que la noticia debe vivirse, respirarse y palparla para poder contarla. Somos un portal de noticias, dónde verás reportajes del Edomex, Información General, Salud, Emergencias, Deportes, Espectáculos, Opinión, Clicks, La Planchada, Patrullando, La Cantina">
     <meta name="keywords" content="Bisturí Noticias, Bisturí, Noticias, Noticias de Toluca, Noticias del Edomex, Información General, Salud, Emergencias, Deportes, Telón y Espectáculos, Opinión, Reportajes, Click del Día, La Planchada, Patrullando, La Cantina">
     <meta name="msapplication-TileColor" content="#459FC4">
     <meta name="theme-color" content="#459FC4">
