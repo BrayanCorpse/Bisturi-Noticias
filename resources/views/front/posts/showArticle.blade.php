@@ -28,7 +28,7 @@
                     <h1 class=" uk-text-left b-h1-content">{{$art->title}}</h1>
 
                     <h4 class="uk-text-left uk-text-secondary uk-text-uppercase uk-margin-remove-top"> 
-                        {{$art->created_at->diffForHumans()}}
+                        {{$art->created_at->diffForHumans()}} 
                     </h4>
 
                     
@@ -44,12 +44,18 @@
                         </a>
                         @endif
                     </h6>
-                   
+
+                    <h6 class="uk-text-left uk-margin-remove-top">
+                        <small id="time"></small>
+                    </h6>
 
                     <hr>
-                    {!! $art->content !!}  
+
+                    <section id="content">
+                        {!! $art->content !!}  
+                    </section>   
                     
-                    <div class=" uk-float-left">
+                    <div class="uk-float-left">
                         @if (empty($art->author))
                             <sub>
                                 Foto(s): Cortesía | Bisturí Noticias
@@ -84,6 +90,26 @@
 
 
 @endsection
+
+@push('js')
+<script>
+
+    const result = document.getElementById("time");
+    const text = document.getElementById('content').innerText;
+    const words = text.split(" ").length;
+
+    function readingTime(words) {
+        const readingSpeed = 200;
+        const readingTime = words / readingSpeed;
+        result.innerHTML = `${ readingTime < 0.6 
+                        ? readingTime.toFixed(2)+' Seg.' 
+                        : Math.round(readingTime)+' Min.' } 
+                        de lectura <span uk-icon="icon: clock; ratio: 0.7"></span>`;
+
+    }
+    window.addEventListener("load", readingTime(words));
+</script> 
+@endpush
 
 
     
