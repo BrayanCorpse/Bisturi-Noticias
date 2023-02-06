@@ -8,5 +8,10 @@ class Tipo extends Model
 {
     protected $table = "tipos";
 
-    protected $fillable = ['name'];
+    protected $fillable = ['id','name'];
+
+    public function articles(){
+
+        return $this->hasMany('App\Article');
+    }
 }

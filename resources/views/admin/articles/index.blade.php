@@ -19,7 +19,7 @@
                         <td>
                             @foreach ($article->images as $key =>  $image)
                                 @if ($key == 0)
-                                    <img src="{{ asset('storage/'.$user.'/'.$image->name)}}" class="rounded img-responsive" width="125" height="100" alt="{{ $article->title }}" >
+                                    <img src="{{ asset('storage/'.$article->user->name.'/'.$image->name)}}" class="rounded img-responsive" width="125" height="100" alt="{{ $article->title }}" >
                                 @endif
                             @endforeach
                         </td>
@@ -27,11 +27,6 @@
                             <p class="font-weight-normal m-0">{{ $article->title }}</p>
                             <p class="font-weight-light m-0">
                                 <i class="fa fa-bookmark" aria-hidden="true"></i> {{ $article->category->name }}
-                            </p>
-                            <p class="m-0">
-                                @foreach ($article->tags as $tag)
-                                    #<small>{{$tag->name}}</small>
-                                @endforeach
                             </p>
                             <small>
                                 {{ $article->updated_at->diffForHumans()}}

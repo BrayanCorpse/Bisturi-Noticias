@@ -42,7 +42,7 @@
 
         @section('det')
           <div class="card-head">
-              <h3> @yield('title', 'Información General') <b style="color: #ABB2B9">@yield('count')</b> </h3>
+              <h3> @yield('title', 'Panel de Administración') <b style="color: #ABB2B9">@yield('count')</b> </h3>
           </div>
           @include('flash::message')
           @show

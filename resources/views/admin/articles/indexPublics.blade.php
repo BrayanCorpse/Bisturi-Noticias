@@ -22,7 +22,7 @@
                         <td>
                             @foreach ($article->images as $key =>  $image)
                                 @if ($key == 0)
-                                    <img src="{{ asset('storage/'.$user.'/'.$image->name)}}" class="rounded img-responsive" width="125" height="100" alt="{{ $article->title }}" >
+                                    <img src="{{ asset('storage/'.$article->user->name.'/'.$image->name)}}" class="rounded img-responsive" width="125" height="100" alt="{{ $article->title }}" >
                                 @endif
                             @endforeach
                         </td>
@@ -39,24 +39,8 @@
                             </small>
                             <span class="badge badge-light">{{$article->status}}</span>
                             <strong>|</strong> 
-                            <span class="badge badge-success">
-                                @if ($article->tipo_id == 1)
-                                    General
-                                @elseif ($article->tipo_id == 2)
-                                    Viñeta
-                                @elseif ($article->tipo_id == 3)
-                                    Caricatura
-                                @elseif ($article->tipo_id == 4)
-                                    Portada
-                                @elseif ($article->tipo_id == 5)
-                                    Noti-foto
-                                @elseif ($article->tipo_id == 6)
-                                    Noti-Texto
-                                @else
-                                    Click-Del-Dia
-                                @endif
-                            </span>
-
+                            <span class="badge badge-success">{{ $article->tipo->name}}</span>
+                            
                             <form action="{{ route('articles.changeSection',$article->id)}}" method="POST">
                                 @method('POST')
                                 @csrf
@@ -65,13 +49,13 @@
                                   <div class="col-sm-3 mt-4">
                                     <select class="form-control form-control-sm" 
                                             id="tipo_id" name="tipo_id">
-                                        @foreach ($tipos->where('id',$article->tipo_id) as $tipo)
-                                        <option value="{{ $tipo->id }}" selected>
-                                            {{ $tipo->name }}
+                                        <option value="{{ $article->tipo->id }}" selected hidden>
+                                            {{ $article->tipo->name }}
                                         </option>
-                                        @endforeach
-                                        @foreach ($distinctipos as $distipo)
-                                        <option value="{{$distipo->id}}">{{ $distipo->name }}</option>
+                                        @foreach ($distinctipos->where('id','!=',$article->tipo->id) as $distipo)
+                                            <option value="{{$distipo->id}}">
+                                                {{ $distipo->name }}
+                                            </option>
                                         @endforeach
                                     </select>
                                   </div>

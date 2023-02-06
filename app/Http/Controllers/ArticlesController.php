@@ -29,42 +29,42 @@ class ArticlesController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function indexPublics(Request $request)
-    {
-        $articles = Article::search($request->title)
-        ->where('user_id', '=', \Auth::user()->id)
-        ->where('status', '=', 'publico')
-        ->orderBy('created_at','DESC')
-        ->whereNull('deleted_at')->simplePaginate(5);
+    public function indexPublics(Request $request){
+
+        // $start = microtime(true);
+
+        $articles = Article::select('id','title','category_id',
+            'created_at','user_id','status','tipo_id')
+            ->where('user_id', '=', \Auth::user()->id)
+            ->where('status', '=', 'publico')
+            ->orderBy('created_at','DESC')
+            ->whereNull('deleted_at')
+            ->simplePaginate(5);
 
         $articles->each(function($articles){
             $articles->category;
             $articles->user;
             $articles->images;
-            $articles->tags;
+            $articles->tipo;
         });
-
-        $articleCount =DB::table('articles')
+            
+        $articleCount = Article::select('id')
                 ->where('user_id', '=', \Auth::user()->id)
                 ->where('status', '=', 'publico')
                 ->whereNull('deleted_at')
-                ->get();
+                ->get();     
         
         $count = count($articleCount);
 
-        $user=\DB::select("SELECT us.`name` as user
-        FROM users AS us
-        WHERE us.`id` = ?",[\Auth::user()->id]);
+        $distinctipos = Tipo::select('id','name')->get();
 
-        $tipos = Tipo::all();
-
-        $distinctipos = Tipo::where('id','!=',$request->tipo_id)->get();
+        // $end = microtime(true);
+        // $execution_time = ($end - $start);
+        // echo("Tiempo de ejecución: " . $execution_time . " segundos");
         
         return view('admin.articles.indexPublics')
         ->with('articles',$articles)
         ->with('count',$count)
-        ->with('user',$user[0]->user)
-        ->with('tipos',$tipos)
         ->with('distinctipos',$distinctipos);
 
     }
@@ -74,37 +74,39 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {
-        $articles = Article::search($request->title)
-        ->where('user_id', '=', \Auth::user()->id)
-        ->where('status', '=', 'borrador')
-        ->orderBy('created_at','DESC')
-        ->whereNull('deleted_at')->simplePaginate(5);
+    public function index(Request $request){
+
+        // $start = microtime(true);
+
+        $articles = Article::select('id','title','category_id','created_at',
+            'updated_at','user_id','status','tipo_id')
+            ->where('user_id', '=', \Auth::user()->id)
+            ->where('status', '=', 'borrador')
+            ->orderBy('created_at','DESC')
+            ->whereNull('deleted_at')
+            ->simplePaginate(5);
 
         $articles->each(function($articles){
             $articles->category;
             $articles->user;
             $articles->images;
-            $articles->tags;
         });
 
-        $articleCount =DB::table('articles')
-                ->where('user_id', '=', \Auth::user()->id)
-                ->where('status', '=', 'borrador')
-                ->whereNull('deleted_at')
-                ->get();
-        
+        $articleCount = Article::select('id')
+        ->where('user_id', '=', \Auth::user()->id)
+        ->where('status', '=', 'borrador')
+        ->whereNull('deleted_at')
+        ->get();     
+
         $count = count($articleCount);
 
-        $user=\DB::select("SELECT us.`name` as user
-        FROM users AS us
-        WHERE us.`id` = ?",[\Auth::user()->id]);
+        // $end = microtime(true);
+        // $execution_time = ($end - $start);
+        // echo("Tiempo de ejecución: " . $execution_time . " segundos");
 
         return view('admin.articles.index')
         ->with('articles',$articles)
-        ->with('count',$count)
-        ->with('user',$user[0]->user);
+        ->with('count',$count);
 
     }
 
@@ -116,34 +118,37 @@ class ArticlesController extends Controller
 
     public function indexSoftDeletes(Request $request){
 
-        $articles = Article::search($request->title)
-        ->where('user_id', '=', \Auth::user()->id)
-        ->whereNotNull('deleted_at')
-        ->orderBy('deleted_at','DESC')
-        ->onlyTrashed()->simplePaginate(5);
+        // $start = microtime(true);
+
+        $articles = Article::select('id','title','category_id',
+            'deleted_at','user_id','status','tipo_id')
+            ->where('user_id', '=', \Auth::user()->id)
+            ->whereNotNull('deleted_at')
+            ->orderBy('deleted_at','DESC')
+            ->onlyTrashed()
+            ->simplePaginate(5);
         
         $articles->each(function($articles){
             $articles->category;
             $articles->user;
             $articles->images;
-            $articles->tags;
         });
 
-        $articleCount =DB::table('articles')
+        $articleCount = Article::select('id')
                 ->where('user_id', '=', \Auth::user()->id)
                 ->whereNotNull('deleted_at')
+                ->onlyTrashed()
                 ->get();
         
         $count = count($articleCount);
 
-        $user=\DB::select("SELECT us.`name` as user
-        FROM users AS us
-        WHERE us.`id` = ?",[\Auth::user()->id]);
+        // $end = microtime(true);
+        // $execution_time = ($end - $start);
+        // echo("Tiempo de ejecución: " . $execution_time . " segundos");
 
         return view('admin.articles.indexSoftDeletes')
         ->with('articles',$articles)
-        ->with('count',$count)
-        ->with('user',$user[0]->user);
+        ->with('count',$count);
 
     }
 

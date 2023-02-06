@@ -34,6 +34,11 @@ class Article extends Model
         return $this->belongsTo('App\Category');
     }
 
+    public function tipo(){
+
+        return $this->belongsTo('App\Tipo');
+    }
+
     public function user(){
 
         return $this->belongsTo('App\User');
