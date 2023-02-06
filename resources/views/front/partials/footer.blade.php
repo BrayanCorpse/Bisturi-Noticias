@@ -87,7 +87,7 @@
         <p class="register uk-text-center uk-margin-medium-top">Bisturi Noticias de México ® 2022</p>
         
         <ul class="uk-subnav uk-flex-center terms">
-            <li class="uk-active"><a href="#">Aviso de Privacidad |</a></li>
+            <li class="uk-active"><a href="#privacy-full" uk-toggle>Aviso de Privacidad |</a></li>
             <li class="uk-active"><a href="#modal-full" uk-toggle>Acerca de Nosotros |</a></li>
             {{-- <li class="uk-active"><a href="#">Términos y Condiciones |</a></li> --}}
             <li class="uk-active"><a href="tel:+527225061527" uk-icon="phone">Contacto</a></li>
@@ -96,7 +96,7 @@
         <div class=" uk-text-center">
             <hr>
             <small>
-                © 2022 
+                © 2023 
                 <a class="uk-link-reset" href="https://bydsolutions.com/" target="_blank" rel="noopener noreferrer">
                     ByD Solutions 
                 </a>  
@@ -104,6 +104,7 @@
             </small>
         </div>
         @include('front.partials.bienvenida')
+        @include('front.partials.privacy')
     </div>
 </div>
 
