@@ -177,18 +177,21 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        $categories = DB::table('categories')
-            ->orderBy('name','desc')->get();
+    public function create(){
 
-        $tags = DB::table('tags')
-            ->orderBy('name', 'desc')->get();
+        $categories = Category::select('id','name')
+                    ->orderBy('id','asc')
+                    ->get();
 
-        $subcategories = DB::table('subcategories')
-            ->orderBy('id', 'desc')->get();
+        $tags = Tag::select('id','name')
+                    ->orderBy('id', 'desc')
+                    ->get();
 
-        $tipos = Tipo::all();
+        $subcategories = Subcategory::select('id','name','category_id')
+                ->orderBy('id', 'desc')
+                ->get();
+
+        $tipos = Tipo::select('id','name')->get();
 
         return view('admin.articles.create', compact('categories', 'tags', 'subcategories','tipos'));
 
