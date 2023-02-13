@@ -221,15 +221,9 @@ class ArticlesController extends Controller
                     $random = Str::random(40);
                     $fileName  = $random. $file->getClientOriginalName();
                     $file->move(public_path('storage'.'/'.$nameUser.'/'),$fileName);
-                    $name = $fileName;
-
-                    // $name = 'blogimage' . time() . '.' . $file->getClientOriginalExtension();
-                    // $name = 'blogimage' . $file->getClientOriginalName();
-                    // $path = public_path() . '/images' . '/' . $nameUser;
-                    // $file->move($path, $name);
 
                     $image = new Image();
-                    $image->name=$name;
+                    $image->name = $fileName;
                     $image->article()->associate($article);
                     $image->save();
                 }
@@ -256,33 +250,28 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id){
+
         $article = Article::findOrFail($id);
 
-
-        $categories = Category::orderBy('name', 'DESC')->pluck('name', 'id');
-
-        $distinctcategory = Category::where('id','!=',$article->category->id)->get();
-
-        // $my_tags = $article->tags[0]->id;
-        $selectedTag=\DB::select("SELECT tg.`id`, tg.`name`
-        FROM article_tag AS artg
-        INNER JOIN tags AS tg ON tg.`id` = artg.`tag_id`
-        INNER JOIN articles AS art ON art.`id` = artg.`article_id`
-        WHERE artg.`article_id`  = ?",[$id]);
-
-        $tags = Tag::where('id','!=',$article->tags[0]->id)->get();
-        // dd($article->images);
+        $distinctcategory = Category::select('id','name')
+                        ->where('id','!=',$article->category_id)
+                        ->get();
 
         $subcategories = DB::table('subcategories')
-        ->orderBy('id', 'ASC')->get();
+                        ->select('id','name','category_id')
+                        ->orderBy('id', 'ASC')
+                        ->get();
 
-        $tipos = Tipo::all();
+        $tipos = Tipo::select('id','name')
+                ->where('id',$article->tipo_id)
+                ->get();
 
-        $distinctipos = Tipo::where('id','!=',$article->tipo_id)->get();
+        $distinctipos = Tipo::select('id','name')
+                        ->where('id','!=',$article->tipo_id)
+                        ->get();
 
-        return view('admin.articles.edit', compact('article','categories','distinctcategory','selectedTag' ,'tags', 'subcategories','tipos','distinctipos'));
+        return view('admin.articles.edit', compact('article','distinctcategory', 'subcategories','tipos','distinctipos'));
     }
 
     /**
@@ -292,8 +281,7 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
        
         if ($request->file('image')) {
 
@@ -302,8 +290,8 @@ class ArticlesController extends Controller
             $article->save();
             $article->tags()->sync($request->tags);
             foreach ($request->image as $key => $value) {
-                
-                // dd($request->file('image'));
+
+                // dd($request->file('image')); 
                 $nameUser = \Auth::user()->name;
                 // dd($nameUser);
                 $file = $request->file('image')[$key];

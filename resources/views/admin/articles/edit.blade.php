@@ -54,18 +54,18 @@
                     <h4 class="text-center mt-3">Categorías</h4>
                     <div class="col">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="category_id" value="{{$article->category->id}}" checked
-                          onchange="selectSubcategory()">
+                          <input class="form-check-input" type="radio" name="category_id" 
+                          value="{{ $article->category->id }}" onchange="selectSubcategory()" checked>
                           <label class="form-check-label mb-2" for="category_id">
-                            {{$article->category->name}}
+                            {{ $article->category->name }}
                           </label>
                         </div>  
                         @foreach ($distinctcategory as $discat)
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="category_id" value="{{$discat->id}}"
-                            onchange="selectSubcategory()">
+                            <input class="form-check-input" type="radio" name="category_id" 
+                                    value="{{ $discat->id }}" onchange="selectSubcategory()">
                             <label class="form-check-label mb-2" for="category_id">
-                              {{$discat->name}}
+                              {{ $discat->name }}
                             </label>
                           </div>
                         @endforeach 
@@ -83,11 +83,8 @@
                 <div class="form-group mt-2">
                     <small>Selecciona tus Etiquetas</small>
                     <select name="tags[]" class="form-control" multiple="multiple" id="tags" required>
-                        @foreach ($selectedTag as $seltag)
-                            <option value="{{ $seltag->id }}" selected>{{ $seltag->name }}</option>
-                        @endforeach
-                        @foreach ($tags as $tag)
-                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @foreach ($article->tags as $artag)
+                            <option value="{{ $artag->id }}" selected>{{ $artag->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -134,7 +131,8 @@
             <div class="form-group">
                 <br>
                 <label for="author">Creditos</label>
-                <input type="input" class="form-control" placeholder="Creditos de la foto(s)" name="author" id='author' value="{{ $article->author }}" />
+                <input type="input" class="form-control" placeholder="Creditos de la foto(s)" 
+                        name="author" id='author' value="{{ $article->author }}" />
                 <h6 class="text-danger"> {{ $errors->first('author') }}</h6>
             </div>
 
@@ -142,7 +140,7 @@
                 <br>
                 <label for="tipo">Tipo de Artículo</label>
                 <select class="form-control" id="tipo" name="tipo_id" required>
-                    @foreach ($tipos->where('id',$article->tipo_id) as $tipo)
+                    @foreach ($tipos as $tipo)
                         <option value="{{ $tipo->id }}" selected>{{ $tipo->name }}</option>
                     @endforeach
                     @foreach ($distinctipos as $distipo)
