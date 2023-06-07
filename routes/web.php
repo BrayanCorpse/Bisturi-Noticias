@@ -2,6 +2,17 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\SubcategoriesController;
+use App\Http\Controllers\TagsController;
+use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\RootController;
+use App\Http\Controllers\ImagesController;
+use App\Http\Controllers\DeleteController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,17 +25,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\FrontController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\SubcategoriesController;
-use App\Http\Controllers\TagsController;
-use App\Http\Controllers\ArticlesController;
-use App\Http\Controllers\RootController;
-use App\Http\Controllers\ImagesController;
-use App\Http\Controllers\DeleteController;
-use Illuminate\Support\Facades\Auth;
 
 // Rutas del front
 Auth::routes();
