@@ -17,36 +17,41 @@
 
 {{-- @endif --}}
 
-    {!! Form::open(['route' => 'users.store']) !!}
+
+    <form action="{{ route('users.store') }}" method="POST">
+        @method('POST')
+        @csrf
 
         <div class="form-group">
-
-            {!! Form::label('name', 'Nombre') !!}
-            {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre Completo']) !!}
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name" class="form-control" placeholder="Nombre Completo">
            <h6 class=" text-danger"> {{ $errors->first('name') }}</h6>
         </div>
         <div class="form-group">
-            {!! Form::label('email', 'Correo electronico') !!}
-            {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'example@gmail.com', 'required']) !!}
+            <label for="email">Correo electronico</label>
+            <input type="email" name="email" id="email" class="form-control" 
+                    placeholder="example@gmail.com" required>
            <h6 class=" text-danger"> {{ $errors->first('email') }}</h6>
         </div>
         <div class="form-group">
-            {!! Form::label('password', 'Contraseña') !!}
-            {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '*************', 'required']) !!}
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" id="password" class="form-control"                       
+                    placeholder="*************" required>
            <h6 class=" text-danger"> {{ $errors->first('password') }}</h6>
         </div>
         <div class="form-group">
-            {!! Form::label('type', 'Tipo') !!}
-            {!! Form::select('type', ['member' => 'Miembro', 'admin' => 'Administrador', 'root' => 'root'], null, ['class' => 'form-control', 'placeholder' => 'Seleccione..', 'required']) !!}
+            <label for="type">Tipo</label>
+            <select name="type" id="type" class="form-control" aria-placeholder="Seleccione.." required>
+                <option value="member">Miembro</option>
+                <option value="admin">Administrador</option>
+                <option value="root">Root</option>
+            </select>
            <h6 class=" text-danger"> {{ $errors->first('type') }}</h6>
         </div>
         <div class="form-group">
-            {!! Form::submit('Registrar', ['class' => 'btn btn-primary']) !!}
+            <button type="submit" class="btn btn-primary">Registrar</button>
         </div>
 
-
-    {!! Form::close() !!}
-
-
-
+    </form>
+   
 @endsection

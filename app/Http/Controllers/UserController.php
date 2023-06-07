@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\User;
 use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
@@ -86,7 +86,13 @@ class UserController extends Controller
     {
         // dd($id);
         $user = User::find($id);
-        return view('admin.users.edit', compact('user'));
+
+        $types = [
+                    'root',
+                    'admin',
+                    'member',
+                ];
+        return view('admin.users.edit', compact('user','types'));
     }
 
     /**

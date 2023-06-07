@@ -4,26 +4,24 @@ namespace App\Http\Controllers\ajaxcrud;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Image;
-use App\Article;
-use App\Category;
-use App\Tag;
-use Redirect,Response;
+use App\Models\Image;
+use App\Models\Article;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
+use function Pest\Laravel\json;
 
 class AjaxPostController extends Controller
 {
     public function destroy($id)
     {
         $image = Image::findOrFail($id);
+        $nameUser = Auth::user()->name;
+        if (file_exists(public_path('storage/'.$nameUser.'/'.$image->name))) {
+            unlink(public_path('storage/'.$nameUser.'/'.$image->name));
+        }
         $image->delete();
-        $nameUser = \Auth::user()->name;
-        $photoPath = 'public/'.$nameUser.'/'.$image->name;
-        Storage::delete($photoPath);
-        return response()->json([
-            'message' => 'Articulo Eliminado'
-        ]); 
+        return response()->json('succes', 200);
     }
 
      /**

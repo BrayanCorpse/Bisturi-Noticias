@@ -22,10 +22,10 @@ class AddArticlesTable extends Migration
             $table->string('status');
             $table->integer('relevancia');
             $table->string('author');
-            $table->integer('tipo_id')->unsigned();
-            $table->integer('user_id')->unsigned();
-            $table->integer('category_id')->unsigned();
-            $table->string('subcategory')->unsigned();
+            $table->unsignedInteger('tipo_id');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('category_id');
+            $table->string('subcategory')->nullable();
 
             $table->string('slug');
 

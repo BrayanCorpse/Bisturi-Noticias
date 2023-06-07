@@ -105,7 +105,8 @@
                     <i class="fa fa-picture-o" aria-hidden="true"></i>
                 </span>
         
-                <input type="file" name="image[]" id="image"  multiple="multiple" accept="image/*" placeholder="Upload File">
+                <input type="file" name="image[]" id="image"  multiple="multiple" accept="image/*"
+                        placeholder="Upload File" required>
         
                 <output id="list"></output>
         
@@ -120,7 +121,7 @@
                         <img src="{{ asset('storage/'.$article->user->name.'/'.$image->name)}}" class="rounded mx-1 my-1" width="100" height="70" alt="{{ $article->title }}" > 
                     </div>
                     <div class="delete">
-                        <a href="javascript:void(0)" id="delete" data-id="{{ $image->id }}" class="btn btn-danger btn-sm " onclick="deleteImage({{ $image->id }})">
+                        <a href="{{ route('imagesDelete',['id' => $image->id]) }}" id="delete" data-id="{{ $image->id }}" class="btn btn-danger btn-sm">
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </a> 
                     </div>                      
@@ -208,30 +209,6 @@ function proccess(){
                 });
             }
 
-</script>
-
-<script>
-    function deleteImage(id){
-
-        if (window.confirm("Estas seguro de eliminar esta Imagen!")) {
-            fetch("{{ url('ajax-posts')}}"+'/'+id , {
-            headers:{
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                },
-            method:'DELETE',
-            })
-            .then(response => response.json())
-            .then(function(result){
-            window.location.reload();
-            })
-            .catch(function (error) {
-            console.log('Error:', data);
-            });
-
-        }
-        
-    }           
 </script>
 
 <script>

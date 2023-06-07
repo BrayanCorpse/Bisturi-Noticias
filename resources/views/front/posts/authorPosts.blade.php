@@ -74,7 +74,7 @@
     <hr>   
 @endforeach --}}
 
-{{ $articles->onEachSide(2)->links() }} 
+{{ $articles->onEachSide(2)->links('vendor.pagination.bootstrap-4') }} 
 
  @endsection
 

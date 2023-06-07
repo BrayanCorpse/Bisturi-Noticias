@@ -30,6 +30,6 @@
     </div>
      --}}
      
-     {{ $categories->links() }} 
+     {{ $categories->links('vendor.pagination.bootstrap-4') }} 
    
 @endsection

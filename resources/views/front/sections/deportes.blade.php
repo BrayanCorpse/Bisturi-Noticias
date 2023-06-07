@@ -29,7 +29,7 @@
          @each('front.components.latestNews',$latest, 'late')
     </div> --}}
     
-    {{ $categories->links() }} 
+    {{ $categories->links('vendor.pagination.bootstrap-4') }} 
 
    
 @endsection

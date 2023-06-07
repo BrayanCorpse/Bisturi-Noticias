@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
-use App\Subcategory;
-use App\Tag;
-use App\Article;
-use App\Image;
-use App\User;
-use App\Tipo;
+use App\Models\Category;
+use App\Models\Subcategory;
+use App\Models\Tag;
+use App\Models\Article;
+use App\Models\Image;
+use App\Models\User;
+use App\Models\Tipo;
 use Illuminate\Support\Facades\DB;
 use Jenssegers\Date\Date;
 use Illuminate\Pagination\LengthAwarePaginator;

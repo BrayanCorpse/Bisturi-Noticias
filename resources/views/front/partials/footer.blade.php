@@ -84,7 +84,7 @@
             </li>
         </ul>
 
-        <p class="register uk-text-center uk-margin-medium-top">Bisturi Noticias de México ® 2022</p>
+        <p class="register uk-text-center uk-margin-medium-top">Bisturi Noticias de México ® 2023</p>
         
         <ul class="uk-subnav uk-flex-center terms">
             <li class="uk-active"><a href="#privacy-full" uk-toggle>Aviso de Privacidad |</a></li>

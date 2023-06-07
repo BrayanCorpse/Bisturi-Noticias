@@ -3,18 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
-use App\Subcategory;
-use App\Tag;
-use App\Article;
-use App\Image;
-use App\User;
-use App\Tipo;
+use App\Models\Category;
+use App\Models\Subcategory;
+use App\Models\Tag;
+use App\Models\Article;
+use App\Models\Image;
+use App\Models\User;
+use App\Models\Tipo;
 use App\Http\Requests\ArticleRequest;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 
 class ArticlesController extends Controller
 {
@@ -35,7 +36,7 @@ class ArticlesController extends Controller
 
         $articles = Article::select('id','title','category_id',
             'created_at','user_id','status','tipo_id')
-            ->where('user_id', '=', \Auth::user()->id)
+            ->where('user_id', '=', Auth::user()->id)
             ->where('status', '=', 'publico')
             ->orderBy('created_at','DESC')
             ->whereNull('deleted_at')
@@ -49,7 +50,7 @@ class ArticlesController extends Controller
         });
             
         $articleCount = Article::select('id')
-                ->where('user_id', '=', \Auth::user()->id)
+                ->where('user_id', '=', Auth::user()->id)
                 ->where('status', '=', 'publico')
                 ->whereNull('deleted_at')
                 ->get();     
@@ -80,7 +81,7 @@ class ArticlesController extends Controller
 
         $articles = Article::select('id','title','category_id','created_at',
             'updated_at','user_id','status','tipo_id')
-            ->where('user_id', '=', \Auth::user()->id)
+            ->where('user_id', '=', Auth::user()->id)
             ->where('status', '=', 'borrador')
             ->orderBy('created_at','DESC')
             ->whereNull('deleted_at')
@@ -93,7 +94,7 @@ class ArticlesController extends Controller
         });
 
         $articleCount = Article::select('id')
-        ->where('user_id', '=', \Auth::user()->id)
+        ->where('user_id', '=', Auth::user()->id)
         ->where('status', '=', 'borrador')
         ->whereNull('deleted_at')
         ->get();     
@@ -122,7 +123,7 @@ class ArticlesController extends Controller
 
         $articles = Article::select('id','title','category_id',
             'deleted_at','user_id','status','tipo_id')
-            ->where('user_id', '=', \Auth::user()->id)
+            ->where('user_id', '=', Auth::user()->id)
             ->whereNotNull('deleted_at')
             ->orderBy('deleted_at','DESC')
             ->onlyTrashed()
@@ -135,7 +136,7 @@ class ArticlesController extends Controller
         });
 
         $articleCount = Article::select('id')
-                ->where('user_id', '=', \Auth::user()->id)
+                ->where('user_id', '=', Auth::user()->id)
                 ->whereNotNull('deleted_at')
                 ->onlyTrashed()
                 ->get();
@@ -152,14 +153,18 @@ class ArticlesController extends Controller
 
     }
 
-
     public function changeStatus($id){
 
         $article = Article::findOrFail($id);
         $article->status = 'publico';
         $article->save();
 
-        return redirect()->route('articles.indexPublics');
+        if(Auth::user()->type == 'root'){
+            return redirect()->route('articles.allArticles');
+        }
+        else{
+            return redirect()->route('articles.indexPublics');
+        }
     }
 
     public function changeSection(Request $request, $id){
@@ -209,13 +214,13 @@ class ArticlesController extends Controller
             if ($request->file('image')) {
 
                 $article = new Article($request->all());
-                $article->user_id = \Auth::user()->id;
+                $article->user_id = Auth::user()->id;
                 $article->save();
                 $article->tags()->sync($request->tags);
                 foreach ($request->image as $key => $value) {
 
                     // dd($request->file('image'));
-                    $nameUser = \Auth::user()->name;
+                    $nameUser = Auth::user()->name;
                     // dd($nameUser);
                     $file = $request->file('image')[$key];
                     $random = Str::random(40);
@@ -292,7 +297,7 @@ class ArticlesController extends Controller
             foreach ($request->image as $key => $value) {
 
                 // dd($request->file('image')); 
-                $nameUser = \Auth::user()->name;
+                $nameUser = Auth::user()->name;
                 // dd($nameUser);
                 $file = $request->file('image')[$key];
                 $random = Str::random(40);
@@ -363,12 +368,12 @@ class ArticlesController extends Controller
 
         $article = Article::withTrashed()->find($id);
         
-        $images=\DB::select("SELECT ima.`name` as 'name' 
+        $images=DB::select("SELECT ima.`name` as 'name' 
         FROM images AS ima
         WHERE ima.`article_id` = ?",[$id]);
 
         foreach ($images as $image) {
-            $nameUser = \Auth::user()->name;
+            $nameUser = Auth::user()->name;
             if (file_exists(public_path('storage/'.$nameUser.'/'.$image->name))) {
               unlink(public_path('storage/'.$nameUser.'/'.$image->name));
             }

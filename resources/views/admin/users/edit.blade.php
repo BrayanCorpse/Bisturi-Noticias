@@ -4,28 +4,39 @@
 
 @section('content')
 
-
-    {!! Form::open(['route' => ['users.update', $user], 'method' => 'PUT']) !!}
+    <form action="{{ route('users.update', ['user' => $user ]) }}" method="POST">
+        @method('PUT')
+        @csrf
 
         <div class="form-group">
-            {!! Form::label('name', 'Nombre') !!}
-            {!! Form::text('name', $user->name, ['class' => 'form-control', 'placeholder' => 'Nombre Completo', 'required']) !!}
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name" class="form-control" 
+                    placeholder="Nombre Completo"
+                    value="{{  $user->name }}"
+                    required>
         </div>
         <div class="form-group">
-            {!! Form::label('email', 'Correo electronico') !!}
-            {!! Form::email('email', $user->email, ['class' => 'form-control', 'placeholder' => 'example@gmail.com', 'required']) !!}
+            <label for="email">Correo electronico</label>
+            <input type="email" name="email" id="email" class="form-control" 
+                    placeholder="example@gmail.com" 
+                    value="{{ $user->email }}"
+                    required>
         </div>
         <div class="form-group">
-            {!! Form::label('type', 'Tipo') !!}
-            {!! Form::select('type', ['member' => 'Miembro', 'admin' => 'Administrador', 'root' => 'root'], $user->type, ['class' => 'form-control', 'placeholder' => 'Seleccione..']) !!}
+            <label for="type">Tipo</label>
+            <select name="type" id="type" class="form-control" aria-placeholder="Seleccione.." required>
+                <option value="{{ $user->type }}">{{ $user->type }}</option>
+                @foreach ($types as $type)
+                    @unless($type == $user->type)
+                        <option value="{{ $type }}">{{ $type }}</option>
+                    @endunless
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
-            {!! Form::submit('Editar', ['class' => 'btn btn-primary']) !!}
+            <button type="submit" class="btn btn-primary">Editar</button>
         </div>
 
-
-    {!! Form::close() !!}
-
-
+    </form>
 
 @endsection

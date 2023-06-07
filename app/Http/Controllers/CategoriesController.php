@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
+use App\Models\Category;
 use App\Http\Requests\CategoryRequest;
+use DB;
 
 class CategoriesController extends Controller
 {
@@ -20,11 +21,11 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('id', 'ASC')->simplePaginate(5);
-        $categories->each(function($categories){
-            $categories->numArticles = $categories->articles->count();
-        });
+        // $categories = Category::orderBy('id', 'ASC')->simplePaginate(4);
 
+        $categories = Category::select('id','name')
+                        ->orderBy('id','ASC')
+                        ->simplePaginate(5);
         return view('admin.categories.index', compact('categories'));
     }
 
