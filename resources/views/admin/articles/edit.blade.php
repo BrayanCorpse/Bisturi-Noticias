@@ -5,7 +5,6 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 
-
 @section('title', 'Edición del articulo - ' . $article->title )
 
 @section('content')
@@ -44,6 +43,15 @@
             <h6 class="text-danger"> {{ $errors->first('content') }}</h6>
         </div>
         <div class="form-group article-group col-md-3">
+
+            @if (session('status'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('status') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
 
             <div class="dropdown">
                 <a class="btn btn-info rounded-circle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -105,8 +113,9 @@
                     <i class="fa fa-picture-o" aria-hidden="true"></i>
                 </span>
         
-                <input type="file" name="image[]" id="image"  multiple="multiple" accept="image/*"
-                        placeholder="Upload File" required>
+                <input type="file" name="image[]" id="image"  multiple="multiple" 
+                        accept="image/*" placeholder="Upload File" 
+                        {{ $article->images->isEmpty() ? 'required' : '' }}>
         
                 <output id="list"></output>
         

@@ -9,8 +9,6 @@ use App\Models\Article;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
-use function Pest\Laravel\json;
-
 class AjaxPostController extends Controller
 {
     public function destroy($id)
