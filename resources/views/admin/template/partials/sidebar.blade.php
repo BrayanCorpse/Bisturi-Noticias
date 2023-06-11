@@ -54,6 +54,9 @@
               </a>
               <ul class="collapse list-unstyled" id="pageSubmenu">
                 <li>
+                  <a href="{{ route('articles.allArticles') }}" tabindex="-1">All Publics</a>
+                </li>
+                <li>
                   <a href="{{ route('articles.indexPublics') }}" tabindex="-1">Publicados</a>
                 </li>
                 <li>

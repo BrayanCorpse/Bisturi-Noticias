@@ -53,6 +53,13 @@
                                 @method('POST')
                                 @csrf
                                 <div class="form-row align-items-center">
+                                    <input type="text" name="oldUser" value="{{ $article->user->name }}" hidden>
+
+                                    @foreach ($article->images as $key =>  $image)
+                                        <input type="text" name="image[]" id="{{ $key }}" 
+                                                value="{{$image->name }}" hidden>
+                                    @endforeach
+
                                     <span class="badge badge-light mt-4">Sección:</span>
                                     <div class="col-sm-3 mt-4">
                                         <select class="form-control form-control-sm" 
@@ -91,11 +98,8 @@
                             </form>
                         </td>
                         <td>
-                            <span class="badge badge-light">Acciones del Artículo</span>
+                            <span class="badge badge-light">Acciones</span>
                             <br>
-                            <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-info btn-sm mt-4">
-                                Editar
-                            </a>
                             <a href="{{ route('articles.SoftDelete', $article->id) }}" class="btn btn-danger btn-sm mt-4" onclick=" return confirm('Seguro que deseas mandar el articulo: {{ $article->title }} a la papelera ?')">
                                 Eliminar
                             </a>

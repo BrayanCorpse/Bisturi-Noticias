@@ -3,19 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
-use App\Models\Subcategory;
-use App\Models\Tag;
 use App\Models\Article;
-use App\Models\Image;
 use App\Models\User;
 use App\Models\Tipo;
-use App\Http\Requests\ArticleRequest;
-use DB;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Illuminate\Support\Collection;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+
 
 class RootController extends Controller
 {
@@ -48,9 +41,7 @@ class RootController extends Controller
 
             $distinctipos = Tipo::select('id','name')->get();
 
-            $disUser = User::select('id','name')
-                    ->where('type','!=', 'root')
-                    ->get();
+            $disUser = User::select('id','name')->get();
 
             return view('admin.articles.allArticles',compact('articles','count','distinctipos','disUser'));
 
@@ -64,13 +55,27 @@ class RootController extends Controller
     public function changeData(Request $request, $id){
 
         if(Auth::user()->type == 'root'){
-    
-            $article = Article::findOrFail($id);
-            $article->tipo_id = $request->tipo_id;
-            $article->user_id = $request->user_id;
-            $article->save();
 
-            return redirect()->route('articles.allArticles');
+            $oldUser = $request->oldUser;
+            $imageName = $request->image;
+
+            foreach($imageName as $image){
+
+                $newUser = User::find($request->user_id);
+
+                $file = public_path('storage/'.$oldUser.'/'.$image);
+                $destination = public_path('storage/'.$newUser->name.'/'.$image);
+                File::move($file, $destination);
+
+                $article = Article::findOrFail($id);
+                $article->tipo_id = $request->tipo_id;
+                $article->user_id = $request->user_id;
+                $article->save();
+
+
+            }
+                flash('Cambios realizados de forma exitosa!!')->success()->important();
+                return redirect()->route('articles.allArticles');
         }
         else{
             Auth::logout();

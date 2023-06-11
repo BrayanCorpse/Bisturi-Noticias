@@ -20,6 +20,7 @@
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('icons/css/font-awesome.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/menulogin.css') }}">
 
@@ -40,5 +41,6 @@
             @yield('content')
         </main>
     </div>
+    @stack('js')
 </body>
 </html>
