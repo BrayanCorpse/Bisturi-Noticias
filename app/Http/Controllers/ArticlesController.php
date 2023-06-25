@@ -8,13 +8,10 @@ use App\Models\Subcategory;
 use App\Models\Tag;
 use App\Models\Article;
 use App\Models\Image;
-use App\Models\User;
 use App\Models\Tipo;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
 class ArticlesController extends Controller
