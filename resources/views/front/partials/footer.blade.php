@@ -84,7 +84,9 @@
             </li>
         </ul>
 
-        <p class="register uk-text-center uk-margin-medium-top">Bisturi Noticias de México ® 2023</p>
+        <p class="register uk-text-center uk-margin-medium-top">Bisturi Noticias de México ® 
+            @php echo date("Y") @endphp
+        </p>
         
         <ul class="uk-subnav uk-flex-center terms">
             <li class="uk-active"><a href="#privacy-full" uk-toggle>Aviso de Privacidad |</a></li>
@@ -96,7 +98,7 @@
         <div class=" uk-text-center">
             <hr>
             <small>
-                © 2023 
+                ©  @php echo date("Y") @endphp
                 <a class="uk-link-reset" href="https://bydsolutions.com/" target="_blank" rel="noopener noreferrer">
                     ByD Solutions 
                 </a>  
