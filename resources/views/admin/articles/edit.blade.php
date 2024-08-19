@@ -63,7 +63,7 @@
                     <div class="col">
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="category_id" 
-                          value="{{ $article->category->id }}" onchange="selectSubcategory()" checked>
+                          value="{{ $article->category->id }}" checked>
                           <label class="form-check-label mb-2" for="category_id">
                             {{ $article->category->name }}
                           </label>
@@ -71,7 +71,7 @@
                         @foreach ($distinctcategory as $discat)
                           <div class="form-check">
                             <input class="form-check-input" type="radio" name="category_id" 
-                                    value="{{ $discat->id }}" onchange="selectSubcategory()">
+                                    value="{{ $discat->id }}">
                             <label class="form-check-label mb-2" for="category_id">
                               {{ $discat->name }}
                             </label>
@@ -81,8 +81,6 @@
                 </div>
                 <h6 class="text-danger"> {{ $errors->first('category_id') }}</h6>
             </div>
-
-            @include('admin.template.partials.subcategoriesEdit')
 
             <div class="card card-body mt-5">
                 <h4 class="text-center">

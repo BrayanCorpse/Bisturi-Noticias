@@ -17,15 +17,13 @@ class AddArticlesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->longText('summary');
-            $table->longText('excerpt');
-            $table->longText('content');
+            $table->longText('excerpt')->nullable();
+            $table->longText('content');   
             $table->string('status');
-            $table->integer('relevancia');
-            $table->string('author');
+            $table->string('author')->nullable();
             $table->unsignedInteger('tipo_id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('category_id');
-            $table->string('subcategory')->nullable();
 
             $table->string('slug');
 

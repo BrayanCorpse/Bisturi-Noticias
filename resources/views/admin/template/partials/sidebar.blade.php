@@ -11,9 +11,6 @@
               <a href="{{ route('categories.index') }}" tabindex="-1" >Categorias</a>
             </li>
             <li>
-              <a href="{{ route('subcategories.index') }}" tabindex="-1" >Subcategorias</a>
-            </li>
-            <li>
               <a href="{{ route('tags.index') }}" tabindex="-1" >Tags</a>
             </li>
             <li>
@@ -41,9 +38,6 @@
             </li>
             <li>
               <a href="{{ route('categories.index') }}" tabindex="-1" >Categorias</a>
-            </li>
-            <li>
-              <a href="{{ route('subcategories.index') }}" tabindex="-1" >Subcategorias</a>
             </li>
             <li>
               <a href="{{ route('tags.index') }}" tabindex="-1" >Tags</a>
@@ -76,9 +70,6 @@
             @else
               <li>
                 <a href="{{ route('categories.index') }}" tabindex="-1" >Categorias</a>
-              </li>
-              <li>
-                <a href="{{ route('subcategories.index') }}" tabindex="-1" >Subcategorias</a>
               </li>
               <li>
                 <a href="{{ route('tags.index') }}" tabindex="-1" >Tags</a>

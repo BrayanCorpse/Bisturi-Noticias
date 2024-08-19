@@ -30,11 +30,6 @@ class Category extends Model{
         return $this->hasMany('App\Models\Article');
     }
 
-    public function categorys(){
-
-        return $this->hasMany('App\Models\Subcategory');
-    }
-
 
 // SCOPE
     public function scopeSearchCategory($query, $name){

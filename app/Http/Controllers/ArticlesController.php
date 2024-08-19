@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Models\Subcategory;
 use App\Models\Tag;
 use App\Models\Article;
 use App\Models\Image;
@@ -189,13 +188,9 @@ class ArticlesController extends Controller
                     ->orderBy('id', 'desc')
                     ->get();
 
-        $subcategories = Subcategory::select('id','name','category_id')
-                ->orderBy('id', 'desc')
-                ->get();
-
         $tipos = Tipo::select('id','name')->get();
 
-        return view('admin.articles.create', compact('categories', 'tags', 'subcategories','tipos'));
+        return view('admin.articles.create', compact('categories', 'tags','tipos'));
 
     }
 
@@ -260,11 +255,6 @@ class ArticlesController extends Controller
                         ->where('id','!=',$article->category_id)
                         ->get();
 
-        $subcategories = DB::table('subcategories')
-                        ->select('id','name','category_id')
-                        ->orderBy('id', 'ASC')
-                        ->get();
-
         $tipos = Tipo::select('id','name')
                 ->where('id',$article->tipo_id)
                 ->get();
@@ -273,7 +263,7 @@ class ArticlesController extends Controller
                         ->where('id','!=',$article->tipo_id)
                         ->get();
 
-        return view('admin.articles.edit', compact('article','distinctcategory', 'subcategories','tipos','distinctipos'));
+        return view('admin.articles.edit', compact('article','distinctcategory','tipos','distinctipos'));
     }
 
     /**

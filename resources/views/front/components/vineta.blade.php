@@ -17,7 +17,6 @@
                         </h5>
                         <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
                             <li>{{ $late->category->name }}</li>
-                            <li>{{ $late->subcategoria }}</li>
                         </ul>
                     </div>
                 </div>

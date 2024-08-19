@@ -47,33 +47,6 @@
     <hr>
 </div>
 
-
-{{-- @foreach ($articles as $article)
-    @foreach ($article->images as $key => $img)
-        @if ($key < 1)
-        <img  loading="lazy" src="{{ asset('storage'.'/'.$article->user->name.'/'.$img->name) }}" 
-                alt="{{ $article->title }}"  width="100">
-        @endif
-    @endforeach
-
-    <legend>{{ $article->subcategoria }}</legend>
-    <br>
-    <h1>{{ $article->title }}</h1>
-    <br>
-    <p>{{ $article->summary }}</p>
-    <br>
-    <h4>{{ $article->author }}</h4>
-    <br>
-    <h5>{{ $article->created_at->diffForHumans() }}</h5>
-    <br>
-    <ul>
-        @foreach ($article->tags as $tag)
-            <li>{{ $tag->name }}</li>
-        @endforeach
-    </ul>
-    <hr>   
-@endforeach --}}
-
 {{ $articles->onEachSide(2)->links('vendor.pagination.bootstrap-4') }} 
 
  @endsection

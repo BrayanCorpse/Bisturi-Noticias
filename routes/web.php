@@ -6,7 +6,6 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\SubcategoriesController;
 use App\Http\Controllers\TagsController;
 use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\RootController;
@@ -40,9 +39,6 @@ Route::prefix('admin')->group(function () {
 
     Route::resource('categories', CategoriesController::class);
     Route::get('categories/{id}/destroy', [CategoriesController::class, 'destroy'])->name('categories.destroy');
-
-    Route::resource('subcategories', SubcategoriesController::class);
-    Route::get('subcategories/{id}/destroy', [SubcategoriesController::class, 'destroy'])->name('subcategories.destroy');
 
     Route::resource('tags', TagsController::class);
     Route::get('tags/{id}/destroy', [TagsController::class, 'destroy'])->name('tags.destroy');

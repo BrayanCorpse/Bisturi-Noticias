@@ -66,8 +66,7 @@
                                  name="category_id" 
                                
                                  value="{{$category->id}}" 
-                                 {{ old('category_id') == $category->id ? 'checked' : '' }} 
-                                 onchange="selectSubcategory()">
+                                 {{ old('category_id') == $category->id ? 'checked' : '' }}>
                           <label class="form-check-label mb-2" for="category_id">
                             {{$category->name}}
                           </label>
@@ -78,8 +77,6 @@
                 </div>
                 <h6 class="text-danger"> {{ $errors->first('category_id') }}</h6>
             </div>
-
-            @include('admin.template.partials.subcategories')
             
 
            <div class="card card-body mt-5">

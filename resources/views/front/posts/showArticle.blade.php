@@ -16,11 +16,7 @@
 
                         <span class="b-h5-link uk-align-left uk-label">
                             <a class="uk-link-reset" href="{{url($art->category->slug)}}">
-                                @if ($art->category->slug == 'opinion')
-                                    {{ $art->subcategoria }}
-                                @else
                                     {{ $art->category->name }}
-                                @endif
                             </a>
                         </span> 
                     <br>

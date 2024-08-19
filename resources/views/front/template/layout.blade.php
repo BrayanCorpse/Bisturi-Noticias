@@ -61,6 +61,16 @@
     <!-- UIkit JS -->
     <script src="{{asset('js/uikit.min.js')}}" defer></script>
     <script src="{{asset('js/uikit-icons.min.js')}}" defer></script>
+    <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId            : '1963124430785043',
+            xfbml            : true,
+            version          : 'v20.0'
+          });
+        };
+      </script>
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
     @stack('js')
     @stack('time')
 

@@ -150,7 +150,7 @@ class BlogController extends Controller
 
     public function opinion(){
 
-        $latest = Article::select('id','title','summary','subcategoria','category_id','user_id',
+        $latest = Article::select('id','title','summary','category_id','user_id',
             'created_at','slug')
                 ->where('category_id',15)
                 ->where('status', '=', 'publico')
@@ -182,6 +182,7 @@ class BlogController extends Controller
                 $clicks->category;
                 $clicks->images;
                 $clicks->user;
+                dd( $clicks->images);
             });
 
         return view('front.posts.clicks', compact('clicks'));
@@ -205,7 +206,7 @@ class BlogController extends Controller
 
             // findBySlugOrFail($slug);
             $article = Article::select('id','title','summary','content','category_id',
-            'user_id','created_at','slug','author','subcategoria','excerpt')
+            'user_id','created_at','slug','author','excerpt')
                     ->where('slug', $slug)
                     ->get();
             $article->each(function($article){
