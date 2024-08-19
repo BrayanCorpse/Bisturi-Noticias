@@ -215,8 +215,8 @@ class ArticlesController extends Controller
                     $nameUser = Auth::user()->name;
                     // dd($nameUser);
                     $file = $request->file('image')[$key];
-                    $random = Str::random(40);
-                    $fileName  = $random. $file->getClientOriginalName();
+                    // $random = Str::random(40);
+                    $fileName  = $file->getClientOriginalName();
                     $file->move(public_path('storage'.'/'.$nameUser.'/'),$fileName);
 
                     $image = new Image();
@@ -287,8 +287,8 @@ class ArticlesController extends Controller
                 $nameUser = Auth::user()->name;
                 // dd($nameUser);
                 $file = $request->file('image')[$key];
-                $random = Str::random(40);
-                $fileName  = $random. $file->getClientOriginalName();
+                // $random = Str::random(40);
+                $fileName  = $file->getClientOriginalName();
                 $file->move(public_path('storage'.'/'.$nameUser.'/'),$fileName);
                 $name = $fileName;
 
