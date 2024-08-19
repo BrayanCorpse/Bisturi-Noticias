@@ -45,7 +45,6 @@
                 content="{{ asset('storage' . '/' . $article->user->name . '/'. $image->name ) }}">
         <meta property="og:image:height" content="600">
         <meta property="og:image:width" content="1200">
-        <meta property="fb:pages" content="bisturibnnoticias" />
         <meta property="fb:app_id" content="1963124430785043" />
         
 @endpush 
