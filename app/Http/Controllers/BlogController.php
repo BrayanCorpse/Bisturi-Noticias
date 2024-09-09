@@ -189,7 +189,6 @@ class BlogController extends Controller
                 $clicks->category;
                 $clicks->images;
                 $clicks->user;
-                dd( $clicks->images);
             });
 
         return view('front.posts.clicks', compact('clicks'));

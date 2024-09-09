@@ -59,7 +59,10 @@
     </section>
     <ul class="uk-list uk-list-divider">
         @foreach ($catcount as $cats)
-            <li>{{ $cats->name }} <small class="uk-align-right">( {{ $cats->items }} )</small> </li>
+            <li>
+                <a class="blue-links" href="{{ $cats->slug }}">{{ $cats->name }}</a>
+                <small class="uk-align-right">( {{ $cats->items }} )</small> 
+            </li>
         @endforeach
     </ul>  
     <section class="uk-margin-medium-top uk-text-center">

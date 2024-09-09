@@ -40,7 +40,6 @@
    @endforeach
    
 </div>
-{{ $clicks->links('vendor.pagination.bootstrap-4') }}
 @endsection
 
 @push('ogf')
