@@ -1,25 +1,10 @@
 @extends('front.template.layout')
 
-@section('title', 'Bisturí Noticias | Opinión')
+@section('title', 'BN Noticias | Opinión')
 
 @section('content')
 
-    {{-- <div class="uk-text-center uk-grid-collapse uk-margin-medium-top b-mrb-mobile" uk-grid>
-
-        <div class="uk-width-expand@m">
-            @each('front.components.mainNews',$articles, 'article')
-        </div>
-
-        <div class="uk-width-1-3@m">   
-            <div class="b-header">
-                <h4 class="b-title uk-h4" id="title-seccion">{{Route::current()->getName()}} </h4>
-            </div> 
-            @each('front.components.newsCategory',$categories, 'category')
-        </div>
-        
-    </div> --}}
-
-    <div class="b-header-l uk-margin-top uk-text-center uk-padding-remove-bottom">
+    {{-- <div class="b-header-l uk-margin-top uk-text-center uk-padding-remove-bottom">
         <h3 class="b-title-latest uk-h3" id="title-seccion">
            Opinión
         </h3>
@@ -29,7 +14,11 @@
          @each('front.components.latestNews',$latest, 'late')
     </div>
     
-    {{ $latest->links('vendor.pagination.bootstrap-4') }}
+    {{ $latest->links('vendor.pagination.bootstrap-4') }} --}}
+
+    <div class="uk-padding uk-width-1-1@m">
+        @each('front.components.mainNews',$latest, 'article')
+    </div>
    
 @endsection
 

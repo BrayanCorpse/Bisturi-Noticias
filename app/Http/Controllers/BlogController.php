@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
+use App\Models\Catcount;
+use App\Models\Tag;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+
 
 
 class BlogController extends Controller
@@ -35,7 +39,7 @@ class BlogController extends Controller
         $lastNewPhoto = Article::select('id','title','summary','author',
         'category_id','user_id','created_at','slug')
                 ->where('status', '=', 'publico')
-                ->where('tipo_id', '=', 5)
+                ->where('tipo_id', '=', 7)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
                 ->limit(1)->get();
@@ -49,10 +53,10 @@ class BlogController extends Controller
         $lastNewText = Article::select('id','title','summary','excerpt','author',
         'category_id','user_id','created_at','slug')
                 ->where('status', '=', 'publico')
-                ->where('tipo_id', '=', 6)
+                ->whereNotIn('tipo_id',[4,7])
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
-                ->limit(1)->get();
+                ->paginate(6);    
         $lastNewText->each(function($lastNewText){
             $lastNewText->category;
             $lastNewText->tags;
@@ -60,24 +64,27 @@ class BlogController extends Controller
             $lastNewText->user;
         });
 
-       
-        // dd($lastgeneralNews);
-
-        $clicks = Article::select('id','title','summary','excerpt','author','category_id',
-        'user_id','created_at','slug')
-                ->where('tipo_id',7)
+        $smallNews = Article::select('id','title','category_id','user_id','created_at','slug')
                 ->where('status', '=', 'publico')
+                ->whereNotIn('tipo_id',[4,7])
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
-                ->limit(1)->get();
-        $clicks->each(function($clicks){
-            $clicks->category;
-            $clicks->tags;
-            $clicks->images;
-            $clicks->user;
+                ->get(); 
+        $smallNews->each(function($smallNews){
+            $smallNews->category;
+            $smallNews->tags;
+            $smallNews->images;
+            $smallNews->user;
+            // $smallNews->load('category', 'tags', 'images', 'user');
         });
 
-        return view('front.sections.home', compact('articles','clicks','lastNewText','lastNewPhoto'));
+        $smallarticles = $smallNews->shuffle()->take(4);
+
+        $catcount = Catcount::all();
+        $tags = Tag::select('id','name')->limit(20)->get();
+
+
+        return view('front.sections.home', compact('articles','lastNewText','lastNewPhoto','catcount','tags','smallarticles'));
         
     }
 

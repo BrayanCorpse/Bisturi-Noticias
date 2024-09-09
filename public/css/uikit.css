@@ -1199,11 +1199,11 @@ button.uk-icon:not(:disabled) {
  */
 .uk-icon-button {
   box-sizing: border-box;
-  width: 56px;
-  height: 56px;
+  width: 36px;
+  height: 36px;
   border-radius: 500px;
-  background: #222222 !important;
-  color: #999;
+  background: #EBEBEB !important;
+  color: #666666;
   vertical-align: middle;
   /* 1 */
   display: inline-flex;

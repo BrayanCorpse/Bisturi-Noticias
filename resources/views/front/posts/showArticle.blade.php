@@ -1,15 +1,15 @@
 @extends('front.template.layout')
 
-@section('title', 'Bisturi Noticias |'.' '.$article[0]->category->name)
+@section('title', 'BN Noticias |'.' '.$article[0]->category->name)
 
 @section('content')
 
 
-    <div class="uk-text-center uk-grid-collapse uk-margin-medium-top b-show" uk-grid>
+    <div class="uk-text-center uk-grid-collapse b-show" uk-grid>
 
         <div class="uk-width-expand@m">
 
-            <div class="uk-card">
+            <div class="uk-card uk-margin-large-top">
                 <div class="uk-card uk-card-default uk-card-body">
                 @foreach ($article as $art)
                     @each('front.partials.showSharelinks', $article, 'article')
@@ -77,7 +77,7 @@
             </div>
         </div>
         
-        <div class="uk-width-1-3@m">  
+        <div class="uk-width-1-3@m uk-margin-large-top">  
             @each('front.components.generalNews',$generals, 'general')
             {{-- {{ $generals->links() }} --}}
         </div>

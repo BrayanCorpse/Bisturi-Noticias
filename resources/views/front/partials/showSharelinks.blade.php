@@ -25,7 +25,7 @@
 
     <a  rel="noopener noreferrer nofollow"
         class="uk-icon-button b-icon-button copy uk-margin-small-right" 
-        uk-icon="icon: link; ratio: 1.3"
+        uk-icon="icon: copy; ratio: 1"
         onclick="navigator.clipboard.writeText(window.location.href);
                 this.insertAdjacentHTML('afterend', '<div class=tooltip>copiado</div>');
                 setTimeout(() => { 

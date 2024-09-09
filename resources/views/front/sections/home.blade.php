@@ -1,19 +1,23 @@
 @extends('front.template.layout')
 
-@section('title', 'Bisturí Noticias')
+@section('title', 'BN Noticias')
 
 @section('content')
 
-        <div class="uk-text-center uk-grid-collapse uk" uk-grid>
-            <div class=" uk-width-1-1@m">
-                @each('front.components.mainNews',$articles, 'article')
-            </div>
-            <div class="uk-width-1-3@m">
-                @each('front.components.click', $clicks, 'click')
-            </div>
-            
+        <div class="uk-padding uk-width-1-1@m">
+            @each('front.components.mainNews',$articles, 'article')
         </div>
 
+        <hr class="uk-margin-top new-hr">
+
+        <h3 class="uk-h3 uk-margin-medium-left uk-text-bold">
+            <i class="fas fa-grip-lines-vertical fa-lg" style="color: #1b9a8b;"></i> Últimas Noticias
+        </h3>
+
+        @include('front.components.lastNews',[$lastNewText, 'lastNewText'])
+           
+
+{{-- 
         <div class="uk-margin-small-top">
             @include('front.partials.cartuchos',
                 [
@@ -21,7 +25,7 @@
                     'lastNewPhoto' => $lastNewPhoto
                 ]
             )
-        </div>
+        </div> --}}
           
 @endsection
 

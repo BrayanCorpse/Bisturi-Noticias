@@ -13,14 +13,16 @@
     gtag('js', new Date());
     gtag('config', 'G-PC1CWWF1NP');
     </script>
+    {{-- <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v20.0&appId=1269972941084635" nonce="GB4lXUQJ"></script> --}}
     <link rel="shortcut icon" href="{{asset('img/icon.png')}}" type="image/x-icon">
     <title>@yield('title', 'Default')</title>
     <link rel="alternate" href="https://bisturinoticias.com" hreflang="es-mx"/>
     <meta name="author" content="ByDSolutions">
-    <meta name="copyright" content="Bisturí Noticias" />
+    <meta name="copyright" content="BN Noticias" />
     <link rel="canonical" href="https://bisturinoticias.com/">
     <meta name="robots" content="index,follow">
-    <meta name="description" content="En Bisturí Noticias estamos convencidos de que la noticia debe vivirse, respirarse y palparla para poder contarla. Somos un portal de noticias, dónde verás reportajes del Edomex, Información General, Salud, Emergencias, Deportes, Espectáculos, Opinión, Clicks, La Planchada, Patrullando, La Cantina">
+    <meta name="description" content="En BN Noticias estamos convencidos de que la noticia debe vivirse, respirarse y palparla para poder contarla. Somos un portal de noticias, dónde verás reportajes del Edomex, Información General, Salud, Emergencias, Deportes, Espectáculos, Opinión, Clicks, La Planchada, Patrullando, La Cantina">
     <meta name="keywords" content="Bisturí Noticias, Bisturí, Noticias, Noticias de Toluca, Noticias del Edomex, Información General, Salud, Emergencias, Deportes, Telón y Espectáculos, Opinión, Reportajes, Click del Día, La Planchada, Patrullando, La Cantina">
     <meta name="msapplication-TileColor" content="#459FC4">
     <meta name="theme-color" content="#459FC4">
@@ -46,17 +48,22 @@
 <body>  
 
     <section>
-        @include('front.partials.navbar')
+        @include('front.components.navbar')
     </section>
 
     @yield('content')
     
 
-      <!-- Site footer -->
+      {{-- <!-- Site footer -->
     <footer class="uk-margin-medium-top">
         @include('front.partials.footer')
     </footer>
-    
+     --}}
+    <section class="uk-margin-small-bottom uk-padding-large">
+        @include('front.components.subscribe')
+    </section>
+     
+    @include('front.partials.newFooter')
 
     <!-- UIkit JS -->
     <script src="{{asset('js/uikit.min.js')}}" defer></script>
