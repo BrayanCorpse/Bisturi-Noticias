@@ -322,8 +322,10 @@
           </div>
         </li> --}}
         <li><a href="/deportes">Deportes</a></li>
-        @include('front.components.socials', ['location' =>'navbar'])
-        @include('front.components.moreSocial')
+        <div class="uk-flex-inline">
+          @include('front.components.socials', ['location' =>'navbar'])
+          @include('front.components.moreSocial')
+        </div>
       </ul>
       <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars blue-links"></i></label>
     </div>
