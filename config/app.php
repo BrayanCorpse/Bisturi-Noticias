@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'BN Noticias'),
+    'name' => env('APP_NAME', 'Bisturí Noticias'),
 
     /*
     |--------------------------------------------------------------------------

@@ -5050,16 +5050,16 @@ ul.uk-nav-sub {
  * Items
  */
 .uk-nav-default > li > a {
-  color: #999;
+  color: #74899c;
 }
 /* Hover + Focus */
 .uk-nav-default > li > a:hover,
 .uk-nav-default > li > a:focus {
-  color: #666;
+  color: #1b9a8b;
 }
 /* Active */
 .uk-nav-default > li.uk-active > a {
-  color: #333;
+  color: #1b9a8b;
 }
 /*
  * Header

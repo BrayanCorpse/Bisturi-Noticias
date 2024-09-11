@@ -1,7 +1,7 @@
-<div class="uk-position-relative uk-visible-toggle uk-light uk-margin-large-top uk-box-shadow-large"  
-      tabindex="-1" uk-slideshow="min-height: 250; max-height: 500">
+<div class="uk-position-relative uk-visible-toggle uk-light uk-margin-large-top uk-box-shadow-large uk-border-rounded"  
+      tabindex="-1" uk-slideshow="min-height: 220; max-height: 500">
 
-  <div class="uk-slideshow-items">
+  <div class="uk-slideshow-items uk-border-rounded">
     @foreach ($article->images as  $image)
       <div>
         <a href="{{ route('showArticle', ['category' => $article->category->slug, 'slug' => $article->slug]) }}" title="{{ $article->title }}">

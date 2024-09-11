@@ -670,13 +670,24 @@
     font-family: 'Codec Pro', sans-serif;
     letter-spacing: -1px;
 }
+.font-anek {
+  font-family: 'Anek Telugu', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #74899c;
+}
 
-.side-title{
+.side-title {
     font-family: 'Anek Telugu', sans-serif;
     letter-spacing: 1px;
     font-weight: 600;
     color: #1b9a8b;
-  }
+}
+.new-subtitle {
+  font-family: 'Anek Telugu', sans-serif;
+  font-weight: 200;
+  color: #1b9a8b !important;
+}
  .new-card {
   position: absolute;
   bottom: -50%;
@@ -758,6 +769,18 @@
 .new-pagination a:hover {
   background-color: #91a3b4;
   color: #f0f0f0;
+}
+
+.article-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.article-body {
+  margin-top: 20px;
+}
+.article-side-nav {
+  margin-top: 20px;
 }
  /* media Queries */   
 @media all and (max-width: 500px) {

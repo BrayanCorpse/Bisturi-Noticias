@@ -8,6 +8,7 @@ use App\Models\Catcount;
 use App\Models\Tag;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 
 
@@ -36,16 +37,13 @@ class BlogController extends Controller
             $articles->user;
         });
 
-        $lastNewPhoto = Article::select('id','title','summary','author',
-        'category_id','user_id','created_at','slug')
+        $lastNewPhoto = Article::select('id','title','author','user_id','created_at')
                 ->where('status', '=', 'publico')
                 ->where('tipo_id', '=', 7)
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
                 ->limit(1)->get();
             $lastNewPhoto->each(function($lastNewPhoto){
-            $lastNewPhoto->category;
-            $lastNewPhoto->tags;
             $lastNewPhoto->images;
             $lastNewPhoto->user;
             });
@@ -219,21 +217,37 @@ class BlogController extends Controller
                 $article->category;
                 $article->tags;
                 $article->user;
+                $article->images;
             });
 
-            $generals = Article::select('id','title','slug','category_id','user_id')
+            $otherArticles = Article::select('id','title','slug','category_id','user_id')
                     ->where('status', '=', 'publico')
+                    ->where('category_id', '=', $article[0]->category->id)
                     ->whereNotIn('tipo_id', [2, 3, 7])
                     ->where('created_at', '!=', $article[0]->created_at)
                     ->whereNull('deleted_at')
                     ->orderBy('created_at', 'DESC')
                     ->limit(7)->get();
-            $generals->each(function($generals){
-                $generals->category;
-                $generals->tags;
-                $generals->images;
-                $generals->user;
+            $otherArticles->each(function($otherArticles){
+                $otherArticles->category;
+                $otherArticles->tags;
+                $otherArticles->images;
+                $otherArticles->user;
             });
+
+            $lastNewPhoto = Article::select('id','title','author','user_id','created_at')
+                ->where('status', '=', 'publico')
+                ->where('tipo_id', '=', 7)
+                ->whereNull('deleted_at')
+                ->orderBy('created_at', 'DESC')
+                ->limit(1)->get();
+            $lastNewPhoto->each(function($lastNewPhoto){
+            $lastNewPhoto->images;
+            $lastNewPhoto->user;
+            });
+
+            $catcount = Catcount::all();
+            $tags = $article[0]->tags;
 
             
             // $end = microtime(true);
@@ -241,7 +255,7 @@ class BlogController extends Controller
 
             // echo "Tiempo de ejecución: " . $execution_time . " segundos";
 
-            return view('front.posts.showArticle', compact('article','generals'));
+            return view('front.posts.showArticle', compact('article','otherArticles','catcount','tags','lastNewPhoto'));
         }    
 
     }

@@ -19,7 +19,7 @@
     <title>@yield('title', 'Default')</title>
     <link rel="alternate" href="https://bisturinoticias.com" hreflang="es-mx"/>
     <meta name="author" content="ByDSolutions">
-    <meta name="copyright" content="BN Noticias" />
+    <meta name="copyright" content="Bisturí Noticias" />
     <link rel="canonical" href="https://bisturinoticias.com/">
     <meta name="robots" content="index,follow">
     <meta name="description" content="En BN Noticias estamos convencidos de que la noticia debe vivirse, respirarse y palparla para poder contarla. Somos un portal de noticias, dónde verás reportajes de México y el mundo, Información General, Salud, Emergencias, Deportes, Espectáculos, Opinión, Clicks, La Planchada, Patrullando, La Cantina">
@@ -37,6 +37,7 @@
     {{-- Styles Refresh end --}}
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="{{asset('css/uikit.css')}}" >
+    <link rel="stylesheet" href="{{ asset('css/fontawesome5/css/all.min.css') }}">
     {{-- content --}}
     <link rel="stylesheet" href="{{asset('css/content.css')}}">
     {{-- navbar --}}
