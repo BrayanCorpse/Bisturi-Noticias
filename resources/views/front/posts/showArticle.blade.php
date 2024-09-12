@@ -26,19 +26,19 @@
     </div>
 
     <!-- Contenido Principal -->
-    <div class="uk-grid-divider uk-margin-small-top uk-child-width-1-3@m uk-grid" uk-grid>
+    <div class="uk-grid-divider uk-margin-small-top uk-padding uk-child-width-1-3@m uk-grid" uk-grid>
         <!-- Contenido del Artículo -->
         <div class="uk-width-expand@m">
 
-            <p class="font-anek uk uk-margin-small-top uk-width-3-4@s">
-                <i class="fas fa-quote-right fa-lg" style="font-size: 2rem;"></i> 
+            <p class="font-anek uk-margin-small-top uk-text-left">
+                <i class="fas fa-thumbtack"></i>
                 &nbsp;{{ $article[0]->summary }}
             </p>
 
             <div class="uk-grid-medium uk-flex-middle" uk-grid>
                 <div class="uk-width-auto">
                     <img class="uk-comment-avatar uk-border-circle" 
-                            src="https://picturepan2.github.io/spectre/img/avatar-1.png" 
+                            src="{{ asset('img/avatar-1.png') }}" 
                             width="30" height="30" 
                             alt="">
                 </div>
@@ -51,16 +51,21 @@
                             </a>
                         @endif
                     </h4>
-                    <ul class="uk-subnav uk-subnav-divider uk-margin-remove-top">
-                        <li>
-                            <small class="uk-text-capitalize new-subtitle">
-                                {{$article[0]->created_at->translatedFormat('F d, Y')}}
-                            </small>
-                        </li>
-                        <li>
-                            <small class="uk-text-capitalize new-subtitle" id="time"></small>
-                        </li>
-                    </ul>
+                    <section class="uk-flex-inline uk-flex-wrap">
+                        <ul class="uk-subnav uk-subnav-divider uk-margin-remove-top uk-margin-small-right">
+                            <li>
+                                <small class="uk-text-capitalize new-subtitle">
+                                    {{$article[0]->created_at->translatedFormat('F d, Y')}}
+                                </small>
+                            </li>
+                            <li>
+                                <small class="uk-text-capitalize new-subtitle" id="time"></small>
+                            </li>
+                        </ul>
+                        <ul class="uk-subnav uk-subnav-divider uk-margin-remove-top new-comment">
+                            @each('front.partials.showSharelinks', $article, 'article')
+                        </ul>
+                    </section>
                 </div>
             </div>
 
@@ -98,6 +103,9 @@
                 </li>                      
                 @endforeach
             </ul>
+            <section class=" uk-text-center">
+                @include('front.components.socials', ['location' =>'footer'])
+            </section>
             <section class="uk-margin-medium-top uk-text-center">
                 <h4 class="side-title uk-text-left">Diario Visual
                     <i class="fas fa-expand-arrows-alt fa-xs"></i>
@@ -109,7 +117,9 @@
             <ul class="uk-list uk-list-divider uk-margin-medium-top">
                 @foreach ($catcount as $cats)
                     <li>
-                        <a class="blue-links" href="{{ $cats->slug }}">{{ $cats->name }}</a>
+                        <a class="blue-links" href="{{ route('categories', [ 'categorySlug' => $cats->slug ]) }}">
+                            {{ $cats->name }}
+                        </a>
                         <small class="uk-align-right">( {{ $cats->items }} )</small> 
                     </li>
                 @endforeach
@@ -117,88 +127,6 @@
         </div>
     </div>
 </div>
-
-
-
-{{-- 
-    <div class="uk-text-center uk-grid-collapse " uk-grid>
-
-        <div class="uk-width-expand@m">
-
-            <div class="uk-card uk-margin-xlarge-top">
-                <div class="uk-card uk-card-default uk-card-body">
-                @foreach ($article as $art)
-                    @each('front.partials.showSharelinks', $article, 'article')
-
-                        <span class="b-h5-link uk-align-left uk-label">
-                            <a class="uk-link-reset" href="{{url($art->category->slug)}}">
-                                    {{ $art->category->name }}
-                            </a>
-                        </span> 
-                    <br>
-
-                    <h1 class=" uk-text-left b-h1-content">{{$art->title}}</h1>
-
-                    <h4 class="uk-text-left uk-text-secondary uk-text-uppercase uk-margin-remove-top"> 
-                        {{$art->created_at->diffForHumans()}} 
-                    </h4>
-
-                    
-                      
-                    <h5 class="uk-text-left uk-margin-remove-top uk-text-bold">
-                       {{$art->summary}}
-                    </h5>
-
-                    <h6 class="uk-text-left uk-margin-remove-top uk-text-bold" style="color: #44AAD4">
-                        @if ($art->user->id != 28)
-                        <a href="{{ route('showAuthorPosts', ['userName' => Str::slug($art->user->name, '-') ] ) }}" style="text-decoration: none">
-                            {{$art->user->name}}
-                        </a>
-                        @endif
-                    </h6>
-
-                    <h6 class="uk-text-left uk-margin-remove-top">
-                        <small id="time"></small>
-                    </h6>
-
-                    <hr>
-
-                    <section id="content">
-                        {!! $art->content !!}  
-                    </section>   
-                    
-                    <div class="uk-float-left">
-                        @if (empty($art->author))
-                            <sub>
-                                Foto(s): Cortesía | Bisturí Noticias
-                            </sub>
-                        @else
-                            <sub>
-                                Foto(s): {{$art->author}} | Bisturí Noticias
-                            </sub>
-                        @endif  
-                    </div>   
-                    
-                    <div class="uk-margin-xlarge-top">
-                        @foreach ($art->tags as $tag)
-                            <a href="{{ route('showTagPosts', ['tagName' => $tag->name, 'tagId' => $tag->id] ) }}" style="text-decoration: none">
-                                <span class="uk-label"style="background: #43A1C4;">
-                                    #{{ $tag->name }}
-                                </span>
-                            </a>
-                        @endforeach
-                    </div>
-                @endforeach 
-                </div>               
-            </div>
-        </div>
-        
-        <div class="uk-width-1-3@m uk-margin-large-top">  
-            @each('front.components.generalNews',$generals, 'general')
-        </div>
-        
-    </div>
- --}}
 
 @endsection
 

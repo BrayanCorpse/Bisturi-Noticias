@@ -672,7 +672,7 @@
 }
 .font-anek {
   font-family: 'Anek Telugu', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 1px;
   color: #74899c;
 }
@@ -687,6 +687,11 @@
   font-family: 'Anek Telugu', sans-serif;
   font-weight: 200;
   color: #1b9a8b !important;
+}
+.new-subtitle-alter {
+  font-family: 'Anek Telugu', sans-serif;
+  font-weight: 200;
+  color: #74899c !important;
 }
  .new-card {
   position: absolute;
@@ -772,9 +777,11 @@
 }
 
 .article-title {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
+  text-align: center;
   font-weight: bold;
   margin-top: 20px;
+  color: #74899c;
 }
 .article-body {
   margin-top: 20px;
@@ -808,6 +815,10 @@
       .blockquote:before{
         top: -45% !important;
       }
+      .article-title {
+        font-size: 1.7rem;
+        margin-top: 70px;
+      }
   }
   
 @media (min-width: 1200px){
@@ -823,6 +834,9 @@
 
     .note-video-clip{
         width: 100% !important;
+    }
+    .new-comment {
+        margin-left: 0px;
     }
 }
 

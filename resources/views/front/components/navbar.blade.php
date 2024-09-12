@@ -9,7 +9,9 @@
       <input type="radio" name="slider" id="menu-btn">
       <input type="radio" name="slider" id="close-btn">
       <ul class="nav-links">
-        <label for="close-btn" class="btn close-btn"><i class="fas fa-times blue-links"></i></label>
+        <label for="close-btn" class="btn close-btn">
+          <i class="fas fa-times" style="color: #74899c;"></i>
+        </label>
         <li><a href="{{ route('index')}}">Inicio</a></li>
         <li><a href="/emergencias">Última Hora</a></li>
         <li>
@@ -68,7 +70,9 @@
           @include('front.components.moreSocial')
         </div>
       </ul>
-      <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars blue-links"></i></label>
+      <label for="menu-btn" class="btn menu-btn">
+        <i class="fas fa-bars" style="color: #74899c;"></i>
+      </label>
     </div>
   </nav>
   
