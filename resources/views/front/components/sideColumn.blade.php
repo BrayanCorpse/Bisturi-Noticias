@@ -47,7 +47,7 @@
                 style="border-radius: 10px"></video>
             </div>
             <h6 class="side-title uk-margin-small-top uk-text-left" style="color: #333333;">
-                Play video when it enters the viewport and pause it again when it leaves the viewport.
+                Reproduzca el video cuando ingrese a la ventana gráfica y pausarlo nuevamente cuando salga de la ventana gráfica.
             </h6>
         </div>
     </section>

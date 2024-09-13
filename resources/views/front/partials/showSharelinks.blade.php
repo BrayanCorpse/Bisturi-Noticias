@@ -1,7 +1,4 @@
 <li>
-    <i class="far fa-hand-point-right"></i>
-</li>
-<li class="show-link">
     <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::root().'/'.$article->category->slug.'/'.$article->slug }}&title={{ $article->title }}"
         rel="noopener noreferrer" 
         target="_blank"  
@@ -15,7 +12,7 @@
     <input type="text" class="show-tags" value="{{ $tag->name }}" hidden />
 @endforeach
 
-<li class="show-more-link ">
+<li>
     <a  rel="noopener noreferrer nofollow"
         target="_blank"
         class="uk-icon-link show-twitter"  
@@ -24,7 +21,7 @@
 </li>
 
 
-<li class="show-more-link ">
+<li>
     <a href="https://api.whatsapp.com/send?text=Mira este articulo {{ Request::root().'/'.$article->category->slug.'/'.$article->slug }}" 
         rel="noopener noreferrer" 
         target="_blank"   
@@ -33,7 +30,7 @@
       </a>
 </li>
 
-<li class="show-more-link ">
+<li>
     <a rel="noopener noreferrer" 
     target="_blank"   
     class="uk-icon-link uk-margin-small-right"  

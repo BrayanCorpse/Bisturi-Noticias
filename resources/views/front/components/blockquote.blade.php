@@ -1,7 +1,7 @@
 <div class="container-block uk-border-rounded uk-width-1-1@m">  
     <blockquote class="new-blockquote">
-        I don't know why we are here, but I'm pretty sure that it is not in order to enjoy ourselves. 
-        <footer><small>Bryan Devcode</small></footer>
+        No nos atrevemos a muchas cosas porque son difíciles, pero son difíciles porque no nos atrevemos a hacerlas.
+        <footer><small>BN Noticias</small></footer>
     </blockquote>
 </div>
 

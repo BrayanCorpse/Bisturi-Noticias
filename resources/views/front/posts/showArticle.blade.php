@@ -36,14 +36,11 @@
             </p>
 
             <div class="uk-grid-medium uk-flex-middle" uk-grid>
-                <div class="uk-width-auto">
-                    <img class="uk-comment-avatar uk-border-circle" 
-                            src="{{ asset('img/avatar-1.png') }}" 
-                            width="30" height="30" 
-                            alt="">
-                </div>
                 <div class="uk-width-expand">
-                    <h4 class="uk-comment-title uk-margin-remove">
+                    <h4 class="uk-comment-title">
+                        <img class="uk-comment-avatar uk-border-circle" 
+                        src="{{ asset('img/avatar-1.png') }}" width="30" height="30" 
+                        alt="Avatar del Author de BN Noticias">
                         @if ($article[0]->user->id != 28)
                             <a href="{{ route('showAuthorPosts', ['userName' => Str::slug($article[0]->user->name, '-') ] ) }}" 
                                 class="uk-link-reset blue-links uk-text-small">
@@ -87,7 +84,7 @@
         <div class="uk-width-1-3@m">
             <ul class="uk-nav uk-nav-default article-side-nav">
                 <li class="uk-active side-title">
-                    <a href="#" >
+                    <a href="{{ route('showArticle', ['category' => $article[0]->category->slug, 'slug' => $article[0]->slug]) }}" >
                         <i class="fas fa-book-reader" style="color: #74899c;"></i> 
                         {{ $article[0]->title }}
                     </a>
@@ -103,10 +100,7 @@
                 </li>                      
                 @endforeach
             </ul>
-            <section class=" uk-text-center">
-                @include('front.components.socials', ['location' =>'footer'])
-            </section>
-            <section class="uk-margin-medium-top uk-text-center">
+            <section class="uk-margin-small-top uk-text-center">
                 <h4 class="side-title uk-text-left">Diario Visual
                     <i class="fas fa-expand-arrows-alt fa-xs"></i>
                 </h4>

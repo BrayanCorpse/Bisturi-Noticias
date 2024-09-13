@@ -19,19 +19,21 @@
 </div>
 
  <div class="uk-card uk-card-default new-card uk-border-rounded uk-card-body uk-width-1-2@m">
-    <div>
-        <ul class="uk-comment-meta uk-subnav uk-margin-remove-top">
-          @if (empty($article->author))
-            <li><a class="uk-text-muted side-title" href="#">Anónimo</a></li>
-            @else
-            <li><a class="uk-text-muted side-title" href="#">{{$article->author}}</a></li>
-          @endif   
-            <small class="font-codec" style="padding-left: 0%; margin-left:8px;">
-              | &nbsp;&nbsp;&nbsp; {{$article->created_at->diffForHumans()}} 
+    <div class=" uk-flex-inline uk-flex-wrap">
+        <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top uk-margin-medium-right">
+            <li>
+              <a class="uk-text-capitalize" href="{{ route('categories', [ 'categorySlug' => $article->category->slug ]) }}">
+                <small class="side-title">
+                {{$article->category->name}}
+                </small>
+              </a>
+            </li>  
+            <small class="font-codec">
+              {{$article->created_at->diffForHumans()}} 
             </small> 
-            <li class="uk-navbar-right">
-              @include('front.partials.sharelinks')
-            </li>
+        </ul>     
+        <ul class="uk-subnav uk-subnav-divider uk-margin-remove-top">
+            @include('front.partials.sharelinks')
         </ul>        
     </div>
     <h1 class="uk-card-title uk-text-bold uk-margin-remove-top">
