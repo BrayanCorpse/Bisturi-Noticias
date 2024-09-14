@@ -53,11 +53,13 @@
           <!-- Add other sections as needed following the same structure -->
       </div>
       <div class="uk-text-left uk-margin-small-top">
-        © 2024 <a class="blue-links" href="https://www.bydsolutions.com/" 
+        © 2024 
+        {{-- <a class="blue-links" href="https://www.bydsolutions.com/" 
                     target="_blank" 
                     rel="noopener noreferrer">
                     ByD Solutions
-                </a> 💻
+        </a>  --}}
+        💻
       </div>
   </div>
 </footer>

@@ -18,14 +18,12 @@
             <div class="uk-box-shadow-large">
                 <div class="uk-card-body">
                     <div style="margin-bottom: -25px;">
-                        @if (empty($lastnew->author))
-                          <small class="uk-text-muted side-title">Anónimo</small>
-                          @else
-                          <small class="uk-text-muted side-title">{{$lastnew->author}}</small>
-                        @endif   
-                          <small class="font-codec">| &nbsp;&nbsp; 
+                        <small class="uk-text-muted side-title">
+                            {{$lastnew->category->name}}
+                        </small>
+                        <small class="font-codec">| &nbsp;&nbsp; 
                             {{$lastnew->created_at->diffForHumans()}} 
-                          </small> 
+                        </small> 
                     </div>
                         <h3>
                             <a href="{{ route('showArticle',['category'=> $lastnew->category->slug,'slug'=>$lastnew->slug])}}" 

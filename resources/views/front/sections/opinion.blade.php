@@ -4,21 +4,21 @@
 
 @section('content')
 
-    {{-- <div class="b-header-l uk-margin-top uk-text-center uk-padding-remove-bottom">
-        <h3 class="b-title-latest uk-h3" id="title-seccion">
-           Opinión
-        </h3>
-    </div> 
-
-    <div class="uk-grid-collapse uk-child-width-1-4@m uk-text-center" uk-grid>
-         @each('front.components.latestNews',$latest, 'late')
-    </div>
-    
-    {{ $latest->links('vendor.pagination.bootstrap-4') }} --}}
 
     <div class="uk-padding uk-width-1-1@m">
         @each('front.components.mainNews',$latest, 'article')
     </div>
+
+    <hr class="uk-margin-small-top new-hr">
+
+    <h2 class="uk-h3 uk-margin-medium-left uk-text-bold">
+        <i class="fas fa-grip-lines-vertical fa-lg" style="color: #1b9a8b;"></i> Últimas Noticias
+    </h2>
+
+    <div>   
+        @include('front.components.newsCategory',[$lastArticles, 'lastArticles'])
+    </div>
+
    
 @endsection
 

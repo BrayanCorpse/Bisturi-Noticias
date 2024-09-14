@@ -129,8 +129,8 @@ class BlogController extends Controller
                     $articles->user;
             });
 
-        $categories = Article::select('id','title','summary',
-        'category_id','user_id','slug','author')
+        $lastArticles = Article::select('id','title','summary',
+        'category_id','user_id','slug','author','content','created_at')
                 ->where('category_id',$catId)
                 ->where('status', '=', 'publico')
                 ->whereNotIn('tipo_id', [2, 3, 7])
@@ -138,18 +138,18 @@ class BlogController extends Controller
                 ->whereNull('deleted_at')
                 ->orderBy('created_at', 'DESC')
                 ->paginate(5);     
-            $categories->each(function($categories){
-                $categories->category;
-                $categories->tags;
-                $categories->images;
-                $categories->user;
+            $lastArticles->each(function($lastArticles){
+                $lastArticles->category;
+                $lastArticles->tags;
+                $lastArticles->images;
+                $lastArticles->user;
             });
 
             // $end = microtime(true);
             // $execution_time = ($end - $start);
     
             // dd("Tiempo de ejecución: " . $execution_time . " segundos");
-            return view('front.sections.'.$categorySlug, compact('articles','categories'));
+            return view('front.sections.'.$categorySlug, compact('articles','lastArticles'));
 
     }
 
