@@ -23,9 +23,9 @@
         <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top uk-margin-medium-right">
             <li>
               <a class="uk-text-capitalize" href="{{ route('categories', [ 'categorySlug' => $article->category->slug ]) }}">
-                <small class="uk-text-muted side-title">
+                <span class="uk-text-muted side-title">
                 {{$article->category->name}}
-                </small>
+                </span>
               </a>
             </li>  
             <small class="font-codec">

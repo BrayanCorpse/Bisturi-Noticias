@@ -1,6 +1,6 @@
 @extends('front.template.layout')
 
-@section('title', 'BN Noticias | Salud')
+@section('title', 'BN Noticias | Última Hora')
 
 @section('content')
 
@@ -17,4 +17,5 @@
         @include('front.components.newsCategory',[$lastArticles, 'lastArticles'])
     </div>
 
+   
 @endsection

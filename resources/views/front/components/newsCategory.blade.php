@@ -83,18 +83,24 @@
                     <span class="badge">{{ $lastArticle->tags[0]->name }}</span>
                 </div>
                 <div class="article-content">
-                    <span class="uk-text-capitalize new-subtitle">
-                        {{ $lastArticle->created_at->translatedFormat('F d, Y') }}
-                    </span>
-                    <strong class="uk-margin-small-left uk-margin-small-right">·</strong>
-                    @php
-                        $wordsPerMinute = 200;
-                        $wordCount = str_word_count(strip_tags($lastArticle->content));
-                        $readingTime = ceil($wordCount / $wordsPerMinute);
-                    @endphp
-                    <span class="uk-text-capitalize new-subtitle">
-                        {{ $readingTime  }}  Min. de lectura
-                    </span>
+                    <section class="uk-margin-small-top">
+                        <span class="uk-text-capitalize new-subtitle">
+                            {{ $lastArticle->created_at->translatedFormat('F d, Y') }}
+                        </span>
+                        <strong class="uk-margin-small-left uk-margin-small-right">·</strong>
+                        @php
+                            $wordsPerMinute = 200;
+                            $wordCount = str_word_count(strip_tags($lastArticle->content));
+                            $readingTime = ceil($wordCount / $wordsPerMinute);
+                        @endphp
+                        <span class="uk-text-capitalize new-subtitle">
+                            {{ $readingTime  }}  Min. de lectura
+                        </span>
+                    </section>
+                    <div class="author uk-margin-small-top">
+                        <img class="uk-comment-avatar uk-border-circle" src="{{ asset('img/avatar-1.png') }}" width="30" height="30" alt="Avatar del Autor">
+                        <span>{{ $lastArticle->user->name }}</span>
+                    </div>
                     <h3>
                         <a href="{{ route('showArticle', ['category' => $lastArticle->category->slug, 'slug' => $lastArticle->slug]) }}" title="{{ $lastArticle->title }}" class="blue-links">
                             {{ $lastArticle->title }}
@@ -104,10 +110,7 @@
                         {{ Str::limit($lastArticle->summary, 150) }}
                     </p>
                 </div>
-                <div class="author">
-                    <img class="uk-comment-avatar uk-border-circle" src="{{ asset('img/avatar-1.png') }}" width="30" height="30" alt="Avatar del Autor">
-                    <span>{{ $lastArticle->user->name }}</span>
-                </div>
+                <hr style="border-top: 2px solid #1b9a8b;">
             </div>
         </div>
         @endforeach

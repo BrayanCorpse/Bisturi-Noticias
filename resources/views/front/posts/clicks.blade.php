@@ -1,15 +1,14 @@
 @extends('front.template.layout')
 
-@section('title', 'Bisturí Noticias | Clicks')
+@section('title', 'BN Noticias | Clicks')
 
 @section('content')
 
 
-<div class="b-header-l uk-margin-top uk-text-center uk-padding-remove-bottom">
-   <h3 class="b-title-latest uk-h3" id="title-seccion">
-      Clicks del Día
-   </h3>
-</div> 
+<h1 class="uk-h3 uk-margin-medium-left uk-text-bold uk-margin-xlarge-top">
+   <i class="fas fa-camera-retro fa-lg" style="color: #74899c"></i>
+   Clicks
+</h1>
 
 <div class="cards-list">
 

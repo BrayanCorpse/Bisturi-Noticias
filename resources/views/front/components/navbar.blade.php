@@ -13,7 +13,7 @@
           <i class="fas fa-times" style="color: #74899c;"></i>
         </label>
         <li><a href="{{ route('index')}}">Inicio</a></li>
-        <li><a href="/emergencias">Última Hora</a></li>
+        <li><a href="/ultima-hora">Última Hora</a></li>
         <li>
           <a href="#" class="desktop-item">Categorías</a>
           <input type="checkbox" id="showDrop">
@@ -23,6 +23,7 @@
             <li><a href="/opinion">Opinión</a></li>
             <li><a href="/salud">Salud</a></li>
             <li><a href="/telon-y-espectaculos">Espectaculos</a></li>
+            <li><a href="/informacion-general">General</a></li>
           </ul>
         </li>
         {{-- <li>

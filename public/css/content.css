@@ -663,6 +663,14 @@
 .blue-links:hover, .blue-links:active{
     color: #4FA795;
 }
+.green-links {
+  font-family: 'Anek Telugu', sans-serif;
+  text-decoration: none !important;
+  color: #4FA795;
+}
+.green-links:hover, .blue-links:active{
+  color: #74899c;
+}
 .new-desc {
     font-family: 'Codec Pro', sans-serif;   
 }
