@@ -1,3 +1,8 @@
+<style>
+    .last-image{
+        object-fit: cover;
+    }
+</style>
 <div class="uk-padding-small uk-child-width-1-2@s" uk-grid="masonry: pack">
 
     <div class="uk-width-expand@m">
@@ -9,7 +14,8 @@
                     @if ($key == 0)
                     <a href="{{ route('showArticle',['category'=> $lastnew->category->slug,'slug'=>$lastnew->slug])}}" class=" uk-link-reset" title="{{ $lastnew->title }}">
                         <img src="{{ asset('storage'.'/'.$lastnew->user->name.'/'.$image->name) }}" 
-                                alt="{{ $lastnew->title }}" uk-cover>
+                                alt="{{ $lastnew->title }}"
+                                class="last-image" uk-cover>
                         <canvas width="600" height="400"></canvas>
                     </a>
                     @endif
@@ -25,7 +31,7 @@
                             {{$lastnew->created_at->diffForHumans()}} 
                         </small> 
                     </div>
-                        <h3>
+                        <h3 style="line-height: 1;">
                             <a href="{{ route('showArticle',['category'=> $lastnew->category->slug,'slug'=>$lastnew->slug])}}" 
                                 class="blue-links" 
                                 title="{{ $lastnew->title }}">{{ Str::limit($lastnew->title, 150) }}
