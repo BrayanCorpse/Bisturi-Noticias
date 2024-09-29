@@ -24,11 +24,13 @@ class AddArticlesTable extends Migration
             $table->unsignedInteger('tipo_id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('category_id');
+            $table->unsignedInteger('subcategory_id');
 
             $table->string('slug');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('subcategory_id')->references('id')->on('subcategories')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();
