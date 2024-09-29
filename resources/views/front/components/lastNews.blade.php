@@ -1,8 +1,3 @@
-<style>
-    .last-image{
-        object-fit: cover;
-    }
-</style>
 <div class="uk-padding-small uk-child-width-1-2@s" uk-grid="masonry: pack">
 
     <div class="uk-width-expand@m">
