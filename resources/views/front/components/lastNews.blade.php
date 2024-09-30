@@ -38,7 +38,7 @@
             </div>
         </div>
         @endforeach
-        @include('front.components.blockquote') 
+        @include('front.components.blockquote',['textPhrase','author']) 
         <section class="uk-margin-top">
             {{ $lastNewText->links('vendor.pagination.new-pagination') }}
         </section>    

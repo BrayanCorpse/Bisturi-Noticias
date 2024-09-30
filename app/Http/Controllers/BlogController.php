@@ -8,7 +8,7 @@ use App\Models\Catcount;
 use App\Models\Tag;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use Carbon\Carbon;
+use GuzzleHttp\Client;
 
 
 
@@ -81,8 +81,21 @@ class BlogController extends Controller
         $catcount = Catcount::all();
         $tags = Tag::select('id','name')->limit(20)->get();
 
+         // Crear un cliente Guzzle
+         $client = new Client();
 
-        return view('front.sections.home', compact('articles','lastNewText','lastNewPhoto','catcount','tags','smallarticles'));
+           // Hacer una petición GET a la API
+        $response = $client->get('https://zenquotes.io/api/random', [
+        ]);
+
+        // Decodificar la respuesta JSON
+        $phrase = json_decode($response->getBody(), true);
+
+        // Si la API devuelve una lista de frases, tomamos la primera
+        $textPhrase = $phrase[0]['q']; // Contenido de la frase
+        $author = $phrase[0]['a']; // Autor de la frase
+
+        return view('front.sections.home', compact('articles','lastNewText','lastNewPhoto','catcount','tags','smallarticles','textPhrase','author'));
         
     }
 
